@@ -1,35 +1,35 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ����TC264 ��Դ�⣩��һ�����ڹٷ� SDK �ӿڵĵ�������Դ��
-* Copyright (c) 2022 SEEKFREE ��ɿƼ�
+* TC264 Opensourec Library 即（TC264 开源库）是一个基于官方 SDK 接口的第三方开源库
+* Copyright (c) 2022 SEEKFREE 逐飞科技
 *
-* ���ļ��� TC264 ��Դ���һ����
+* 本文件是 TC264 开源库的一部分
 *
-* TC264 ��Դ�� ���������
-* �����Ը���������������ᷢ���� GPL��GNU General Public License���� GNUͨ�ù�������֤��������
-* �� GPL �ĵ�3�棨�� GPL3.0������ѡ��ģ��κκ����İ汾�����·�����/���޸���
+* TC264 开源库 是免费软件
+* 您可以根据自由软件基金会发布的 GPL（GNU General Public License，即 GNU通用公共许可证）的条款
+* 即 GPL 的第3版（即 GPL3.0）或（您选择的）任何后来的版本，重新发布和/或修改它
 *
-* ����Դ��ķ�����ϣ�����ܷ������ã�����δ�������κεı�֤
-* ����û�������������Ի��ʺ��ض���;�ı�֤
-* ����ϸ����μ� GPL
+* 本开源库的发布是希望它能发挥作用，但并未对其作任何的保证
+* 甚至没有隐含的适销性或适合特定用途的保证
+* 更多细节请参见 GPL
 *
-* ��Ӧ�����յ�����Դ���ͬʱ�յ�һ�� GPL �ĸ���
-* ���û�У������<https://www.gnu.org/licenses/>
+* 您应该在收到本开源库的同时收到一份 GPL 的副本
+* 如果没有，请参阅<https://www.gnu.org/licenses/>
 *
-* ����ע����
-* ����Դ��ʹ�� GPL3.0 ��Դ����֤Э�� ������������Ϊ���İ汾
-* ��������Ӣ�İ��� libraries/doc �ļ����µ� GPL3_permission_statement.txt �ļ���
-* ����֤������ libraries �ļ����� �����ļ����µ� LICENSE �ļ�
-* ��ӭ��λʹ�ò����������� ���޸�����ʱ���뱣����ɿƼ��İ�Ȩ����������������
+* 额外注明：
+* 本开源库使用 GPL3.0 开源许可证协议 以上许可申明为译文版本
+* 许可申明英文版在 libraries/doc 文件夹下的 GPL3_permission_statement.txt 文件中
+* 许可证副本在 libraries 文件夹下 即该文件夹下的 LICENSE 文件
+* 欢迎各位使用并传播本程序 但修改内容时必须保留逐飞科技的版权声明（即本声明）
 *
-* �ļ�����          zf_driver_gpio
-* ��˾����          �ɶ���ɿƼ����޹�˾
-* �汾��Ϣ          �鿴 libraries/doc �ļ����� version �ļ� �汾˵��
-* ��������          ADS v1.10.2
-* ����ƽ̨          TC264D
-* ��������          https://seekfree.taobao.com/
+* 文件名称          zf_driver_gpio
+* 公司名称          成都逐飞科技有限公司
+* 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
+* 开发环境          ADS v1.9.20
+* 适用平台          TC264D
+* 店铺链接          https://seekfree.taobao.com/
 *
-* �޸ļ�¼
-* ����              ����                ��ע
+* 修改记录
+* 日期              作者                备注
 * 2022-09-15       pudding            first version
 ********************************************************************************************************************/
 
@@ -39,13 +39,13 @@
 #include "IFXPORT.h"
 #include "zf_common_typedef.h"
 
-typedef enum // ö�ٶ˿� ��ö�ٶ��岻�����û��޸�
+typedef enum // 枚举端口 此枚举定义不允许用户修改
 {
-    // ������IOʱ�����и���Ӳ��ȷ�ϵ�ǰоƬ�Ƿ���д�IO
+    // 在设置IO时请自行根据硬件确认当前芯片是否具有此IO
 
-    // ��Ҫ�ر�ע��P20_2�ǲ�����������ģ�����ֻ������Ĺ���   TC264DAоƬ��21.6�޷�����ʹ��
-    // ��Ҫ�ر�ע��P20_2�ǲ�����������ģ�����ֻ������Ĺ���   TC264DAоƬ��21.6�޷�����ʹ��
-    // ��Ҫ�ر�ע��P20_2�ǲ�����������ģ�����ֻ������Ĺ���   TC264DAоƬ��21.6�޷�����ʹ��
+    // 需要特别注意P20_2是不能用于输出的，仅仅只有输入的功能   TC264DA芯片的21.6无法正常使用
+    // 需要特别注意P20_2是不能用于输出的，仅仅只有输入的功能   TC264DA芯片的21.6无法正常使用
+    // 需要特别注意P20_2是不能用于输出的，仅仅只有输入的功能   TC264DA芯片的21.6无法正常使用
 
     P00_0 = 0*32,  P00_1, P00_2,  P00_3,  P00_4,  P00_5,  P00_6,  P00_7,
     P00_8,         P00_9, P00_10, P00_11, P00_12, P00_13, P00_14, P00_15,
@@ -88,68 +88,68 @@ typedef enum // ö�ٶ˿� ��ö�ٶ��岻�����û��޸�
 
 }gpio_pin_enum;
 
-typedef enum               // ö�ٶ˿ڷ���    ��ö�ٶ��岻�����û��޸�
+typedef enum               // 枚举端口方向    此枚举定义不允许用户修改
 {
-    GPI = 0,               // ����ܽ����뷽��
-    GPO = 1,               // ����ܽ��������
+    GPI = 0,               // 定义管脚输入方向
+    GPO = 1,               // 定义管脚输出方向
 }gpio_dir_enum;
 
-typedef enum               // ö�ٶ˿ڵ�ƽ    ��ö�ٶ��岻�����û��޸�
+typedef enum               // 枚举端口电平    此枚举定义不允许用户修改
 {
-    GPIO_LOW =  0,         // ����͵�ƽ
-    GPIO_HIGH = 1,         // ����ߵ�ƽ
+    GPIO_LOW =  0,         // 定义低电平
+    GPIO_HIGH = 1,         // 定义高电平
 }gpio_level_enum;
 
-typedef enum               // ö�ٶ˿�ģʽ   ��ö�ٶ��岻�����û��޸�
+typedef enum               // 枚举端口模式   此枚举定义不允许用户修改
 {
-    GPI_FLOATING_IN,       // ����ܽŸ�������
-    GPI_PULL_UP    ,       // ����ܽ���������
-    GPI_PULL_DOWN  ,       // ����ܽ���������
+    GPI_FLOATING_IN,       // 定义管脚浮空输入
+    GPI_PULL_UP    ,       // 定义管脚上拉输入
+    GPI_PULL_DOWN  ,       // 定义管脚下拉输入
 
-    GPO_PUSH_PULL  ,       // ����ܽ��������
-    GPO_OPEN_DTAIN ,       // ����ܽſ�©���
+    GPO_PUSH_PULL  ,       // 定义管脚推挽输出
+    GPO_OPEN_DTAIN ,       // 定义管脚开漏输出
 }gpio_mode_enum;
 
-//====================================================GPIO ��ݺ���====================================================
+//====================================================GPIO 快捷函数====================================================
 Ifx_P*      get_port                    (gpio_pin_enum pin);
 #define     get_port_in_addr(pin)       (uint8 *)(&IfxPort_getAddress((IfxPort_Index)(pin/32))->IN + pin%32/8)
 #define     get_port_out_addr(port)     (((Ifx_P *)IfxPort_cfg_indexMap[port].module)->OUT.U)
 
 //------------------------------------------------------------------------------------------------------------------
-// �������     ��Ӧ IO ��λΪ�ߵ�ƽ
-// ����˵��     x           ѡ������� (��ѡ��Χ�� zf_driver_gpio.h �� gpio_pin_enum ö��ֵȷ��)
-// ���ز���     void
-// ʹ��ʾ��     gpio_high(P00_0);// P00_0 ����ߵ�ƽ
-// ��ע��Ϣ
+// 函数简介     对应 IO 置位为高电平
+// 参数说明     x           选择的引脚 (可选择范围由 zf_driver_gpio.h 内 gpio_pin_enum 枚举值确定)
+// 返回参数     void
+// 使用示例     gpio_high(P00_0);// P00_0 输出高电平
+// 备注信息
 //------------------------------------------------------------------------------------------------------------------
-#define     gpio_high(x)                (get_port(x))->OMR.U = 1 << ((x)&0x1f)       // GPIO��λ (get_port(x))->OMR.U = 1 << ((x)&0x1f)
+#define     gpio_high(x)                (get_port(x))->OMR.U = 1 << ((x)&0x1f)       // GPIO置位 (get_port(x))->OMR.U = 1 << ((x)&0x1f)
 
 //------------------------------------------------------------------------------------------------------------------
-// �������     ��Ӧ IO ��λΪ�͵�ƽ
-// ����˵��     x           ѡ������� (��ѡ��Χ�� zf_driver_gpio.h �� gpio_pin_enum ö��ֵȷ��)
-// ���ز���     void
-// ʹ��ʾ��     gpio_low(P00_0);// P00_0 ����͵�ƽ
-// ��ע��Ϣ
+// 函数简介     对应 IO 置位为低电平
+// 参数说明     x           选择的引脚 (可选择范围由 zf_driver_gpio.h 内 gpio_pin_enum 枚举值确定)
+// 返回参数     void
+// 使用示例     gpio_low(P00_0);// P00_0 输出低电平
+// 备注信息
 //------------------------------------------------------------------------------------------------------------------
-#define     gpio_low(x)                 (get_port(x))->OMR.U = 65536 << ((x)&0x1f)   // GPIO��λ (get_port(x))->OMR.U = 65536 << ((x)&0x1f)
+#define     gpio_low(x)                 (get_port(x))->OMR.U = 65536 << ((x)&0x1f)   // GPIO复位 (get_port(x))->OMR.U = 65536 << ((x)&0x1f)
 
-//====================================================GPIO ��ݺ���====================================================
+//====================================================GPIO 快捷函数====================================================
 
-//====================================================GPIO ��������====================================================
+//====================================================GPIO 基础函数====================================================
 void  gpio_set_level    (gpio_pin_enum pin, uint8 dat);
 uint8 gpio_get_level    (gpio_pin_enum pin);
 void  gpio_toggle_level (gpio_pin_enum pin);
 void  gpio_set_dir      (gpio_pin_enum pin, gpio_dir_enum dir, gpio_mode_enum pinconf);
 void  gpio_init         (gpio_pin_enum pin, gpio_dir_enum dir, uint8 dat, gpio_mode_enum pinconf);
-//====================================================GPIO ��������====================================================
+//====================================================GPIO 基础函数====================================================
 
-//==================================================���ݾɰ汾��Դ��ӿ�����=================================================
+//==================================================兼容旧版本开源库接口名称=================================================
 #ifdef COMPATIBLE_WITH_OLDER_VERSIONS
 #define     gpio_set(pin, dat)          (gpio_set_level((pin), (dat)))
 #define     gpio_get(pin)               (gpio_get_level((pin)))
 #define     gpio_dir(pin, dir, mode)    (gpio_set_dir((pin), (dir), (mode)))
 #define     gpio_toggle(pin)            (gpio_toggle_level((pin)))
 #endif
-//==================================================���ݾɰ汾��Դ��ӿ�����=================================================
+//==================================================兼容旧版本开源库接口名称=================================================
 
 #endif

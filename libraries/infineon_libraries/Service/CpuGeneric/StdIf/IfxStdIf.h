@@ -73,7 +73,7 @@
  * for which, changing the hardware only requires the update of the device configuration settings and the device initialization code. The API used
  * at runtime, which represents the majority and the complexitity of the related code keep unchanged.
  *
- * Motivation: because the current software developed for the automotive applications mainly don’t use C++, the Standard Interface provides a common
+ * Motivation: because the current software developed for the automotive applications mainly donæŠ° use C++, the Standard Interface provides a common
  *  definition for the device driver and an alternative layer for different hardware instead of using C++ interface wrapper class.
  *
  *
@@ -93,7 +93,7 @@
  * runtime by the application. The standard interface wrapper component initializes the standard interface component by linking it to the interface
  * driver.
  *
- * \attention:  The application shall explicitly use the API provided by the standard interface component at runtime to access driver’s parameters
+ * \attention:  The application shall explicitly use the API provided by the standard interface component at runtime to access driveræŠ¯ parameters
  * (setter/ getter) or action (methods). Trying to access members of the standard interface component directly though the object may not guaranty
  * future code compatibility. The same applies to the interface driver (reminder).
  *

@@ -1,35 +1,35 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ¼´£¨TC264 ¿ªÔ´¿â£©ÊÇÒ»¸ö»ùÓÚ¹Ù·½ SDK ½Ó¿ÚµÄµÚÈý·½¿ªÔ´¿â
-* Copyright (c) 2022 SEEKFREE Öð·É¿Æ¼¼
+* TC264 Opensourec Library å³ï¼ˆTC264 å¼€æºåº“ï¼‰æ˜¯ä¸€ä¸ªåŸºäºŽå®˜æ–¹ SDK æŽ¥å£çš„ç¬¬ä¸‰æ–¹å¼€æºåº“
+* Copyright (c) 2022 SEEKFREE é€é£žç§‘æŠ€
 *
-* ±¾ÎÄ¼þÊÇ TC264 ¿ªÔ´¿âµÄÒ»²¿·Ö
+* æœ¬æ–‡ä»¶æ˜¯ TC264 å¼€æºåº“çš„ä¸€éƒ¨åˆ†
 *
-* TC264 ¿ªÔ´¿â ÊÇÃâ·ÑÈí¼þ
-* Äú¿ÉÒÔ¸ù¾Ý×ÔÓÉÈí¼þ»ù½ð»á·¢²¼µÄ GPL£¨GNU General Public License£¬¼´ GNUÍ¨ÓÃ¹«¹²Ðí¿ÉÖ¤£©µÄÌõ¿î
-* ¼´ GPL µÄµÚ3°æ£¨¼´ GPL3.0£©»ò£¨ÄúÑ¡ÔñµÄ£©ÈÎºÎºóÀ´µÄ°æ±¾£¬ÖØÐÂ·¢²¼ºÍ/»òÐÞ¸ÄËü
+* TC264 å¼€æºåº“ æ˜¯å…è´¹è½¯ä»¶
+* æ‚¨å¯ä»¥æ ¹æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šå‘å¸ƒçš„ GPLï¼ˆGNU General Public Licenseï¼Œå³ GNUé€šç”¨å…¬å…±è®¸å¯è¯ï¼‰çš„æ¡æ¬¾
+* å³ GPL çš„ç¬¬3ç‰ˆï¼ˆå³ GPL3.0ï¼‰æˆ–ï¼ˆæ‚¨é€‰æ‹©çš„ï¼‰ä»»ä½•åŽæ¥çš„ç‰ˆæœ¬ï¼Œé‡æ–°å‘å¸ƒå’Œ/æˆ–ä¿®æ”¹å®ƒ
 *
-* ±¾¿ªÔ´¿âµÄ·¢²¼ÊÇÏ£ÍûËüÄÜ·¢»Ó×÷ÓÃ£¬µ«²¢Î´¶ÔÆä×÷ÈÎºÎµÄ±£Ö¤
-* ÉõÖÁÃ»ÓÐÒþº¬µÄÊÊÏúÐÔ»òÊÊºÏÌØ¶¨ÓÃÍ¾µÄ±£Ö¤
-* ¸ü¶àÏ¸½ÚÇë²Î¼û GPL
+* æœ¬å¼€æºåº“çš„å‘å¸ƒæ˜¯å¸Œæœ›å®ƒèƒ½å‘æŒ¥ä½œç”¨ï¼Œä½†å¹¶æœªå¯¹å…¶ä½œä»»ä½•çš„ä¿è¯
+* ç”šè‡³æ²¡æœ‰éšå«çš„é€‚é”€æ€§æˆ–é€‚åˆç‰¹å®šç”¨é€”çš„ä¿è¯
+* æ›´å¤šç»†èŠ‚è¯·å‚è§ GPL
 *
-* ÄúÓ¦¸ÃÔÚÊÕµ½±¾¿ªÔ´¿âµÄÍ¬Ê±ÊÕµ½Ò»·Ý GPL µÄ¸±±¾
-* Èç¹ûÃ»ÓÐ£¬Çë²ÎÔÄ<https://www.gnu.org/licenses/>
+* æ‚¨åº”è¯¥åœ¨æ”¶åˆ°æœ¬å¼€æºåº“çš„åŒæ—¶æ”¶åˆ°ä¸€ä»½ GPL çš„å‰¯æœ¬
+* å¦‚æžœæ²¡æœ‰ï¼Œè¯·å‚é˜…<https://www.gnu.org/licenses/>
 *
-* ¶îÍâ×¢Ã÷£º
-* ±¾¿ªÔ´¿âÊ¹ÓÃ GPL3.0 ¿ªÔ´Ðí¿ÉÖ¤Ð­Òé ÒÔÉÏÐí¿ÉÉêÃ÷ÎªÒëÎÄ°æ±¾
-* Ðí¿ÉÉêÃ÷Ó¢ÎÄ°æÔÚ libraries/doc ÎÄ¼þ¼ÐÏÂµÄ GPL3_permission_statement.txt ÎÄ¼þÖÐ
-* Ðí¿ÉÖ¤¸±±¾ÔÚ libraries ÎÄ¼þ¼ÐÏÂ ¼´¸ÃÎÄ¼þ¼ÐÏÂµÄ LICENSE ÎÄ¼þ
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌÐò µ«ÐÞ¸ÄÄÚÈÝÊ±±ØÐë±£ÁôÖð·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷£¨¼´±¾ÉùÃ÷£©
+* é¢å¤–æ³¨æ˜Žï¼š
+* æœ¬å¼€æºåº“ä½¿ç”¨ GPL3.0 å¼€æºè®¸å¯è¯åè®® ä»¥ä¸Šè®¸å¯ç”³æ˜Žä¸ºè¯‘æ–‡ç‰ˆæœ¬
+* è®¸å¯ç”³æ˜Žè‹±æ–‡ç‰ˆåœ¨ libraries/doc æ–‡ä»¶å¤¹ä¸‹çš„ GPL3_permission_statement.txt æ–‡ä»¶ä¸­
+* è®¸å¯è¯å‰¯æœ¬åœ¨ libraries æ–‡ä»¶å¤¹ä¸‹ å³è¯¥æ–‡ä»¶å¤¹ä¸‹çš„ LICENSE æ–‡ä»¶
+* æ¬¢è¿Žå„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åº ä½†ä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£žç§‘æŠ€çš„ç‰ˆæƒå£°æ˜Žï¼ˆå³æœ¬å£°æ˜Žï¼‰
 *
-* ÎÄ¼þÃû³Æ          zf_device_virtual_oscilloscope
-* ¹«Ë¾Ãû³Æ          ³É¶¼Öð·É¿Æ¼¼ÓÐÏÞ¹«Ë¾
-* °æ±¾ÐÅÏ¢          ²é¿´ libraries/doc ÎÄ¼þ¼ÐÄÚ version ÎÄ¼þ °æ±¾ËµÃ÷
-* ¿ª·¢»·¾³          ADS v1.10.2
-* ÊÊÓÃÆ½Ì¨          TC264D
-* µêÆÌÁ´½Ó          https://seekfree.taobao.com/
+* æ–‡ä»¶åç§°          zf_device_virtual_oscilloscope
+* å…¬å¸åç§°          æˆéƒ½é€é£žç§‘æŠ€æœ‰é™å…¬å¸
+* ç‰ˆæœ¬ä¿¡æ¯          æŸ¥çœ‹ libraries/doc æ–‡ä»¶å¤¹å†… version æ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜Ž
+* å¼€å‘çŽ¯å¢ƒ          ADS v1.9.20
+* é€‚ç”¨å¹³å°          TC264D
+* åº—é“ºé“¾æŽ¥          https://seekfree.taobao.com/
 *
-* ÐÞ¸Ä¼ÇÂ¼
-* ÈÕÆÚ              ×÷Õß                ±¸×¢
+* ä¿®æ”¹è®°å½•
+* æ—¥æœŸ              ä½œè€…                å¤‡æ³¨
 * 2022-09-15       pudding            first version
 ********************************************************************************************************************/
 
@@ -38,12 +38,12 @@
 uint8 virtual_oscilloscope_data[10];
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     CRC Ð£Ñé
-// ²ÎÊýËµÃ÷     buff            ÐèÒª½øÐÐ CRC ¼ÆËãµÄÊý¾ÝµØÖ·
-// ²ÎÊýËµÃ÷     crc_cnt         ÐèÒª½øÐÐ CRC ¼ÆËãµÄÊý¾Ý¸öÊý
-// ·µ»Ø²ÎÊý     uint16          CRC Ð£Ñé½á¹û
-// Ê¹ÓÃÊ¾Àý     crc_16  = crc_check(virtual_oscilloscope_data, 8);
-// ±¸×¢ÐÅÏ¢     ÄÚ²¿Ê¹ÓÃ ÓÃ»§ÎÞÐè¹ØÐÄ
+// å‡½æ•°ç®€ä»‹     CRC æ ¡éªŒ
+// å‚æ•°è¯´æ˜Ž     buff            éœ€è¦è¿›è¡Œ CRC è®¡ç®—çš„æ•°æ®åœ°å€
+// å‚æ•°è¯´æ˜Ž     crc_cnt         éœ€è¦è¿›è¡Œ CRC è®¡ç®—çš„æ•°æ®ä¸ªæ•°
+// è¿”å›žå‚æ•°     uint16          CRC æ ¡éªŒç»“æžœ
+// ä½¿ç”¨ç¤ºä¾‹     crc_16  = crc_check(virtual_oscilloscope_data, 8);
+// å¤‡æ³¨ä¿¡æ¯     å†…éƒ¨ä½¿ç”¨ ç”¨æˆ·æ— éœ€å…³å¿ƒ
 //-------------------------------------------------------------------------------------------------------------------
 static uint16 crc_check (uint8 *buff, uint8 crc_cnt)
 {
@@ -70,16 +70,16 @@ static uint16 crc_check (uint8 *buff, uint8 crc_cnt)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     ÐéÄâÊ¾²¨Æ÷Êý¾Ý×ª»»º¯Êý
-// ²ÎÊýËµÃ÷     data1           Òª·¢ËÍµÄµÚÒ»¸öÊý¾Ý
-// ²ÎÊýËµÃ÷     data2           Òª·¢ËÍµÄµÚ¶þ¸öÊý¾Ý
-// ²ÎÊýËµÃ÷     data3           Òª·¢ËÍµÄµÚÈý¸öÊý¾Ý
-// ²ÎÊýËµÃ÷     data4           Òª·¢ËÍµÄµÚËÄ¸öÊý¾Ý
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     uint8 data_buffer[10];
+// å‡½æ•°ç®€ä»‹     è™šæ‹Ÿç¤ºæ³¢å™¨æ•°æ®è½¬æ¢å‡½æ•°
+// å‚æ•°è¯´æ˜Ž     data1           è¦å‘é€çš„ç¬¬ä¸€ä¸ªæ•°æ®
+// å‚æ•°è¯´æ˜Ž     data2           è¦å‘é€çš„ç¬¬äºŒä¸ªæ•°æ®
+// å‚æ•°è¯´æ˜Ž     data3           è¦å‘é€çš„ç¬¬ä¸‰ä¸ªæ•°æ®
+// å‚æ•°è¯´æ˜Ž     data4           è¦å‘é€çš„ç¬¬å››ä¸ªæ•°æ®
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     uint8 data_buffer[10];
 //              virtual_oscilloscope_data_conversion(100, 200, 300, 400, data_buffer);
 //              wireless_uart_send_buff(data_buffer, 10);
-// ±¸×¢ÐÅÏ¢     Õâ¸öº¯Êý²»´ø·¢ËÍ ËûÖ»ÊÇ´¦ÀíÊý¾Ý
+// å¤‡æ³¨ä¿¡æ¯     è¿™ä¸ªå‡½æ•°ä¸å¸¦å‘é€ ä»–åªæ˜¯å¤„ç†æ•°æ®
 //-------------------------------------------------------------------------------------------------------------------
 void virtual_oscilloscope_data_conversion (const int16 data1, const int16 data2, const int16 data3, const int16 data4)
 {

@@ -7910,7 +7910,7 @@
 /** \brief  8014, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH0_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108014u)
 
-/** \brief  8000, TOM Channel Control Register’ */
+/** \brief  8000, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH0_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108000u)
 
 /** \brief  8020, TOM Channel Interrupt Enable Register */
@@ -7943,7 +7943,7 @@
 /** \brief  8294, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH10_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108294u)
 
-/** \brief  8280, TOM Channel Control Register’ */
+/** \brief  8280, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH10_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108280u)
 
 /** \brief  82A0, TOM Channel Interrupt Enable Register */
@@ -7976,7 +7976,7 @@
 /** \brief  82D4, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH11_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF01082D4u)
 
-/** \brief  82C0, TOM Channel Control Register’ */
+/** \brief  82C0, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH11_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF01082C0u)
 
 /** \brief  82E0, TOM Channel Interrupt Enable Register */
@@ -8009,7 +8009,7 @@
 /** \brief  8314, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH12_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108314u)
 
-/** \brief  8300, TOM Channel Control Register’ */
+/** \brief  8300, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH12_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108300u)
 
 /** \brief  8320, TOM Channel Interrupt Enable Register */
@@ -8042,7 +8042,7 @@
 /** \brief  8354, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH13_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108354u)
 
-/** \brief  8340, TOM Channel Control Register’ */
+/** \brief  8340, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH13_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108340u)
 
 /** \brief  8360, TOM Channel Interrupt Enable Register */
@@ -8075,7 +8075,7 @@
 /** \brief  8394, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH14_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108394u)
 
-/** \brief  8380, TOM Channel Control Register’ */
+/** \brief  8380, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH14_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108380u)
 
 /** \brief  83A0, TOM Channel Interrupt Enable Register */
@@ -8108,7 +8108,7 @@
 /** \brief  83D4, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH15_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF01083D4u)
 
-/** \brief  83C0, TOM Channel Control Register’ */
+/** \brief  83C0, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH15_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF01083C0u)
 
 /** \brief  83E0, TOM Channel Interrupt Enable Register */
@@ -8141,7 +8141,7 @@
 /** \brief  8054, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH1_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108054u)
 
-/** \brief  8040, TOM Channel Control Register’ */
+/** \brief  8040, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH1_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108040u)
 
 /** \brief  8060, TOM Channel Interrupt Enable Register */
@@ -8174,7 +8174,7 @@
 /** \brief  8094, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH2_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108094u)
 
-/** \brief  8080, TOM Channel Control Register’ */
+/** \brief  8080, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH2_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108080u)
 
 /** \brief  80A0, TOM Channel Interrupt Enable Register */
@@ -8207,7 +8207,7 @@
 /** \brief  80D4, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH3_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF01080D4u)
 
-/** \brief  80C0, TOM Channel Control Register’ */
+/** \brief  80C0, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH3_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF01080C0u)
 
 /** \brief  80E0, TOM Channel Interrupt Enable Register */
@@ -8240,7 +8240,7 @@
 /** \brief  8114, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH4_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108114u)
 
-/** \brief  8100, TOM Channel Control Register’ */
+/** \brief  8100, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH4_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108100u)
 
 /** \brief  8120, TOM Channel Interrupt Enable Register */
@@ -8273,7 +8273,7 @@
 /** \brief  8154, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH5_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108154u)
 
-/** \brief  8140, TOM Channel Control Register’ */
+/** \brief  8140, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH5_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108140u)
 
 /** \brief  8160, TOM Channel Interrupt Enable Register */
@@ -8306,7 +8306,7 @@
 /** \brief  8194, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH6_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108194u)
 
-/** \brief  8180, TOM Channel Control Register’ */
+/** \brief  8180, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH6_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108180u)
 
 /** \brief  81A0, TOM Channel Interrupt Enable Register */
@@ -8339,7 +8339,7 @@
 /** \brief  81D4, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH7_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF01081D4u)
 
-/** \brief  81C0, TOM Channel Control Register’ */
+/** \brief  81C0, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH7_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF01081C0u)
 
 /** \brief  81E0, TOM Channel Interrupt Enable Register */
@@ -8372,7 +8372,7 @@
 /** \brief  8214, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH8_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108214u)
 
-/** \brief  8200, TOM Channel Control Register’ */
+/** \brief  8200, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH8_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108200u)
 
 /** \brief  8220, TOM Channel Interrupt Enable Register */
@@ -8405,7 +8405,7 @@
 /** \brief  8254, TOM Channel CCU0 Counter Register */
 #define GTM_TOM0_CH9_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108254u)
 
-/** \brief  8240, TOM Channel Control Register’ */
+/** \brief  8240, TOM Channel Control Register鈥?*/
 #define GTM_TOM0_CH9_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108240u)
 
 /** \brief  8260, TOM Channel Interrupt Enable Register */
@@ -8486,7 +8486,7 @@
 /** \brief  8814, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH0_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108814u)
 
-/** \brief  8800, TOM Channel Control Register’ */
+/** \brief  8800, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH0_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108800u)
 
 /** \brief  8820, TOM Channel Interrupt Enable Register */
@@ -8519,7 +8519,7 @@
 /** \brief  8A94, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH10_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108A94u)
 
-/** \brief  8A80, TOM Channel Control Register’ */
+/** \brief  8A80, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH10_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108A80u)
 
 /** \brief  8AA0, TOM Channel Interrupt Enable Register */
@@ -8552,7 +8552,7 @@
 /** \brief  8AD4, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH11_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108AD4u)
 
-/** \brief  8AC0, TOM Channel Control Register’ */
+/** \brief  8AC0, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH11_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108AC0u)
 
 /** \brief  8AE0, TOM Channel Interrupt Enable Register */
@@ -8585,7 +8585,7 @@
 /** \brief  8B14, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH12_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108B14u)
 
-/** \brief  8B00, TOM Channel Control Register’ */
+/** \brief  8B00, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH12_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108B00u)
 
 /** \brief  8B20, TOM Channel Interrupt Enable Register */
@@ -8618,7 +8618,7 @@
 /** \brief  8B54, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH13_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108B54u)
 
-/** \brief  8B40, TOM Channel Control Register’ */
+/** \brief  8B40, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH13_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108B40u)
 
 /** \brief  8B60, TOM Channel Interrupt Enable Register */
@@ -8651,7 +8651,7 @@
 /** \brief  8B94, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH14_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108B94u)
 
-/** \brief  8B80, TOM Channel Control Register’ */
+/** \brief  8B80, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH14_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108B80u)
 
 /** \brief  8BA0, TOM Channel Interrupt Enable Register */
@@ -8684,7 +8684,7 @@
 /** \brief  8BD4, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH15_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108BD4u)
 
-/** \brief  8BC0, TOM Channel Control Register’ */
+/** \brief  8BC0, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH15_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108BC0u)
 
 /** \brief  8BE0, TOM Channel Interrupt Enable Register */
@@ -8717,7 +8717,7 @@
 /** \brief  8854, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH1_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108854u)
 
-/** \brief  8840, TOM Channel Control Register’ */
+/** \brief  8840, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH1_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108840u)
 
 /** \brief  8860, TOM Channel Interrupt Enable Register */
@@ -8750,7 +8750,7 @@
 /** \brief  8894, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH2_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108894u)
 
-/** \brief  8880, TOM Channel Control Register’ */
+/** \brief  8880, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH2_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108880u)
 
 /** \brief  88A0, TOM Channel Interrupt Enable Register */
@@ -8783,7 +8783,7 @@
 /** \brief  88D4, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH3_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF01088D4u)
 
-/** \brief  88C0, TOM Channel Control Register’ */
+/** \brief  88C0, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH3_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF01088C0u)
 
 /** \brief  88E0, TOM Channel Interrupt Enable Register */
@@ -8816,7 +8816,7 @@
 /** \brief  8914, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH4_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108914u)
 
-/** \brief  8900, TOM Channel Control Register’ */
+/** \brief  8900, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH4_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108900u)
 
 /** \brief  8920, TOM Channel Interrupt Enable Register */
@@ -8849,7 +8849,7 @@
 /** \brief  8954, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH5_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108954u)
 
-/** \brief  8940, TOM Channel Control Register’ */
+/** \brief  8940, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH5_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108940u)
 
 /** \brief  8960, TOM Channel Interrupt Enable Register */
@@ -8882,7 +8882,7 @@
 /** \brief  8994, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH6_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108994u)
 
-/** \brief  8980, TOM Channel Control Register’ */
+/** \brief  8980, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH6_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108980u)
 
 /** \brief  89A0, TOM Channel Interrupt Enable Register */
@@ -8915,7 +8915,7 @@
 /** \brief  89D4, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH7_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF01089D4u)
 
-/** \brief  89C0, TOM Channel Control Register’ */
+/** \brief  89C0, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH7_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF01089C0u)
 
 /** \brief  89E0, TOM Channel Interrupt Enable Register */
@@ -8948,7 +8948,7 @@
 /** \brief  8A14, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH8_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108A14u)
 
-/** \brief  8A00, TOM Channel Control Register’ */
+/** \brief  8A00, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH8_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108A00u)
 
 /** \brief  8A20, TOM Channel Interrupt Enable Register */
@@ -8981,7 +8981,7 @@
 /** \brief  8A54, TOM Channel CCU0 Counter Register */
 #define GTM_TOM1_CH9_CN0 /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CN0*)0xF0108A54u)
 
-/** \brief  8A40, TOM Channel Control Register’ */
+/** \brief  8A40, TOM Channel Control Register鈥?*/
 #define GTM_TOM1_CH9_CTRL /*lint --e(923)*/ (*(volatile Ifx_GTM_TOM_CH_CTRL*)0xF0108A40u)
 
 /** \brief  8A60, TOM Channel Interrupt Enable Register */

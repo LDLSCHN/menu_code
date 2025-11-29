@@ -1,46 +1,46 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ¼´£¨TC264 ¿ªÔ´¿â£©ÊÇÒ»¸ö»ùÓÚ¹Ù·½ SDK ½Ó¿ÚµÄµÚÈý·½¿ªÔ´¿â
-* Copyright (c) 2022 SEEKFREE Öð·É¿Æ¼¼
+* TC264 Opensourec Library å³ï¼ˆTC264 å¼€æºåº“ï¼‰æ˜¯ä¸€ä¸ªåŸºäºŽå®˜æ–¹ SDK æŽ¥å£çš„ç¬¬ä¸‰æ–¹å¼€æºåº“
+* Copyright (c) 2022 SEEKFREE é€é£žç§‘æŠ€
 *
-* ±¾ÎÄ¼þÊÇ TC264 ¿ªÔ´¿âµÄÒ»²¿·Ö
+* æœ¬æ–‡ä»¶æ˜¯ TC264 å¼€æºåº“çš„ä¸€éƒ¨åˆ†
 *
-* TC264 ¿ªÔ´¿â ÊÇÃâ·ÑÈí¼þ
-* Äú¿ÉÒÔ¸ù¾Ý×ÔÓÉÈí¼þ»ù½ð»á·¢²¼µÄ GPL£¨GNU General Public License£¬¼´ GNUÍ¨ÓÃ¹«¹²Ðí¿ÉÖ¤£©µÄÌõ¿î
-* ¼´ GPL µÄµÚ3°æ£¨¼´ GPL3.0£©»ò£¨ÄúÑ¡ÔñµÄ£©ÈÎºÎºóÀ´µÄ°æ±¾£¬ÖØÐÂ·¢²¼ºÍ/»òÐÞ¸ÄËü
+* TC264 å¼€æºåº“ æ˜¯å…è´¹è½¯ä»¶
+* æ‚¨å¯ä»¥æ ¹æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šå‘å¸ƒçš„ GPLï¼ˆGNU General Public Licenseï¼Œå³ GNUé€šç”¨å…¬å…±è®¸å¯è¯ï¼‰çš„æ¡æ¬¾
+* å³ GPL çš„ç¬¬3ç‰ˆï¼ˆå³ GPL3.0ï¼‰æˆ–ï¼ˆæ‚¨é€‰æ‹©çš„ï¼‰ä»»ä½•åŽæ¥çš„ç‰ˆæœ¬ï¼Œé‡æ–°å‘å¸ƒå’Œ/æˆ–ä¿®æ”¹å®ƒ
 *
-* ±¾¿ªÔ´¿âµÄ·¢²¼ÊÇÏ£ÍûËüÄÜ·¢»Ó×÷ÓÃ£¬µ«²¢Î´¶ÔÆä×÷ÈÎºÎµÄ±£Ö¤
-* ÉõÖÁÃ»ÓÐÒþº¬µÄÊÊÏúÐÔ»òÊÊºÏÌØ¶¨ÓÃÍ¾µÄ±£Ö¤
-* ¸ü¶àÏ¸½ÚÇë²Î¼û GPL
+* æœ¬å¼€æºåº“çš„å‘å¸ƒæ˜¯å¸Œæœ›å®ƒèƒ½å‘æŒ¥ä½œç”¨ï¼Œä½†å¹¶æœªå¯¹å…¶ä½œä»»ä½•çš„ä¿è¯
+* ç”šè‡³æ²¡æœ‰éšå«çš„é€‚é”€æ€§æˆ–é€‚åˆç‰¹å®šç”¨é€”çš„ä¿è¯
+* æ›´å¤šç»†èŠ‚è¯·å‚è§ GPL
 *
-* ÄúÓ¦¸ÃÔÚÊÕµ½±¾¿ªÔ´¿âµÄÍ¬Ê±ÊÕµ½Ò»·Ý GPL µÄ¸±±¾
-* Èç¹ûÃ»ÓÐ£¬Çë²ÎÔÄ<https://www.gnu.org/licenses/>
+* æ‚¨åº”è¯¥åœ¨æ”¶åˆ°æœ¬å¼€æºåº“çš„åŒæ—¶æ”¶åˆ°ä¸€ä»½ GPL çš„å‰¯æœ¬
+* å¦‚æžœæ²¡æœ‰ï¼Œè¯·å‚é˜…<https://www.gnu.org/licenses/>
 *
-* ¶îÍâ×¢Ã÷£º
-* ±¾¿ªÔ´¿âÊ¹ÓÃ GPL3.0 ¿ªÔ´Ðí¿ÉÖ¤Ð­Òé ÒÔÉÏÐí¿ÉÉêÃ÷ÎªÒëÎÄ°æ±¾
-* Ðí¿ÉÉêÃ÷Ó¢ÎÄ°æÔÚ libraries/doc ÎÄ¼þ¼ÐÏÂµÄ GPL3_permission_statement.txt ÎÄ¼þÖÐ
-* Ðí¿ÉÖ¤¸±±¾ÔÚ libraries ÎÄ¼þ¼ÐÏÂ ¼´¸ÃÎÄ¼þ¼ÐÏÂµÄ LICENSE ÎÄ¼þ
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌÐò µ«ÐÞ¸ÄÄÚÈÝÊ±±ØÐë±£ÁôÖð·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷£¨¼´±¾ÉùÃ÷£©
+* é¢å¤–æ³¨æ˜Žï¼š
+* æœ¬å¼€æºåº“ä½¿ç”¨ GPL3.0 å¼€æºè®¸å¯è¯åè®® ä»¥ä¸Šè®¸å¯ç”³æ˜Žä¸ºè¯‘æ–‡ç‰ˆæœ¬
+* è®¸å¯ç”³æ˜Žè‹±æ–‡ç‰ˆåœ¨ libraries/doc æ–‡ä»¶å¤¹ä¸‹çš„ GPL3_permission_statement.txt æ–‡ä»¶ä¸­
+* è®¸å¯è¯å‰¯æœ¬åœ¨ libraries æ–‡ä»¶å¤¹ä¸‹ å³è¯¥æ–‡ä»¶å¤¹ä¸‹çš„ LICENSE æ–‡ä»¶
+* æ¬¢è¿Žå„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åº ä½†ä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£žç§‘æŠ€çš„ç‰ˆæƒå£°æ˜Žï¼ˆå³æœ¬å£°æ˜Žï¼‰
 *
-* ÎÄ¼þÃû³Æ          zf_device_dl1b
-* ¹«Ë¾Ãû³Æ          ³É¶¼Öð·É¿Æ¼¼ÓÐÏÞ¹«Ë¾
-* °æ±¾ÐÅÏ¢          ²é¿´ libraries/doc ÎÄ¼þ¼ÐÄÚ version ÎÄ¼þ °æ±¾ËµÃ÷
-* ¿ª·¢»·¾³          ADS v1.10.2
-* ÊÊÓÃÆ½Ì¨          TC264D
-* µêÆÌÁ´½Ó          https://seekfree.taobao.com/
+* æ–‡ä»¶åç§°          zf_device_dl1b
+* å…¬å¸åç§°          æˆéƒ½é€é£žç§‘æŠ€æœ‰é™å…¬å¸
+* ç‰ˆæœ¬ä¿¡æ¯          æŸ¥çœ‹ libraries/doc æ–‡ä»¶å¤¹å†… version æ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜Ž
+* å¼€å‘çŽ¯å¢ƒ          ADS v1.9.20
+* é€‚ç”¨å¹³å°          TC264D
+* åº—é“ºé“¾æŽ¥          https://seekfree.taobao.com/
 *
-* ÐÞ¸Ä¼ÇÂ¼
-* ÈÕÆÚ              ×÷Õß                ±¸×¢
+* ä¿®æ”¹è®°å½•
+* æ—¥æœŸ              ä½œè€…                å¤‡æ³¨
 * 2022-09-15       pudding           first version
 ********************************************************************************************************************/
 /*********************************************************************************************************************
-* ½ÓÏß¶¨Òå£º
+* æŽ¥çº¿å®šä¹‰ï¼š
 *                   ------------------------------------
-*                   Ä£¿é¹Ü½Å            µ¥Æ¬»ú¹Ü½Å
-*                   SCL                 ²é¿´ zf_device_dl1b.h ÖÐ DL1B_SCL_PIN  ºê¶¨Òå
-*                   SDA                 ²é¿´ zf_device_dl1b.h ÖÐ DL1B_SDA_PIN  ºê¶¨Òå
-*                   XS                  ²é¿´ zf_device_dl1b.h ÖÐ DL1B_XS_PIN  ºê¶¨Òå
-*                   VCC                 5V µçÔ´
-*                   GND                 µçÔ´µØ
+*                   æ¨¡å—ç®¡è„š            å•ç‰‡æœºç®¡è„š
+*                   SCL                 æŸ¥çœ‹ zf_device_dl1b.h ä¸­ DL1B_SCL_PIN  å®å®šä¹‰
+*                   SDA                 æŸ¥çœ‹ zf_device_dl1b.h ä¸­ DL1B_SDA_PIN  å®å®šä¹‰
+*                   XS                  æŸ¥çœ‹ zf_device_dl1b.h ä¸­ DL1B_XS_PIN  å®å®šä¹‰
+*                   VCC                 5V ç”µæº
+*                   GND                 ç”µæºåœ°
 *                   ------------------------------------
 *                   ------------------------------------
 ********************************************************************************************************************/
@@ -50,31 +50,31 @@
 
 #include "zf_common_typedef.h"
 
-// ÐèÒª×¢ÒâµÄÊÇ DL1B ×î¸ßÖ§³Ö 400KHz µÄ IIC Í¨ÐÅËÙÂÊ
-// ÐèÒª×¢ÒâµÄÊÇ DL1B ×î¸ßÖ§³Ö 400KHz µÄ IIC Í¨ÐÅËÙÂÊ
-// ÐèÒª×¢ÒâµÄÊÇ DL1B ×î¸ßÖ§³Ö 400KHz µÄ IIC Í¨ÐÅËÙÂÊ
+// éœ€è¦æ³¨æ„çš„æ˜¯ DL1B æœ€é«˜æ”¯æŒ 400KHz çš„ IIC é€šä¿¡é€ŸçŽ‡
+// éœ€è¦æ³¨æ„çš„æ˜¯ DL1B æœ€é«˜æ”¯æŒ 400KHz çš„ IIC é€šä¿¡é€ŸçŽ‡
+// éœ€è¦æ³¨æ„çš„æ˜¯ DL1B æœ€é«˜æ”¯æŒ 400KHz çš„ IIC é€šä¿¡é€ŸçŽ‡
 
-#define DL1B_USE_SOFT_IIC           ( 1 )                                       // Ä¬ÈÏÊ¹ÓÃÈí¼þ IIC ·½Ê½Çý¶¯ ½¨ÒéÊ¹ÓÃÈí¼þ IIC ·½Ê½
-#if DL1B_USE_SOFT_IIC                                                           // ÕâÁ½¶Î ÑÕÉ«Õý³£µÄ²ÅÊÇÕýÈ·µÄ ÑÕÉ«»ÒµÄ¾ÍÊÇÃ»ÓÐÓÃµÄ
-//====================================================Èí¼þ IIC Çý¶¯====================================================
-#define DL1B_SOFT_IIC_DELAY         ( 10 )                                      // Èí¼þ IIC µÄÊ±ÖÓÑÓÊ±ÖÜÆÚ ÊýÖµÔ½Ð¡ IIC Í¨ÐÅËÙÂÊÔ½¿ì
-#define DL1B_SCL_PIN                ( P33_4 )                                      // Èí¼þ IIC SCL Òý½Å Á¬½Ó DL1B µÄ SCL Òý½Å
-#define DL1B_SDA_PIN                ( P33_5 )                                      // Èí¼þ IIC SDA Òý½Å Á¬½Ó DL1B µÄ SDA Òý½Å
-//====================================================Èí¼þ IIC Çý¶¯====================================================
+#define DL1B_USE_SOFT_IIC           ( 1 )                                       // é»˜è®¤ä½¿ç”¨è½¯ä»¶ IIC æ–¹å¼é©±åŠ¨ å»ºè®®ä½¿ç”¨è½¯ä»¶ IIC æ–¹å¼
+#if DL1B_USE_SOFT_IIC                                                           // è¿™ä¸¤æ®µ é¢œè‰²æ­£å¸¸çš„æ‰æ˜¯æ­£ç¡®çš„ é¢œè‰²ç°çš„å°±æ˜¯æ²¡æœ‰ç”¨çš„
+//====================================================è½¯ä»¶ IIC é©±åŠ¨====================================================
+#define DL1B_SOFT_IIC_DELAY         ( 10 )                                      // è½¯ä»¶ IIC çš„æ—¶é’Ÿå»¶æ—¶å‘¨æœŸ æ•°å€¼è¶Šå° IIC é€šä¿¡é€ŸçŽ‡è¶Šå¿«
+#define DL1B_SCL_PIN                ( P33_4 )                                      // è½¯ä»¶ IIC SCL å¼•è„š è¿žæŽ¥ DL1B çš„ SCL å¼•è„š
+#define DL1B_SDA_PIN                ( P33_5 )                                      // è½¯ä»¶ IIC SDA å¼•è„š è¿žæŽ¥ DL1B çš„ SDA å¼•è„š
+//====================================================è½¯ä»¶ IIC é©±åŠ¨====================================================
 #else
-#error "ÔÝ²»Ö§³ÖÓ²¼þIICÍ¨Ñ¶"
+#error "æš‚ä¸æ”¯æŒç¡¬ä»¶IICé€šè®¯"
 #endif
 
 #define DL1B_XS_PIN                 ( P20_10 )
 
-#define DL1B_INT_ENABLE             ( 0 )                                       // ÊÇ·ñÆôÓÃ INT Òý½Å ÆôÓÃÔò»á×Ô¶¯¸üÐÂÊý¾Ý
+#define DL1B_INT_ENABLE             ( 0 )                                       // æ˜¯å¦å¯ç”¨ INT å¼•è„š å¯ç”¨åˆ™ä¼šè‡ªåŠ¨æ›´æ–°æ•°æ®
 #if DL1B_INT_ENABLE
 #define DL1B_INT_PIN                ( ERU_CH1_REQ10_P14_3 )
 #endif
 
-#define DL1B_TIMEOUT_COUNT          ( 1000 )                                    // DL1B ³¬Ê±¼ÆÊý
+#define DL1B_TIMEOUT_COUNT          ( 1000 )                                    // DL1B è¶…æ—¶è®¡æ•°
 
-//================================================¶¨Òå DL1B ÄÚ²¿µØÖ·================================================
+//================================================å®šä¹‰ DL1B å†…éƒ¨åœ°å€================================================
 
 #define DL1B_DEV_ADDR                                           ( 0x52 >> 1 )   // 0b0101001
 
@@ -85,7 +85,7 @@
 #define DL1B_RESULT__FINAL_CROSSTALK_CORRECTED_RANGE_MM_SD0     ( 0x0096 )
 #define DL1B_FIRMWARE__SYSTEM_STATUS                            ( 0x00E5 )
 
-//================================================¶¨Òå DL1B ÄÚ²¿µØÖ·================================================
+//================================================å®šä¹‰ DL1B å†…éƒ¨åœ°å€================================================
 
 extern uint8 dl1b_finsh_flag;
 extern uint16 dl1b_distance_mm;

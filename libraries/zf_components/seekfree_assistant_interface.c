@@ -1,36 +1,36 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ¼´£¨TC264 ¿ªÔ´¿â£©ÊÇÒ»¸ö»ùÓÚ¹Ù·½ SDK ½Ó¿ÚµÄµÚÈı·½¿ªÔ´¿â
-* Copyright (c) 2022 SEEKFREE Öğ·É¿Æ¼¼
-*
-* ±¾ÎÄ¼şÊÇ TC264 ¿ªÔ´¿âµÄÒ»²¿·Ö
-*
-* TC264 ¿ªÔ´¿â ÊÇÃâ·ÑÈí¼ş
-* Äú¿ÉÒÔ¸ù¾İ×ÔÓÉÈí¼ş»ù½ğ»á·¢²¼µÄ GPL£¨GNU General Public License£¬¼´ GNUÍ¨ÓÃ¹«¹²Ğí¿ÉÖ¤£©µÄÌõ¿î
-* ¼´ GPL µÄµÚ3°æ£¨¼´ GPL3.0£©»ò£¨ÄúÑ¡ÔñµÄ£©ÈÎºÎºóÀ´µÄ°æ±¾£¬ÖØĞÂ·¢²¼ºÍ/»òĞŞ¸ÄËü
-*
-* ±¾¿ªÔ´¿âµÄ·¢²¼ÊÇÏ£ÍûËüÄÜ·¢»Ó×÷ÓÃ£¬µ«²¢Î´¶ÔÆä×÷ÈÎºÎµÄ±£Ö¤
-* ÉõÖÁÃ»ÓĞÒşº¬µÄÊÊÏúĞÔ»òÊÊºÏÌØ¶¨ÓÃÍ¾µÄ±£Ö¤
-* ¸ü¶àÏ¸½ÚÇë²Î¼û GPL
-*
-* ÄúÓ¦¸ÃÔÚÊÕµ½±¾¿ªÔ´¿âµÄÍ¬Ê±ÊÕµ½Ò»·İ GPL µÄ¸±±¾
-* Èç¹ûÃ»ÓĞ£¬Çë²ÎÔÄ<https://www.gnu.org/licenses/>
-*
-* ¶îÍâ×¢Ã÷£º
-* ±¾¿ªÔ´¿âÊ¹ÓÃ GPL3.0 ¿ªÔ´Ğí¿ÉÖ¤Ğ­Òé ÒÔÉÏĞí¿ÉÉêÃ÷ÎªÒëÎÄ°æ±¾
-* Ğí¿ÉÉêÃ÷Ó¢ÎÄ°æÔÚ libraries/doc ÎÄ¼ş¼ĞÏÂµÄ GPL3_permission_statement.txt ÎÄ¼şÖĞ
-* Ğí¿ÉÖ¤¸±±¾ÔÚ libraries ÎÄ¼ş¼ĞÏÂ ¼´¸ÃÎÄ¼ş¼ĞÏÂµÄ LICENSE ÎÄ¼ş
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌĞò µ«ĞŞ¸ÄÄÚÈİÊ±±ØĞë±£ÁôÖğ·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷£¨¼´±¾ÉùÃ÷£©
+* RT1064DVL6A Opensourec Library å³ï¼ˆRT1064DVL6A å¼€æºåº“ï¼‰æ˜¯ä¸€ä¸ªåŸºäºå®˜æ–¹ SDK æ¥å£çš„ç¬¬ä¸‰æ–¹å¼€æºåº“
+* Copyright (c) 2022 SEEKFREE é€é£ç§‘æŠ€
 * 
-* ÎÄ¼şÃû³Æ          seekfree_assistant_interface
-* ¹«Ë¾Ãû³Æ          ³É¶¼Öğ·É¿Æ¼¼ÓĞÏŞ¹«Ë¾
-* °æ±¾ĞÅÏ¢          ²é¿´ libraries/doc ÎÄ¼ş¼ĞÄÚ version ÎÄ¼ş °æ±¾ËµÃ÷
-* ¿ª·¢»·¾³          ADS v1.10.2
-* ÊÊÓÃÆ½Ì¨          TC264D
-* µêÆÌÁ´½Ó          https://seekfree.taobao.com/
-*
-* ĞŞ¸Ä¼ÇÂ¼
-* ÈÕÆÚ              ×÷Õß                ±¸×¢
-* 2024-01-01       pudding            first version
+* æœ¬æ–‡ä»¶æ˜¯ RT1064DVL6A å¼€æºåº“çš„ä¸€éƒ¨åˆ†
+* 
+* RT1064DVL6A å¼€æºåº“ æ˜¯å…è´¹è½¯ä»¶
+* æ‚¨å¯ä»¥æ ¹æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šå‘å¸ƒçš„ GPLï¼ˆGNU General Public Licenseï¼Œå³ GNUé€šç”¨å…¬å…±è®¸å¯è¯ï¼‰çš„æ¡æ¬¾
+* å³ GPL çš„ç¬¬3ç‰ˆï¼ˆå³ GPL3.0ï¼‰æˆ–ï¼ˆæ‚¨é€‰æ‹©çš„ï¼‰ä»»ä½•åæ¥çš„ç‰ˆæœ¬ï¼Œé‡æ–°å‘å¸ƒå’Œ/æˆ–ä¿®æ”¹å®ƒ
+* 
+* æœ¬å¼€æºåº“çš„å‘å¸ƒæ˜¯å¸Œæœ›å®ƒèƒ½å‘æŒ¥ä½œç”¨ï¼Œä½†å¹¶æœªå¯¹å…¶ä½œä»»ä½•çš„ä¿è¯
+* ç”šè‡³æ²¡æœ‰éšå«çš„é€‚é”€æ€§æˆ–é€‚åˆç‰¹å®šç”¨é€”çš„ä¿è¯
+* æ›´å¤šç»†èŠ‚è¯·å‚è§ GPL
+* 
+* æ‚¨åº”è¯¥åœ¨æ”¶åˆ°æœ¬å¼€æºåº“çš„åŒæ—¶æ”¶åˆ°ä¸€ä»½ GPL çš„å‰¯æœ¬
+* å¦‚æœæ²¡æœ‰ï¼Œè¯·å‚é˜…<https://www.gnu.org/licenses/>
+* 
+* é¢å¤–æ³¨æ˜ï¼š
+* æœ¬å¼€æºåº“ä½¿ç”¨ GPL3.0 å¼€æºè®¸å¯è¯åè®® ä»¥ä¸Šè®¸å¯ç”³æ˜ä¸ºè¯‘æ–‡ç‰ˆæœ¬
+* è®¸å¯ç”³æ˜è‹±æ–‡ç‰ˆåœ¨ libraries/doc æ–‡ä»¶å¤¹ä¸‹çš„ GPL3_permission_statement.txt æ–‡ä»¶ä¸­
+* è®¸å¯è¯å‰¯æœ¬åœ¨ libraries æ–‡ä»¶å¤¹ä¸‹ å³è¯¥æ–‡ä»¶å¤¹ä¸‹çš„ LICENSE æ–‡ä»¶
+* æ¬¢è¿å„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åº ä½†ä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£ç§‘æŠ€çš„ç‰ˆæƒå£°æ˜ï¼ˆå³æœ¬å£°æ˜ï¼‰
+* 
+* æ–‡ä»¶åç§°          seekfree_assistant_interface
+* å…¬å¸åç§°          æˆéƒ½é€é£ç§‘æŠ€æœ‰é™å…¬å¸
+* ç‰ˆæœ¬ä¿¡æ¯          æŸ¥çœ‹ libraries/doc æ–‡ä»¶å¤¹å†… version æ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜
+* å¼€å‘ç¯å¢ƒ          IAR 8.32.4 or MDK 5.33
+* é€‚ç”¨å¹³å°          RT1064DVL6A
+* åº—é“ºé“¾æ¥          https://seekfree.taobao.com/
+* 
+* ä¿®æ”¹è®°å½•
+* æ—¥æœŸ             ä½œè€…             å¤‡æ³¨
+* 2024-1-11        SeekFree         first version
 ********************************************************************************************************************/
 
 #include "zf_common_typedef.h"
@@ -38,7 +38,6 @@
 #include "zf_common_debug.h"
 #include "zf_driver_uart.h"
 #include "zf_device_wireless_uart.h"
-#include "zf_device_ble6a20.h"
 #include "zf_device_bluetooth_ch9141.h"
 #include "zf_device_wifi_uart.h"
 #include "zf_device_wifi_spi.h"
@@ -47,43 +46,43 @@
 #include "seekfree_assistant_interface.h"
 
 
-extern seekfree_assistant_transfer_callback_function   seekfree_assistant_transfer_callback;    // Êı¾İ·¢ËÍº¯ÊıÖ¸Õë
-extern seekfree_assistant_receive_callback_function    seekfree_assistant_receive_callback;     // Êı¾İ½ÓÊÕº¯ÊıÖ¸Õë
+extern seekfree_assistant_transfer_callback_function   seekfree_assistant_transfer_callback;    // æ•°æ®å‘é€å‡½æ•°æŒ‡é’ˆ
+extern seekfree_assistant_receive_callback_function    seekfree_assistant_receive_callback;     // æ•°æ®æ¥æ”¶å‡½æ•°æŒ‡é’ˆ
 
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é     Öğ·ÉÖúÊÖ·¢ËÍº¯Êı
-// ²ÎÊıËµÃ÷     *buff           ĞèÒª·¢ËÍµÄÊı¾İµØÖ·
-// ²ÎÊıËµÃ÷     length          ĞèÒª·¢ËÍµÄ³¤¶È
-// ·µ»Ø²ÎÊı     uint32          Ê£ÓàÎ´·¢ËÍÊı¾İ³¤¶È
-// Ê¹ÓÃÊ¾Àı
+// å‡½æ•°ç®€ä»‹     é€é£åŠ©æ‰‹å‘é€å‡½æ•°
+// å‚æ•°è¯´æ˜     *buff           éœ€è¦å‘é€çš„æ•°æ®åœ°å€
+// å‚æ•°è¯´æ˜     length          éœ€è¦å‘é€çš„é•¿åº¦
+// è¿”å›å‚æ•°     uint32          å‰©ä½™æœªå‘é€æ•°æ®é•¿åº¦
+// ä½¿ç”¨ç¤ºä¾‹
 //-------------------------------------------------------------------------------------------------------------------
 ZF_WEAK uint32 seekfree_assistant_transfer (const uint8 *buff, uint32 length)
 {
     
-    // µ±Ñ¡Ôñ×Ô¶¨ÒåÍ¨Ñ¶·½Ê½Ê± ĞèÒª×ÔĞĞÍê³ÉÊı¾İ·¢ËÍ¹¦ÄÜ
+    // å½“é€‰æ‹©è‡ªå®šä¹‰é€šè®¯æ–¹å¼æ—¶ éœ€è¦è‡ªè¡Œå®Œæˆæ•°æ®å‘é€åŠŸèƒ½
     return length;
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é     Öğ·ÉÖúÊÖ½ÓÊÕÊı¾İº¯Êı
-// ²ÎÊıËµÃ÷     *buff           ĞèÒª½ÓÊÕµÄÊı¾İµØÖ·
-// ²ÎÊıËµÃ÷     length          Òª½ÓÊÕµÄÊı¾İ×î´ó³¤¶È
-// ·µ»Ø²ÎÊı     uint32          ½ÓÊÕµ½µÄÊı¾İ³¤¶È
-// Ê¹ÓÃÊ¾Àı
+// å‡½æ•°ç®€ä»‹     é€é£åŠ©æ‰‹æ¥æ”¶æ•°æ®å‡½æ•°
+// å‚æ•°è¯´æ˜     *buff           éœ€è¦æ¥æ”¶çš„æ•°æ®åœ°å€
+// å‚æ•°è¯´æ˜     length          è¦æ¥æ”¶çš„æ•°æ®æœ€å¤§é•¿åº¦
+// è¿”å›å‚æ•°     uint32          æ¥æ”¶åˆ°çš„æ•°æ®é•¿åº¦
+// ä½¿ç”¨ç¤ºä¾‹
 //-------------------------------------------------------------------------------------------------------------------
 ZF_WEAK uint32 seekfree_assistant_receive (uint8 *buff, uint32 length)
 {
-    // µ±Ñ¡Ôñ×Ô¶¨ÒåÍ¨Ñ¶·½Ê½Ê± ĞèÒª×ÔĞĞÍê³ÉÊı¾İ½ÓÊÕ¹¦ÄÜ
+    // å½“é€‰æ‹©è‡ªå®šä¹‰é€šè®¯æ–¹å¼æ—¶ éœ€è¦è‡ªè¡Œå®Œæˆæ•°æ®æ¥æ”¶åŠŸèƒ½
     return 0;
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é     Öğ·ÉÖúÊÖ½Ó¿Ú ³õÊ¼»¯
-// ²ÎÊıËµÃ÷
-// ·µ»Ø²ÎÊı     void
-// Ê¹ÓÃÊ¾Àı     seekfree_assistant_interface_init(SEEKFREE_ASSISTANT_WIFI_SPI); Ê¹ÓÃ¸ßËÙWIFI SPIÄ£¿é½øĞĞÊı¾İÊÕ·¢
-// ±¸×¢         ĞèÒª×ÔĞĞµ÷ÓÃÉè±¸µÄ³õÊ¼»¯£¬ÀıÈçÊ¹ÓÃÎŞÏß×ª´®¿Ú½øĞĞÊı¾İµÄÊÕ·¢£¬ÔòĞèÒª×ÔĞĞµ÷ÓÃÎŞÏß×ª´®¿ÚµÄ³õÊ¼»¯£¬È»ºóÔÙµ÷ÓÃseekfree_assistant_interface_initÍê³ÉÖğ·ÉÖúÊÖµÄ½Ó¿Ú³õÊ¼»¯
+// å‡½æ•°ç®€ä»‹     é€é£åŠ©æ‰‹æ¥å£ åˆå§‹åŒ–
+// å‚æ•°è¯´æ˜
+// è¿”å›å‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     seekfree_assistant_interface_init(SEEKFREE_ASSISTANT_WIFI_SPI); ä½¿ç”¨é«˜é€ŸWIFI SPIæ¨¡å—è¿›è¡Œæ•°æ®æ”¶å‘
+// å¤‡æ³¨         éœ€è¦è‡ªè¡Œè°ƒç”¨è®¾å¤‡çš„åˆå§‹åŒ–ï¼Œä¾‹å¦‚ä½¿ç”¨æ— çº¿è½¬ä¸²å£è¿›è¡Œæ•°æ®çš„æ”¶å‘ï¼Œåˆ™éœ€è¦è‡ªè¡Œè°ƒç”¨æ— çº¿è½¬ä¸²å£çš„åˆå§‹åŒ–ï¼Œç„¶åå†è°ƒç”¨seekfree_assistant_interface_initå®Œæˆé€é£åŠ©æ‰‹çš„æ¥å£åˆå§‹åŒ–
 //-------------------------------------------------------------------------------------------------------------------
 ZF_WEAK void seekfree_assistant_interface_init (seekfree_assistant_transfer_device_enum transfer_device)
 {
@@ -91,10 +90,8 @@ ZF_WEAK void seekfree_assistant_interface_init (seekfree_assistant_transfer_devi
     {
         case SEEKFREE_ASSISTANT_DEBUG_UART:
         {
-#if     DEBUG_UART_USE_INTERRUPT == 1
             seekfree_assistant_transfer_callback = debug_send_buffer;
             seekfree_assistant_receive_callback = debug_read_ring_buffer;
-#endif
         }break;
         
         case SEEKFREE_ASSISTANT_WIRELESS_UART:
@@ -103,12 +100,6 @@ ZF_WEAK void seekfree_assistant_interface_init (seekfree_assistant_transfer_devi
             seekfree_assistant_receive_callback = wireless_uart_read_buffer;
         }break;
         
-        case SEEKFREE_ASSISTANT_BLE6A20:
-        {
-            seekfree_assistant_transfer_callback = ble6a20_send_buffer;
-            seekfree_assistant_receive_callback = ble6a20_read_buffer;
-        }break;
-
         case SEEKFREE_ASSISTANT_CH9141:
         {
             seekfree_assistant_transfer_callback = bluetooth_ch9141_send_buffer;
@@ -129,7 +120,7 @@ ZF_WEAK void seekfree_assistant_interface_init (seekfree_assistant_transfer_devi
         
         case SEEKFREE_ASSISTANT_CUSTOM:
         {         
-            // ¸ù¾İ×Ô¼ºµÄĞèÇó ×ÔĞĞÊµÏÖseekfree_assistant_transferÓëseekfree_assistant_receiveº¯Êı£¬Íê³ÉÊı¾İµÄÊÕ·¢
+            // æ ¹æ®è‡ªå·±çš„éœ€æ±‚ è‡ªè¡Œå®ç°seekfree_assistant_transferä¸seekfree_assistant_receiveå‡½æ•°ï¼Œå®Œæˆæ•°æ®çš„æ”¶å‘
             
         }break;
     }

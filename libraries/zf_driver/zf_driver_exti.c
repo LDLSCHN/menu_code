@@ -1,35 +1,35 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ����TC264 ��Դ�⣩��һ�����ڹٷ� SDK �ӿڵĵ�������Դ��
-* Copyright (c) 2022 SEEKFREE ��ɿƼ�
+* TC264 Opensourec Library 即（TC264 开源库）是一个基于官方 SDK 接口的第三方开源库
+* Copyright (c) 2022 SEEKFREE 逐飞科技
 *
-* ���ļ��� TC264 ��Դ���һ����
+* 本文件是 TC264 开源库的一部分
 *
-* TC264 ��Դ�� ���������
-* �����Ը���������������ᷢ���� GPL��GNU General Public License���� GNUͨ�ù�������֤��������
-* �� GPL �ĵ�3�棨�� GPL3.0������ѡ��ģ��κκ����İ汾�����·�����/���޸���
+* TC264 开源库 是免费软件
+* 您可以根据自由软件基金会发布的 GPL（GNU General Public License，即 GNU通用公共许可证）的条款
+* 即 GPL 的第3版（即 GPL3.0）或（您选择的）任何后来的版本，重新发布和/或修改它
 *
-* ����Դ��ķ�����ϣ�����ܷ������ã�����δ�������κεı�֤
-* ����û�������������Ի��ʺ��ض���;�ı�֤
-* ����ϸ����μ� GPL
+* 本开源库的发布是希望它能发挥作用，但并未对其作任何的保证
+* 甚至没有隐含的适销性或适合特定用途的保证
+* 更多细节请参见 GPL
 *
-* ��Ӧ�����յ�����Դ���ͬʱ�յ�һ�� GPL �ĸ���
-* ���û�У������<https://www.gnu.org/licenses/>
+* 您应该在收到本开源库的同时收到一份 GPL 的副本
+* 如果没有，请参阅<https://www.gnu.org/licenses/>
 *
-* ����ע����
-* ����Դ��ʹ�� GPL3.0 ��Դ����֤Э�� ������������Ϊ���İ汾
-* ��������Ӣ�İ��� libraries/doc �ļ����µ� GPL3_permission_statement.txt �ļ���
-* ����֤������ libraries �ļ����� �����ļ����µ� LICENSE �ļ�
-* ��ӭ��λʹ�ò����������� ���޸�����ʱ���뱣����ɿƼ��İ�Ȩ����������������
+* 额外注明：
+* 本开源库使用 GPL3.0 开源许可证协议 以上许可申明为译文版本
+* 许可申明英文版在 libraries/doc 文件夹下的 GPL3_permission_statement.txt 文件中
+* 许可证副本在 libraries 文件夹下 即该文件夹下的 LICENSE 文件
+* 欢迎各位使用并传播本程序 但修改内容时必须保留逐飞科技的版权声明（即本声明）
 *
-* �ļ�����          zf_driver_exti
-* ��˾����          �ɶ���ɿƼ����޹�˾
-* �汾��Ϣ          �鿴 libraries/doc �ļ����� version �ļ� �汾˵��
-* ��������          ADS v1.10.2
-* ����ƽ̨          TC264D
-* ��������          https://seekfree.taobao.com/
+* 文件名称          zf_driver_exti
+* 公司名称          成都逐飞科技有限公司
+* 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
+* 开发环境          ADS v1.9.20
+* 适用平台          TC264D
+* 店铺链接          https://seekfree.taobao.com/
 *
-* �޸ļ�¼
-* ����              ����                ��ע
+* 修改记录
+* 日期              作者                备注
 * 2022-09-15       pudding             first version
 ********************************************************************************************************************/
 
@@ -40,10 +40,10 @@
 #include "zf_driver_exti.h"
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������     ��ȡ�˿ڲ���
-//  ���ز���     IfxScu_Req_In
-//  ʹ��ʾ��     get_exit_pin(ERU_CH0_REQ4_P10_7);
-//  ��ע��Ϣ     �ڲ�����
+//  函数简介     获取端口参数
+//  返回参数     IfxScu_Req_In
+//  使用示例     get_exit_pin(ERU_CH0_REQ4_P10_7);
+//  备注信息     内部调用
 //-------------------------------------------------------------------------------------------------------------------
 static IfxScu_Req_In* get_exit_pin (exti_pin_enum exti_pin)
 {
@@ -75,11 +75,11 @@ static IfxScu_Req_In* get_exit_pin (exti_pin_enum exti_pin)
 
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     EXTI �ж�ʹ��
-// ����˵��     pin             ѡ�� EXTI ���� (��ѡ��Χ�� zf_driver_exti.h �� exti_pin_enum ö��ֵȷ��)
-// ���ز���     void
-// ʹ��ʾ��     exti_enable(ERU_CH0_REQ4_P10_7);
-// ��ע��Ϣ
+// 函数简介     EXTI 中断使能
+// 参数说明     pin             选择 EXTI 引脚 (可选择范围由 zf_driver_exti.h 内 exti_pin_enum 枚举值确定)
+// 返回参数     void
+// 使用示例     exti_enable(ERU_CH0_REQ4_P10_7);
+// 备注信息
 //-------------------------------------------------------------------------------------------------------------------
 void exti_enable (exti_pin_enum eru_pin)
 {
@@ -90,11 +90,11 @@ void exti_enable (exti_pin_enum eru_pin)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     EXTI �ж�ʧ��
-// ����˵��     pin             ѡ�� EXTI ���� (��ѡ��Χ�� zf_driver_exti.h �� exti_pin_enum ö��ֵȷ��)
-// ���ز���     void
-// ʹ��ʾ��     exti_disable(A0);
-// ��ע��Ϣ
+// 函数简介     EXTI 中断失能
+// 参数说明     pin             选择 EXTI 引脚 (可选择范围由 zf_driver_exti.h 内 exti_pin_enum 枚举值确定)
+// 返回参数     void
+// 使用示例     exti_disable(A0);
+// 备注信息
 //-------------------------------------------------------------------------------------------------------------------
 void exti_disable (exti_pin_enum eru_pin)
 {
@@ -105,9 +105,9 @@ void exti_disable (exti_pin_enum eru_pin)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������      EXTI ʧ��
-//  ���ز���      void
-//  ʹ��ʾ��      exti_disable(ERU_CH0_REQ0_P15_4);
+//  函数简介      EXTI 失能
+//  返回参数      void
+//  使用示例      exti_disable(ERU_CH0_REQ0_P15_4);
 //-------------------------------------------------------------------------------------------------------------------
 void exti_all_close (void)
 {
@@ -120,12 +120,12 @@ void exti_all_close (void)
     }
 }
 //-------------------------------------------------------------------------------------------------------------------
-//  �������      EXTI �жϳ�ʼ��
-//  ����˵��      eru_pin         ����eruͨ��������
-//  ����˵��      trigger         ���ô�����ʽ
-//  ���ز���      void
-//  ʹ��ʾ��      exti_init(ERU_CH0_REQ0_P15_4, EXTI_TRIGGER_RISING);   // eruͨ��0 ʹ��P15_4���ţ������ش����ж�
-//  ��ע��Ϣ
+//  函数简介      EXTI 中断初始化
+//  参数说明      eru_pin         设置eru通道及引脚
+//  参数说明      trigger         设置触发方式
+//  返回参数      void
+//  使用示例      exti_init(ERU_CH0_REQ0_P15_4, EXTI_TRIGGER_RISING);   // eru通道0 使用P15_4引脚，上升沿触发中断
+//  备注信息
 //-------------------------------------------------------------------------------------------------------------------
 void exti_init (exti_pin_enum exti_pin, exti_trigger_enum trigger)
 {

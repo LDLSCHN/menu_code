@@ -730,7 +730,7 @@ typedef struct _Ifx_ERAY_MHDS_Bits
     unsigned int ETBF2:1;                   /**< \brief [4:4] ECC Error Transient Buffer RAM B (rwh) */
     unsigned int FMBD:1;                    /**< \brief [5:5] Faulty Message Buffer Detected (rwh) */
     unsigned int MFMB:1;                    /**< \brief [6:6] Multiple Faulty Message Buffers detected (rwh) */
-    unsigned int CRAM:1;                    /**< \brief [7:7] Clear all internal RAM’s (rh) */
+    unsigned int CRAM:1;                    /**< \brief [7:7] Clear all internal RAM鈥檚 (rh) */
     unsigned int FMB:7;                     /**< \brief [14:8] Faulty Message Buffer (rh) */
     unsigned int reserved_15:1;             /**< \brief \internal Reserved */
     unsigned int MBT:7;                     /**< \brief [22:16] Message Buffer Transmitted (rh) */

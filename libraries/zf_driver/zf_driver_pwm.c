@@ -1,35 +1,35 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ����TC264 ��Դ�⣩��һ�����ڹٷ� SDK �ӿڵĵ�������Դ��
-* Copyright (c) 2022 SEEKFREE ��ɿƼ�
+* TC264 Opensourec Library 即（TC264 开源库）是一个基于官方 SDK 接口的第三方开源库
+* Copyright (c) 2022 SEEKFREE 逐飞科技
 *
-* ���ļ��� TC264 ��Դ���һ����
+* 本文件是 TC264 开源库的一部分
 *
-* TC264 ��Դ�� ���������
-* �����Ը���������������ᷢ���� GPL��GNU General Public License���� GNUͨ�ù�������֤��������
-* �� GPL �ĵ�3�棨�� GPL3.0������ѡ��ģ��κκ����İ汾�����·�����/���޸���
+* TC264 开源库 是免费软件
+* 您可以根据自由软件基金会发布的 GPL（GNU General Public License，即 GNU通用公共许可证）的条款
+* 即 GPL 的第3版（即 GPL3.0）或（您选择的）任何后来的版本，重新发布和/或修改它
 *
-* ����Դ��ķ�����ϣ�����ܷ������ã�����δ�������κεı�֤
-* ����û�������������Ի��ʺ��ض���;�ı�֤
-* ����ϸ����μ� GPL
+* 本开源库的发布是希望它能发挥作用，但并未对其作任何的保证
+* 甚至没有隐含的适销性或适合特定用途的保证
+* 更多细节请参见 GPL
 *
-* ��Ӧ�����յ�����Դ���ͬʱ�յ�һ�� GPL �ĸ���
-* ���û�У������<https://www.gnu.org/licenses/>
+* 您应该在收到本开源库的同时收到一份 GPL 的副本
+* 如果没有，请参阅<https://www.gnu.org/licenses/>
 *
-* ����ע����
-* ����Դ��ʹ�� GPL3.0 ��Դ����֤Э�� ������������Ϊ���İ汾
-* ��������Ӣ�İ��� libraries/doc �ļ����µ� GPL3_permission_statement.txt �ļ���
-* ����֤������ libraries �ļ����� �����ļ����µ� LICENSE �ļ�
-* ��ӭ��λʹ�ò����������� ���޸�����ʱ���뱣����ɿƼ��İ�Ȩ����������������
+* 额外注明：
+* 本开源库使用 GPL3.0 开源许可证协议 以上许可申明为译文版本
+* 许可申明英文版在 libraries/doc 文件夹下的 GPL3_permission_statement.txt 文件中
+* 许可证副本在 libraries 文件夹下 即该文件夹下的 LICENSE 文件
+* 欢迎各位使用并传播本程序 但修改内容时必须保留逐飞科技的版权声明（即本声明）
 *
-* �ļ�����          zf_driver_pwm
-* ��˾����          �ɶ���ɿƼ����޹�˾
-* �汾��Ϣ          �鿴 libraries/doc �ļ����� version �ļ� �汾˵��
-* ��������          ADS v1.10.2
-* ����ƽ̨          TC264D
-* ��������          https://seekfree.taobao.com/
+* 文件名称          zf_driver_pwm
+* 公司名称          成都逐飞科技有限公司
+* 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
+* 开发环境          ADS v1.9.20
+* 适用平台          TC264D
+* 店铺链接          https://seekfree.taobao.com/
 *
-* �޸ļ�¼
-* ����              ����                ��ע
+* 修改记录
+* 日期              作者                备注
 * 2022-09-15       pudding            first version
 ********************************************************************************************************************/
 
@@ -38,13 +38,13 @@
 #include "zf_common_debug.h"
 #include "zf_driver_pwm.h"
 
-#define CMU_CLK_FREQ           20000000.0f                       // CMUʱ��Ƶ��
+#define CMU_CLK_FREQ           20000000.0f                       // CMU时钟频率
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������     ��ȡ�˿ڲ���
-//  ���ز���     IfxGtm_Atom_ToutMap
-//  ʹ��ʾ��     get_pwm_pin(ATOM0_CH0_P00_0);
-//  ��ע��Ϣ     �ڲ�����
+//  函数简介     获取端口参数
+//  返回参数     IfxGtm_Atom_ToutMap
+//  使用示例     get_pwm_pin(ATOM0_CH0_P00_0);
+//  备注信息     内部调用
 //-------------------------------------------------------------------------------------------------------------------
 static IfxGtm_Atom_ToutMap* get_pwm_pin (pwm_channel_enum atom_pin)
 {
@@ -262,10 +262,10 @@ static IfxGtm_Atom_ToutMap* get_pwm_pin (pwm_channel_enum atom_pin)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-//  �������      �ر�����ͨ����PWM���
-//  ���ز���      void
-//  ʹ��ʾ��      pwm_all_channel_close();
-//  ��ע��Ϣ
+//  函数简介      关闭所有通道的PWM输出
+//  返回参数      void
+//  使用示例      pwm_all_channel_close();
+//  备注信息
 //-------------------------------------------------------------------------------------------------------------------
 void pwm_all_channel_close (void)
 {
@@ -297,18 +297,18 @@ void pwm_all_channel_close (void)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     PWMռ�ձ�����
-// ����˵��     pin             ѡ�� PWM ����
-// ����˵��     duty            ����ռ�ձ�
-// ���ز���     void
-// ʹ��ʾ��     pwm_set_duty(ATOM0_CH7_P02_7, 5000); // ����ռ�ձ�Ϊ�ٷ�֮5000/PWM_DUTY_MAX*100
-// ��ע��Ϣ     GTM_ATOM0_PWM_DUTY_MAX�궨����zf_driver_pwm.h  Ĭ��Ϊ10000
+// 函数简介     PWM占空比设置
+// 参数说明     pin             选择 PWM 引脚
+// 参数说明     duty            设置占空比
+// 返回参数     void
+// 使用示例     pwm_set_duty(ATOM0_CH7_P02_7, 5000); // 设置占空比为百分之5000/PWM_DUTY_MAX*100
+// 备注信息     GTM_ATOM0_PWM_DUTY_MAX宏定义在zf_driver_pwm.h  默认为10000
 //-------------------------------------------------------------------------------------------------------------------
 void pwm_set_duty (pwm_channel_enum pwmch, uint32 duty)
 {
     uint32 period;
 
-    zf_assert(duty <= PWM_DUTY_MAX);    // �������������˶��ԣ���ô˵���������ռ�ձ��Ѿ����������ռ�ձ� PWM_DUTY_MAX �궨����zf_driver_pwm.h  Ĭ��Ϊ10000
+    zf_assert(duty <= PWM_DUTY_MAX);    // 如果在这里出现了断言，那么说明你输入的占空比已经大于了最大占空比 PWM_DUTY_MAX 宏定义在zf_driver_pwm.h  默认为10000
 
     IfxGtm_Atom_ToutMap *atom_channel;
     atom_channel = get_pwm_pin(pwmch);
@@ -326,13 +326,13 @@ void pwm_set_duty (pwm_channel_enum pwmch, uint32 duty)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     PWM ��ʼ��
-// ����˵��     pin             ѡ�� PWM ����
-// ����˵��     freq            ����Ƶ�� ͬ��ͨ��ֻ�����һ��������Ч
-// ����˵��     duty            ����ռ�ձ�
-// ���ز���     void
-// ʹ��ʾ��     pwm_init(ATOM0_CH7_P02_7, 50, 1000);   // ATOM 0ģ���ͨ��7 ʹ��P02_7�������PWM  PWMƵ��50HZ  ռ�ձȰٷ�֮1000/PWM_DUTY_MAX*100
-// ��ע��Ϣ     PWM_DUTY_MAX�궨����zf_driver_pwm.h  Ĭ��Ϊ10000
+// 函数简介     PWM 初始化
+// 参数说明     pin             选择 PWM 引脚
+// 参数说明     freq            设置频率 同个通道只有最后一次设置生效
+// 参数说明     duty            设置占空比
+// 返回参数     void
+// 使用示例     pwm_init(ATOM0_CH7_P02_7, 50, 1000);   // ATOM 0模块的通道7 使用P02_7引脚输出PWM  PWM频率50HZ  占空比百分之1000/PWM_DUTY_MAX*100
+// 备注信息     PWM_DUTY_MAX宏定义在zf_driver_pwm.h  默认为10000
 //-------------------------------------------------------------------------------------------------------------------
 void pwm_init (pwm_channel_enum pwmch, uint32 freq, uint32 duty)
 {
@@ -341,7 +341,7 @@ void pwm_init (pwm_channel_enum pwmch, uint32 freq, uint32 duty)
 
     IfxGtm_Atom_ToutMap *atom_channel;
 
-    zf_assert(duty <= PWM_DUTY_MAX);    // �������������˶��ԣ���ô˵���������ռ�ձ��Ѿ����������ռ�ձ� PWM_DUTY_MAX �궨����zf_driver_pwm.h  Ĭ��Ϊ10000
+    zf_assert(duty <= PWM_DUTY_MAX);    // 如果在这里出现了断言，那么说明你输入的占空比已经大于了最大占空比 PWM_DUTY_MAX 宏定义在zf_driver_pwm.h  默认为10000
 
 
     atom_channel = get_pwm_pin(pwmch);

@@ -1,35 +1,35 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ¼´£¨TC264 ¿ªÔ´¿â£©ÊÇÒ»¸ö»ùÓÚ¹Ù·½ SDK ½Ó¿ÚµÄµÚÈý·½¿ªÔ´¿â
-* Copyright (c) 2022 SEEKFREE Öð·É¿Æ¼¼
+* TC264 Opensourec Library å³ï¼ˆTC264 å¼€æºåº“ï¼‰æ˜¯ä¸€ä¸ªåŸºäºŽå®˜æ–¹ SDK æŽ¥å£çš„ç¬¬ä¸‰æ–¹å¼€æºåº“
+* Copyright (c) 2022 SEEKFREE é€é£žç§‘æŠ€
 *
-* ±¾ÎÄ¼þÊÇ TC264 ¿ªÔ´¿âµÄÒ»²¿·Ö
+* æœ¬æ–‡ä»¶æ˜¯ TC264 å¼€æºåº“çš„ä¸€éƒ¨åˆ†
 *
-* TC264 ¿ªÔ´¿â ÊÇÃâ·ÑÈí¼þ
-* Äú¿ÉÒÔ¸ù¾Ý×ÔÓÉÈí¼þ»ù½ð»á·¢²¼µÄ GPL£¨GNU General Public License£¬¼´ GNUÍ¨ÓÃ¹«¹²Ðí¿ÉÖ¤£©µÄÌõ¿î
-* ¼´ GPL µÄµÚ3°æ£¨¼´ GPL3.0£©»ò£¨ÄúÑ¡ÔñµÄ£©ÈÎºÎºóÀ´µÄ°æ±¾£¬ÖØÐÂ·¢²¼ºÍ/»òÐÞ¸ÄËü
+* TC264 å¼€æºåº“ æ˜¯å…è´¹è½¯ä»¶
+* æ‚¨å¯ä»¥æ ¹æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šå‘å¸ƒçš„ GPLï¼ˆGNU General Public Licenseï¼Œå³ GNUé€šç”¨å…¬å…±è®¸å¯è¯ï¼‰çš„æ¡æ¬¾
+* å³ GPL çš„ç¬¬3ç‰ˆï¼ˆå³ GPL3.0ï¼‰æˆ–ï¼ˆæ‚¨é€‰æ‹©çš„ï¼‰ä»»ä½•åŽæ¥çš„ç‰ˆæœ¬ï¼Œé‡æ–°å‘å¸ƒå’Œ/æˆ–ä¿®æ”¹å®ƒ
 *
-* ±¾¿ªÔ´¿âµÄ·¢²¼ÊÇÏ£ÍûËüÄÜ·¢»Ó×÷ÓÃ£¬µ«²¢Î´¶ÔÆä×÷ÈÎºÎµÄ±£Ö¤
-* ÉõÖÁÃ»ÓÐÒþº¬µÄÊÊÏúÐÔ»òÊÊºÏÌØ¶¨ÓÃÍ¾µÄ±£Ö¤
-* ¸ü¶àÏ¸½ÚÇë²Î¼û GPL
+* æœ¬å¼€æºåº“çš„å‘å¸ƒæ˜¯å¸Œæœ›å®ƒèƒ½å‘æŒ¥ä½œç”¨ï¼Œä½†å¹¶æœªå¯¹å…¶ä½œä»»ä½•çš„ä¿è¯
+* ç”šè‡³æ²¡æœ‰éšå«çš„é€‚é”€æ€§æˆ–é€‚åˆç‰¹å®šç”¨é€”çš„ä¿è¯
+* æ›´å¤šç»†èŠ‚è¯·å‚è§ GPL
 *
-* ÄúÓ¦¸ÃÔÚÊÕµ½±¾¿ªÔ´¿âµÄÍ¬Ê±ÊÕµ½Ò»·Ý GPL µÄ¸±±¾
-* Èç¹ûÃ»ÓÐ£¬Çë²ÎÔÄ<https://www.gnu.org/licenses/>
+* æ‚¨åº”è¯¥åœ¨æ”¶åˆ°æœ¬å¼€æºåº“çš„åŒæ—¶æ”¶åˆ°ä¸€ä»½ GPL çš„å‰¯æœ¬
+* å¦‚æžœæ²¡æœ‰ï¼Œè¯·å‚é˜…<https://www.gnu.org/licenses/>
 *
-* ¶îÍâ×¢Ã÷£º
-* ±¾¿ªÔ´¿âÊ¹ÓÃ GPL3.0 ¿ªÔ´Ðí¿ÉÖ¤Ð­Òé ÒÔÉÏÐí¿ÉÉêÃ÷ÎªÒëÎÄ°æ±¾
-* Ðí¿ÉÉêÃ÷Ó¢ÎÄ°æÔÚ libraries/doc ÎÄ¼þ¼ÐÏÂµÄ GPL3_permission_statement.txt ÎÄ¼þÖÐ
-* Ðí¿ÉÖ¤¸±±¾ÔÚ libraries ÎÄ¼þ¼ÐÏÂ ¼´¸ÃÎÄ¼þ¼ÐÏÂµÄ LICENSE ÎÄ¼þ
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌÐò µ«ÐÞ¸ÄÄÚÈÝÊ±±ØÐë±£ÁôÖð·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷£¨¼´±¾ÉùÃ÷£©
+* é¢å¤–æ³¨æ˜Žï¼š
+* æœ¬å¼€æºåº“ä½¿ç”¨ GPL3.0 å¼€æºè®¸å¯è¯åè®® ä»¥ä¸Šè®¸å¯ç”³æ˜Žä¸ºè¯‘æ–‡ç‰ˆæœ¬
+* è®¸å¯ç”³æ˜Žè‹±æ–‡ç‰ˆåœ¨ libraries/doc æ–‡ä»¶å¤¹ä¸‹çš„ GPL3_permission_statement.txt æ–‡ä»¶ä¸­
+* è®¸å¯è¯å‰¯æœ¬åœ¨ libraries æ–‡ä»¶å¤¹ä¸‹ å³è¯¥æ–‡ä»¶å¤¹ä¸‹çš„ LICENSE æ–‡ä»¶
+* æ¬¢è¿Žå„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åº ä½†ä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£žç§‘æŠ€çš„ç‰ˆæƒå£°æ˜Žï¼ˆå³æœ¬å£°æ˜Žï¼‰
 *
-* ÎÄ¼þÃû³Æ          zf_driver_encoder
-* ¹«Ë¾Ãû³Æ          ³É¶¼Öð·É¿Æ¼¼ÓÐÏÞ¹«Ë¾
-* °æ±¾ÐÅÏ¢          ²é¿´ libraries/doc ÎÄ¼þ¼ÐÄÚ version ÎÄ¼þ °æ±¾ËµÃ÷
-* ¿ª·¢»·¾³          ADS v1.10.2
-* ÊÊÓÃÆ½Ì¨          TC264D
-* µêÆÌÁ´½Ó          https://seekfree.taobao.com/
+* æ–‡ä»¶åç§°          zf_driver_encoder
+* å…¬å¸åç§°          æˆéƒ½é€é£žç§‘æŠ€æœ‰é™å…¬å¸
+* ç‰ˆæœ¬ä¿¡æ¯          æŸ¥çœ‹ libraries/doc æ–‡ä»¶å¤¹å†… version æ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜Ž
+* å¼€å‘çŽ¯å¢ƒ          ADS v1.9.20
+* é€‚ç”¨å¹³å°          TC264D
+* åº—é“ºé“¾æŽ¥          https://seekfree.taobao.com/
 *
-* ÐÞ¸Ä¼ÇÂ¼
-* ÈÕÆÚ              ×÷Õß                ±¸×¢
+* ä¿®æ”¹è®°å½•
+* æ—¥æœŸ              ä½œè€…                å¤‡æ³¨
 * 2022-09-15       pudding            first version
 ********************************************************************************************************************/
 
@@ -38,41 +38,41 @@
 
 #include "zf_common_typedef.h"
 
-// ´ËÃ¶¾Ù¶¨Òå²»ÔÊÐíÓÃ»§ÐÞ¸Ä
-typedef enum // Ã¶¾Ù±àÂëÆ÷Òý½Å
+// æ­¤æžšä¸¾å®šä¹‰ä¸å…è®¸ç”¨æˆ·ä¿®æ”¹
+typedef enum // æžšä¸¾ç¼–ç å™¨å¼•è„š
 {
-    TIM2_ENCODER_CH1_P00_7,      // T2¶¨Ê±Æ÷ ¼ÆÊýÒý½Å¿ÉÑ¡·¶Î§
+    TIM2_ENCODER_CH1_P00_7,      // T2å®šæ—¶å™¨ è®¡æ•°å¼•è„šå¯é€‰èŒƒå›´
     TIM2_ENCODER_CH1_P33_7,
 
-    TIM3_ENCODER_CH1_P02_6,      // T3¶¨Ê±Æ÷ ¼ÆÊýÒý½Å¿ÉÑ¡·¶Î§
+    TIM3_ENCODER_CH1_P02_6,      // T3å®šæ—¶å™¨ è®¡æ•°å¼•è„šå¯é€‰èŒƒå›´
 
-    TIM4_ENCODER_CH1_P02_8,      // T4¶¨Ê±Æ÷ ¼ÆÊýÒý½Å¿ÉÑ¡·¶Î§
+    TIM4_ENCODER_CH1_P02_8,      // T4å®šæ—¶å™¨ è®¡æ•°å¼•è„šå¯é€‰èŒƒå›´
 
-    TIM5_ENCODER_CH1_P21_7,      // T5¶¨Ê±Æ÷ ¼ÆÊýÒý½Å¿ÉÑ¡·¶Î§
+    TIM5_ENCODER_CH1_P21_7,      // T5å®šæ—¶å™¨ è®¡æ•°å¼•è„šå¯é€‰èŒƒå›´
     TIM5_ENCODER_CH1_P10_3,
 
-    TIM6_ENCODER_CH1_P20_3,      // T6¶¨Ê±Æ÷ ¼ÆÊýÒý½Å¿ÉÑ¡·¶Î§
+    TIM6_ENCODER_CH1_P20_3,      // T6å®šæ—¶å™¨ è®¡æ•°å¼•è„šå¯é€‰èŒƒå›´
     TIM6_ENCODER_CH1_P10_2,
 }encoder_channel1_enum;
 
-// ´ËÃ¶¾Ù¶¨Òå²»ÔÊÐíÓÃ»§ÐÞ¸Ä
-typedef enum // Ã¶¾Ù±àÂëÆ÷Òý½Å
+// æ­¤æžšä¸¾å®šä¹‰ä¸å…è®¸ç”¨æˆ·ä¿®æ”¹
+typedef enum // æžšä¸¾ç¼–ç å™¨å¼•è„š
 {
-    TIM2_ENCODER_CH2_P00_8,     // T2¶¨Ê±Æ÷ ¼ÆÊý·½ÏòÒý½Å¿ÉÑ¡·¶Î§
+    TIM2_ENCODER_CH2_P00_8,     // T2å®šæ—¶å™¨ è®¡æ•°æ–¹å‘å¼•è„šå¯é€‰èŒƒå›´
     TIM2_ENCODER_CH2_P33_6,
 
-    TIM3_ENCODER_CH2_P02_7,     // T3¶¨Ê±Æ÷ ¼ÆÊý·½ÏòÒý½Å¿ÉÑ¡·¶Î§
+    TIM3_ENCODER_CH2_P02_7,     // T3å®šæ—¶å™¨ è®¡æ•°æ–¹å‘å¼•è„šå¯é€‰èŒƒå›´
 
-    TIM4_ENCODER_CH2_P00_9,     // T4¶¨Ê±Æ÷ ¼ÆÊý·½ÏòÒý½Å¿ÉÑ¡·¶Î§
+    TIM4_ENCODER_CH2_P00_9,     // T4å®šæ—¶å™¨ è®¡æ•°æ–¹å‘å¼•è„šå¯é€‰èŒƒå›´
     TIM4_ENCODER_CH2_P33_5,
 
-    TIM5_ENCODER_CH2_P21_6,     // T5¶¨Ê±Æ÷ ¼ÆÊý·½ÏòÒý½Å¿ÉÑ¡·¶Î§
+    TIM5_ENCODER_CH2_P21_6,     // T5å®šæ—¶å™¨ è®¡æ•°æ–¹å‘å¼•è„šå¯é€‰èŒƒå›´
     TIM5_ENCODER_CH2_P10_1,
 
-    TIM6_ENCODER_CH2_P20_0,     // T6¶¨Ê±Æ÷ ¼ÆÊý·½ÏòÒý½Å¿ÉÑ¡·¶Î§
+    TIM6_ENCODER_CH2_P20_0,     // T6å®šæ—¶å™¨ è®¡æ•°æ–¹å‘å¼•è„šå¯é€‰èŒƒå›´
 }encoder_channel2_enum;
 
-typedef enum  // Ã¶¾Ù ¶¨Ê±Æ÷±àºÅ
+typedef enum  // æžšä¸¾ å®šæ—¶å™¨ç¼–å·
 {
     TIM2_ENCODER,
     TIM3_ENCODER,
@@ -81,12 +81,12 @@ typedef enum  // Ã¶¾Ù ¶¨Ê±Æ÷±àºÅ
     TIM6_ENCODER,
 }encoder_index_enum;
 
-//====================================================±àÂëÆ÷ »ù´¡º¯Êý====================================================
+//====================================================ç¼–ç å™¨ åŸºç¡€å‡½æ•°====================================================
 int16 encoder_get_count     (encoder_index_enum encoder_n);
 void  encoder_clear_count   (encoder_index_enum encoder_n);
 
 void  encoder_quad_init     (encoder_index_enum encoder_n, encoder_channel1_enum count_pin, encoder_channel2_enum dir_pin);
 void  encoder_dir_init      (encoder_index_enum encoder_n, encoder_channel1_enum ch1_pin, encoder_channel2_enum ch2_pin);
-//====================================================±àÂëÆ÷ »ù´¡º¯Êý====================================================
+//====================================================ç¼–ç å™¨ åŸºç¡€å‡½æ•°====================================================
 
 #endif

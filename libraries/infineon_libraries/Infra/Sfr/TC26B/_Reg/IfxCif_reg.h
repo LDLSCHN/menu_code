@@ -1447,7 +1447,7 @@
 */
 #define	CIFMI_ICR	(CIF_MI_ICR)
 
-/** \brief  15F8, MI Interrupt Mask ‘1’ interrupt active ‘0’ interrupt masked */
+/** \brief  15F8, MI Interrupt Mask 鈥?鈥?interrupt active 鈥?鈥?interrupt masked */
 #define CIF_MI_IMSC /*lint --e(923)*/ (*(volatile Ifx_CIF_MI_IMSC*)0xF90E34F8u)
 
 /** Alias (User Manual Name) for CIF_MI_IMSC.
@@ -2244,7 +2244,7 @@
 */
 #define	CIFMIEP_ICR	(CIF_MIEP_ICR)
 
-/** \brief  3508, MI Extra Path Interrupt Mask ‘1’: interrupt active, ‘0’:
+/** \brief  3508, MI Extra Path Interrupt Mask 鈥?鈥? interrupt active, 鈥?鈥?
  * interrupt masked */
 #define CIF_MIEP_IMSC /*lint --e(923)*/ (*(volatile Ifx_CIF_MIEP_IMSC*)0xF90E5408u)
 

@@ -133,7 +133,7 @@ void IfxCpu_Trap_memoryManagementError(uint32 tin)
     trapWatch = IfxCpu_Trap_extractTrapInfo(IfxCpu_Trap_Class_memoryManagement, tin);
     IFX_CFG_CPU_TRAP_MME_HOOK(trapWatch);
 
-    // Èç¹ûµ¥Æ¬»ú¿¨ËÀÔÚÕâÀï£¬ÔòËµÃ÷³öÏÖÁËÄÚ´æ¹ÜÀí±¨´í£¬±¨´íÔ­ÒòĞè×ÔĞĞÅÅ²é
+    // å¦‚æœå•ç‰‡æœºå¡æ­»åœ¨è¿™é‡Œï¼Œåˆ™è¯´æ˜å‡ºç°äº†å†…å­˜ç®¡ç†æŠ¥é”™ï¼ŒæŠ¥é”™åŸå› éœ€è‡ªè¡Œæ’æŸ¥
 
     IFX_CFG_CPU_TRAP_DEBUG;
     __asm("rslcx"); /* Restore lower context before returning. lower context was stored in the trap vector */
@@ -147,7 +147,7 @@ void IfxCpu_Trap_internalProtectionError(uint32 tin)
     trapWatch = IfxCpu_Trap_extractTrapInfo(IfxCpu_Trap_Class_internalProtection, tin);
     IFX_CFG_CPU_TRAP_IPE_HOOK(trapWatch);
 
-    // Èç¹ûµ¥Æ¬»ú¿¨ËÀÔÚÕâÀï£¬ÔòËµÃ÷µ¥Æ¬»ú·ÃÎÊµ½ÁË¿ÕµÄÄÚ´æÎ»ÖÃ£¬Ò²¾ÍÊÇ³£ËµµÄ·ÃÎÊÔ½½ç
+    // å¦‚æœå•ç‰‡æœºå¡æ­»åœ¨è¿™é‡Œï¼Œåˆ™è¯´æ˜å•ç‰‡æœºè®¿é—®åˆ°äº†ç©ºçš„å†…å­˜ä½ç½®ï¼Œä¹Ÿå°±æ˜¯å¸¸è¯´çš„è®¿é—®è¶Šç•Œ
 
     IFX_CFG_CPU_TRAP_DEBUG;
     __asm("rslcx"); /* Restore lower context before returning. lower context was stored in the trap vector */
@@ -161,7 +161,7 @@ void IfxCpu_Trap_instructionError(uint32 tin)
     trapWatch = IfxCpu_Trap_extractTrapInfo(IfxCpu_Trap_Class_instructionErrors, tin);
     IFX_CFG_CPU_TRAP_IE_HOOK(trapWatch);
 
-    // Èç¹ûµ¥Æ¬»ú¿¨ËÀÔÚÕâÀï£¬ÔòËµÃ÷Ö´ĞĞÁË´íÎóµÄÖ¸Áî£¬¾ßÌåÔ­ÒòÍ¨¹ıdebug²éÕÒ
+    // å¦‚æœå•ç‰‡æœºå¡æ­»åœ¨è¿™é‡Œï¼Œåˆ™è¯´æ˜æ‰§è¡Œäº†é”™è¯¯çš„æŒ‡ä»¤ï¼Œå…·ä½“åŸå› é€šè¿‡debugæŸ¥æ‰¾
 
     IFX_CFG_CPU_TRAP_DEBUG;
     __asm("rslcx"); /* Restore lower context before returning. lower context was stored in the trap vector */
@@ -175,7 +175,7 @@ void IfxCpu_Trap_contextManagementError(uint32 tin)
     trapWatch = IfxCpu_Trap_extractTrapInfo(IfxCpu_Trap_Class_contextManagement, tin);
     IFX_CFG_CPU_TRAP_CME_HOOK(trapWatch);
 
-    // µ¥Æ¬»úµ÷¶È¹ÜÀí´íÎó£¬Ò»°ã²»»á´¥·¢´ËÀà±¨´í£¬ÈçÈô´¥·¢Ôò×ÔĞĞdebug²éÕÒÎÊÌâ
+    // å•ç‰‡æœºè°ƒåº¦ç®¡ç†é”™è¯¯ï¼Œä¸€èˆ¬ä¸ä¼šè§¦å‘æ­¤ç±»æŠ¥é”™ï¼Œå¦‚è‹¥è§¦å‘åˆ™è‡ªè¡ŒdebugæŸ¥æ‰¾é—®é¢˜
 
     IFX_CFG_CPU_TRAP_DEBUG;
     __asm("rslcx"); /* Restore lower context before returning. lower context was stored in the trap vector */
@@ -189,9 +189,9 @@ void IfxCpu_Trap_busError(uint32 tin)
     trapWatch = IfxCpu_Trap_extractTrapInfo(IfxCpu_Trap_Class_bus, tin);
     IFX_CFG_CPU_TRAP_BE_HOOK(trapWatch);
 
-    // Èç¹ûµ¥Æ¬»ú¿¨ËÀÔÚÁËÕâÀï ¿ÉÄÜÊÇÊ¹ÓÃÁËÎ´³õÊ¼»¯µÄÍâÉè×ÊÔ´
-    // ¾Ù¸öÀı×Ó£¬Ã»µ÷ÓÃpwm_init³õÊ¼»¯º¯Êı£¬È»ºóÖ±½Óµ÷ÓÃpwm_set_dutyÀ´¸³ÖµÊä³ö
-    // Ò²¿ÉÄÜÊÇ·ÃÎÊÄÚ´æÊ§°Üµ¼ÖÂ Èç¹û·ÃÎÊÊ§°ÜÇë×ĞÏ¸¼ì²éÊ¹ÓÃÖ¸Õë·ÃÎÊÊı¾İµÄµØ·½
+    // å¦‚æœå•ç‰‡æœºå¡æ­»åœ¨äº†è¿™é‡Œ å¯èƒ½æ˜¯ä½¿ç”¨äº†æœªåˆå§‹åŒ–çš„å¤–è®¾èµ„æº
+    // ä¸¾ä¸ªä¾‹å­ï¼Œæ²¡è°ƒç”¨pwm_initåˆå§‹åŒ–å‡½æ•°ï¼Œç„¶åç›´æ¥è°ƒç”¨pwm_set_dutyæ¥èµ‹å€¼è¾“å‡º
+    // ä¹Ÿå¯èƒ½æ˜¯è®¿é—®å†…å­˜å¤±è´¥å¯¼è‡´ å¦‚æœè®¿é—®å¤±è´¥è¯·ä»”ç»†æ£€æŸ¥ä½¿ç”¨æŒ‡é’ˆè®¿é—®æ•°æ®çš„åœ°æ–¹
 
     IFX_CFG_CPU_TRAP_DEBUG;
     __asm("rslcx"); /* Restore lower context before returning. lower context was stored in the trap vector */
@@ -205,7 +205,7 @@ void IfxCpu_Trap_assertion(uint32 tin)
     trapWatch = IfxCpu_Trap_extractTrapInfo(IfxCpu_Trap_Class_assertion, tin);
     IFX_CFG_CPU_TRAP_ASSERT_HOOK(trapWatch);
 
-    // Èç¹ûµ¥Æ¬»ú¿¨ËÀÔÚÕâÀï£¬ÔòËµÃ÷´¥·¢ÁËÓ¢·ÉÁèµÄ¶ÏÑÔ£¬Í¨¹ıµ÷ÊÔÀ´²é¿´¾ßÌå´¥·¢¶ÏÑÔµÄÎ»ÖÃ²¢ĞŞÕı
+    // å¦‚æœå•ç‰‡æœºå¡æ­»åœ¨è¿™é‡Œï¼Œåˆ™è¯´æ˜è§¦å‘äº†è‹±é£å‡Œçš„æ–­è¨€ï¼Œé€šè¿‡è°ƒè¯•æ¥æŸ¥çœ‹å…·ä½“è§¦å‘æ–­è¨€çš„ä½ç½®å¹¶ä¿®æ­£
 
     IFX_CFG_CPU_TRAP_DEBUG;
     __asm("rslcx"); /* Restore lower context before returning. lower context was stored in the trap vector */

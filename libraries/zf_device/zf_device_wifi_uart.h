@@ -1,49 +1,49 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ¼´£¨TC264 ¿ªÔ´¿â£©ÊÇÒ»¸ö»ùÓÚ¹Ù·½ SDK ½Ó¿ÚµÄµÚÈı·½¿ªÔ´¿â
-* Copyright (c) 2022 SEEKFREE Öğ·É¿Æ¼¼
+* TC264 Opensourec Library å³ï¼ˆTC264 å¼€æºåº“ï¼‰æ˜¯ä¸€ä¸ªåŸºäºå®˜æ–¹ SDK æ¥å£çš„ç¬¬ä¸‰æ–¹å¼€æºåº“
+* Copyright (c) 2022 SEEKFREE é€é£ç§‘æŠ€
 *
-* ±¾ÎÄ¼şÊÇ TC264 ¿ªÔ´¿âµÄÒ»²¿·Ö
+* æœ¬æ–‡ä»¶æ˜¯ TC264 å¼€æºåº“çš„ä¸€éƒ¨åˆ†
 *
-* TC264 ¿ªÔ´¿â ÊÇÃâ·ÑÈí¼ş
-* Äú¿ÉÒÔ¸ù¾İ×ÔÓÉÈí¼ş»ù½ğ»á·¢²¼µÄ GPL£¨GNU General Public License£¬¼´ GNUÍ¨ÓÃ¹«¹²Ğí¿ÉÖ¤£©µÄÌõ¿î
-* ¼´ GPL µÄµÚ3°æ£¨¼´ GPL3.0£©»ò£¨ÄúÑ¡ÔñµÄ£©ÈÎºÎºóÀ´µÄ°æ±¾£¬ÖØĞÂ·¢²¼ºÍ/»òĞŞ¸ÄËü
+* TC264 å¼€æºåº“ æ˜¯å…è´¹è½¯ä»¶
+* æ‚¨å¯ä»¥æ ¹æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šå‘å¸ƒçš„ GPLï¼ˆGNU General Public Licenseï¼Œå³ GNUé€šç”¨å…¬å…±è®¸å¯è¯ï¼‰çš„æ¡æ¬¾
+* å³ GPL çš„ç¬¬3ç‰ˆï¼ˆå³ GPL3.0ï¼‰æˆ–ï¼ˆæ‚¨é€‰æ‹©çš„ï¼‰ä»»ä½•åæ¥çš„ç‰ˆæœ¬ï¼Œé‡æ–°å‘å¸ƒå’Œ/æˆ–ä¿®æ”¹å®ƒ
 *
-* ±¾¿ªÔ´¿âµÄ·¢²¼ÊÇÏ£ÍûËüÄÜ·¢»Ó×÷ÓÃ£¬µ«²¢Î´¶ÔÆä×÷ÈÎºÎµÄ±£Ö¤
-* ÉõÖÁÃ»ÓĞÒşº¬µÄÊÊÏúĞÔ»òÊÊºÏÌØ¶¨ÓÃÍ¾µÄ±£Ö¤
-* ¸ü¶àÏ¸½ÚÇë²Î¼û GPL
+* æœ¬å¼€æºåº“çš„å‘å¸ƒæ˜¯å¸Œæœ›å®ƒèƒ½å‘æŒ¥ä½œç”¨ï¼Œä½†å¹¶æœªå¯¹å…¶ä½œä»»ä½•çš„ä¿è¯
+* ç”šè‡³æ²¡æœ‰éšå«çš„é€‚é”€æ€§æˆ–é€‚åˆç‰¹å®šç”¨é€”çš„ä¿è¯
+* æ›´å¤šç»†èŠ‚è¯·å‚è§ GPL
 *
-* ÄúÓ¦¸ÃÔÚÊÕµ½±¾¿ªÔ´¿âµÄÍ¬Ê±ÊÕµ½Ò»·İ GPL µÄ¸±±¾
-* Èç¹ûÃ»ÓĞ£¬Çë²ÎÔÄ<https://www.gnu.org/licenses/>
+* æ‚¨åº”è¯¥åœ¨æ”¶åˆ°æœ¬å¼€æºåº“çš„åŒæ—¶æ”¶åˆ°ä¸€ä»½ GPL çš„å‰¯æœ¬
+* å¦‚æœæ²¡æœ‰ï¼Œè¯·å‚é˜…<https://www.gnu.org/licenses/>
 *
-* ¶îÍâ×¢Ã÷£º
-* ±¾¿ªÔ´¿âÊ¹ÓÃ GPL3.0 ¿ªÔ´Ğí¿ÉÖ¤Ğ­Òé ÒÔÉÏĞí¿ÉÉêÃ÷ÎªÒëÎÄ°æ±¾
-* Ğí¿ÉÉêÃ÷Ó¢ÎÄ°æÔÚ libraries/doc ÎÄ¼ş¼ĞÏÂµÄ GPL3_permission_statement.txt ÎÄ¼şÖĞ
-* Ğí¿ÉÖ¤¸±±¾ÔÚ libraries ÎÄ¼ş¼ĞÏÂ ¼´¸ÃÎÄ¼ş¼ĞÏÂµÄ LICENSE ÎÄ¼ş
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌĞò µ«ĞŞ¸ÄÄÚÈİÊ±±ØĞë±£ÁôÖğ·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷£¨¼´±¾ÉùÃ÷£©
+* é¢å¤–æ³¨æ˜ï¼š
+* æœ¬å¼€æºåº“ä½¿ç”¨ GPL3.0 å¼€æºè®¸å¯è¯åè®® ä»¥ä¸Šè®¸å¯ç”³æ˜ä¸ºè¯‘æ–‡ç‰ˆæœ¬
+* è®¸å¯ç”³æ˜è‹±æ–‡ç‰ˆåœ¨ libraries/doc æ–‡ä»¶å¤¹ä¸‹çš„ GPL3_permission_statement.txt æ–‡ä»¶ä¸­
+* è®¸å¯è¯å‰¯æœ¬åœ¨ libraries æ–‡ä»¶å¤¹ä¸‹ å³è¯¥æ–‡ä»¶å¤¹ä¸‹çš„ LICENSE æ–‡ä»¶
+* æ¬¢è¿å„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åº ä½†ä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£ç§‘æŠ€çš„ç‰ˆæƒå£°æ˜ï¼ˆå³æœ¬å£°æ˜ï¼‰
 *
-* ÎÄ¼şÃû³Æ          zf_device_wifi_uart
-* ¹«Ë¾Ãû³Æ          ³É¶¼Öğ·É¿Æ¼¼ÓĞÏŞ¹«Ë¾
-* °æ±¾ĞÅÏ¢          ²é¿´ libraries/doc ÎÄ¼ş¼ĞÄÚ version ÎÄ¼ş °æ±¾ËµÃ÷
-* ¿ª·¢»·¾³          ADS v1.10.2
-* ÊÊÓÃÆ½Ì¨          TC264D
-* µêÆÌÁ´½Ó          https://seekfree.taobao.com/
+* æ–‡ä»¶åç§°          zf_device_wifi_uart
+* å…¬å¸åç§°          æˆéƒ½é€é£ç§‘æŠ€æœ‰é™å…¬å¸
+* ç‰ˆæœ¬ä¿¡æ¯          æŸ¥çœ‹ libraries/doc æ–‡ä»¶å¤¹å†… version æ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜
+* å¼€å‘ç¯å¢ƒ          ADS v1.9.20
+* é€‚ç”¨å¹³å°          TC264D
+* åº—é“ºé“¾æ¥          https://seekfree.taobao.com/
 *
-* ĞŞ¸Ä¼ÇÂ¼
-* ÈÕÆÚ              ×÷Õß                ±¸×¢
+* ä¿®æ”¹è®°å½•
+* æ—¥æœŸ              ä½œè€…                å¤‡æ³¨
 * 2022-09-15       pudding            first version
-* 2023-04-28       pudding            Ôö¼ÓÖĞÎÄ×¢ÊÍËµÃ÷
+* 2023-04-28       pudding            å¢åŠ ä¸­æ–‡æ³¨é‡Šè¯´æ˜
 ********************************************************************************************************************/
 /*********************************************************************************************************************
-* ½ÓÏß¶¨Òå£º
+* æ¥çº¿å®šä¹‰ï¼š
 *                   ------------------------------------
-*                   Ä£¿é¹Ü½Å            µ¥Æ¬»ú¹Ü½Å
-*                   RX                  ²é¿´ zf_device_wifi_uart.h ÖĞ WIFI_UART_RX_PIN ºê¶¨Òå
-*                   TX                  ²é¿´ zf_device_wifi_uart.h ÖĞ WIFI_UART_TX_PIN ºê¶¨Òå
-*                   RTS                 ²é¿´ zf_device_wifi_uart.h ÖĞ WIFI_UART_RTS_PIN ºê¶¨Òå
-*                   RST                 ²é¿´ zf_device_wifi_uart.h ÖĞ WIFI_UART_RST_PIN ºê¶¨Òå
-*                   VCC                 5V µçÔ´
-*                   GND                 µçÔ´µØ
-*                   ÆäÓàÒı½ÅĞü¿Õ
+*                   æ¨¡å—ç®¡è„š            å•ç‰‡æœºç®¡è„š
+*                   RX                  æŸ¥çœ‹ zf_device_wifi_uart.h ä¸­ WIFI_UART_RX_PIN å®å®šä¹‰
+*                   TX                  æŸ¥çœ‹ zf_device_wifi_uart.h ä¸­ WIFI_UART_TX_PIN å®å®šä¹‰
+*                   RTS                 æŸ¥çœ‹ zf_device_wifi_uart.h ä¸­ WIFI_UART_RTS_PIN å®å®šä¹‰
+*                   RST                 æŸ¥çœ‹ zf_device_wifi_uart.h ä¸­ WIFI_UART_RST_PIN å®å®šä¹‰
+*                   VCC                 5V ç”µæº
+*                   GND                 ç”µæºåœ°
+*                   å…¶ä½™å¼•è„šæ‚¬ç©º
 *                   ------------------------------------
 *********************************************************************************************************************/
 
@@ -52,108 +52,108 @@
 
 #include "zf_common_typedef.h"
 
-//==============================================¶¨Òå WIFI_UART »ù±¾ÅäÖÃ===================================================
-#define WIFI_UART_INDEX         (UART_2)                                        // WIFI Ä£¿é ËùÊ¹ÓÃµ½µÄ´®¿Ú
-#define WIFI_UART_TX_PIN        (UART2_RX_P10_6)                                // Á¬½Ó WIFI Ä£¿é TX
-#define WIFI_UART_RX_PIN        (UART2_TX_P10_5)                                // Á¬½Ó WIFI Ä£¿é RX
-#define WIFI_UART_BAUD          (115200)                                        // Ä£¿é¹¤×÷²¨ÌØÂÊ
-#define WIFI_UART_RTS_PIN       (P10_2)                                         // ¶¨ÒåÁ÷¿ØÎ»Òı½Å  Ö¸Ê¾µ±Ç°Ä£¿éÊÇ·ñ¿ÉÒÔ½ÓÊÜÊı¾İ  0-¿ÉÒÔ¼ÌĞø½ÓÊÕ  1-²»¿ÉÒÔ¼ÌĞø½ÓÊÕ
-#define WIFI_UART_HARDWARE_RST  (1)                                             // ¶¨ÒåÊÇ·ñÊ¹ÓÃÓ²¼ş¸´Î»Òı½Å 0-Ê¹ÓÃÈí¼ş¸´Î» 1-Ê¹ÓÃÓ²¼ş RST
-#if WIFI_UART_HARDWARE_RST                                                      // ½¨ÒéÊ¹ÓÃÓ²¼ş¸´Î»Òı½Å ·ñÔòÈİÒ×³öÏÖµ¥Æ¬»ú¸´Î»ºóÎŞ·¨Õı³£³õÊ¼»¯Ä£¿é
-#define WIFI_UART_RST_PIN       (P11_6)                                         // ¶¨ÒåÓ²¼ş¸´Î»Òı½Å
+//==============================================å®šä¹‰ WIFI_UART åŸºæœ¬é…ç½®===================================================
+#define WIFI_UART_INDEX         (UART_2)                                        // WIFI æ¨¡å— æ‰€ä½¿ç”¨åˆ°çš„ä¸²å£
+#define WIFI_UART_TX_PIN        (UART2_RX_P10_6)                                // è¿æ¥ WIFI æ¨¡å— TX
+#define WIFI_UART_RX_PIN        (UART2_TX_P10_5)                                // è¿æ¥ WIFI æ¨¡å— RX
+#define WIFI_UART_BAUD          (115200)                                        // æ¨¡å—å·¥ä½œæ³¢ç‰¹ç‡
+#define WIFI_UART_RTS_PIN       (P10_2)                                         // å®šä¹‰æµæ§ä½å¼•è„š  æŒ‡ç¤ºå½“å‰æ¨¡å—æ˜¯å¦å¯ä»¥æ¥å—æ•°æ®  0-å¯ä»¥ç»§ç»­æ¥æ”¶  1-ä¸å¯ä»¥ç»§ç»­æ¥æ”¶
+#define WIFI_UART_HARDWARE_RST  (1)                                             // å®šä¹‰æ˜¯å¦ä½¿ç”¨ç¡¬ä»¶å¤ä½å¼•è„š 0-ä½¿ç”¨è½¯ä»¶å¤ä½ 1-ä½¿ç”¨ç¡¬ä»¶ RST
+#if WIFI_UART_HARDWARE_RST                                                      // å»ºè®®ä½¿ç”¨ç¡¬ä»¶å¤ä½å¼•è„š å¦åˆ™å®¹æ˜“å‡ºç°å•ç‰‡æœºå¤ä½åæ— æ³•æ­£å¸¸åˆå§‹åŒ–æ¨¡å—
+#define WIFI_UART_RST_PIN       (P11_6)                                         // å®šä¹‰ç¡¬ä»¶å¤ä½å¼•è„š
 #endif
-//==============================================¶¨Òå WIFI_UART »ù±¾ÅäÖÃ===================================================
+//==============================================å®šä¹‰ WIFI_UART åŸºæœ¬é…ç½®===================================================
 
 
-//==============================================¶¨Òå WIFI_UART »ù±¾²ÎÊı===================================================
-#define WIFI_UART_BUFFER_SIZE   (256)                                           // ¶¨Òå½ÓÊÕ»º´æÇø´óĞ¡
+//==============================================å®šä¹‰ WIFI_UART åŸºæœ¬å‚æ•°===================================================
+#define WIFI_UART_BUFFER_SIZE   (256)                                           // å®šä¹‰æ¥æ”¶ç¼“å­˜åŒºå¤§å°
 
-#define WIFI_UART_AUTO_CONNECT  (0)                                             // ¶¨ÒåÊÇ·ñ³õÊ¼»¯Ê±½¨Á¢TCP»òÕßUDPÁ¬½Ó    0-²»Á¬½Ó  1-×Ô¶¯Á¬½ÓTCP·şÎñÆ÷  2-×Ô¶¯Á¬½ÓUDP·şÎñÆ÷  3£º×Ô¶¯½¨Á¢TCP·şÎñÆ÷
+#define WIFI_UART_AUTO_CONNECT  (0)                                             // å®šä¹‰æ˜¯å¦åˆå§‹åŒ–æ—¶å»ºç«‹TCPæˆ–è€…UDPè¿æ¥    0-ä¸è¿æ¥  1-è‡ªåŠ¨è¿æ¥TCPæœåŠ¡å™¨  2-è‡ªåŠ¨è¿æ¥UDPæœåŠ¡å™¨  3ï¼šè‡ªåŠ¨å»ºç«‹TCPæœåŠ¡å™¨
 
 #if     (WIFI_UART_AUTO_CONNECT > 3)
-#error "WIFI_UART_AUTO_CONNECT µÄÖµÖ»ÄÜÎª [0,1,2,3]"
+#error "WIFI_UART_AUTO_CONNECT çš„å€¼åªèƒ½ä¸º [0,1,2,3]"
 #else
-#define WIFI_UART_TARGET_IP     "192.168.137.1"                                 // Á¬½ÓÄ¿±êµÄ IP
-#define WIFI_UART_TARGET_PORT   "8080"                                          // Á¬½ÓÄ¿±êµÄ¶Ë¿Ú
-#define WIFI_UART_LOCAL_PORT    "8080"                                          // ±¾»ú¶Ë¿Ú
+#define WIFI_UART_TARGET_IP     "192.168.137.1"                                 // è¿æ¥ç›®æ ‡çš„ IP
+#define WIFI_UART_TARGET_PORT   "8080"                                          // è¿æ¥ç›®æ ‡çš„ç«¯å£
+#define WIFI_UART_LOCAL_PORT    "8080"                                          // æœ¬æœºç«¯å£
 #endif
-//==============================================¶¨Òå WIFI_UART »ù±¾²ÎÊı===================================================
+//==============================================å®šä¹‰ WIFI_UART åŸºæœ¬å‚æ•°===================================================
 
-//==============================================¶¨Òå WIFI_UART ²ÎÊı½á¹¹Ìå==================================================
+//==============================================å®šä¹‰ WIFI_UART å‚æ•°ç»“æ„ä½“==================================================
 typedef enum
 {
-    WIFI_UART_STATION,                                                          // Éè±¸Ä£Ê½
-    WIFI_UART_SOFTAP,                                                           // APÄ£Ê½
+    WIFI_UART_STATION,                                                          // è®¾å¤‡æ¨¡å¼
+    WIFI_UART_SOFTAP,                                                           // APæ¨¡å¼
 }wifi_uart_mode_enum;
 
 typedef enum
 {
-    WIFI_UART_COMMAND,                                                          // Ê¹ÓÃÃüÁîµÄ·½Ê½·¢ËÍÊı¾İ
-    WIFI_UART_SERIANET,                                                         // Ê¹ÓÃÍ¸´«µÄ·½Ê½·¢ËÍÊı¾İ
+    WIFI_UART_COMMAND,                                                          // ä½¿ç”¨å‘½ä»¤çš„æ–¹å¼å‘é€æ•°æ®
+    WIFI_UART_SERIANET,                                                         // ä½¿ç”¨é€ä¼ çš„æ–¹å¼å‘é€æ•°æ®
 }wifi_uart_transfer_mode_enum;
 
 typedef enum
 {
-    WIFI_UART_TCP_CLIENT,                                                       // Ä£¿éÁ¬½ÓTCP·şÎñÆ÷
-    WIFI_UART_TCP_SERVER,                                                       // Ä£¿é×÷ÎªTCP·şÎñÆ÷
-    WIFI_UART_UDP_CLIENT,                                                       // Ä£¿éÆôÓÃUDPÁ¬½Ó
+    WIFI_UART_TCP_CLIENT,                                                       // æ¨¡å—è¿æ¥TCPæœåŠ¡å™¨
+    WIFI_UART_TCP_SERVER,                                                       // æ¨¡å—ä½œä¸ºTCPæœåŠ¡å™¨
+    WIFI_UART_UDP_CLIENT,                                                       // æ¨¡å—å¯ç”¨UDPè¿æ¥
 }wifi_uart_connect_mode_enum;
 
 typedef enum
 {
-    WIFI_UART_SERVER_OFF,                                                       // Ä£¿éÎ´Á¬½Ó·şÎñÆ÷
-    WIFI_UART_SERVER_ON,                                                        // Ä£¿éÒÑ¾­Á¬½Ó·şÎñÆ÷
+    WIFI_UART_SERVER_OFF,                                                       // æ¨¡å—æœªè¿æ¥æœåŠ¡å™¨
+    WIFI_UART_SERVER_ON,                                                        // æ¨¡å—å·²ç»è¿æ¥æœåŠ¡å™¨
 }wifi_uart_connect_state_enum;
 
 typedef enum
 {
-    WIFI_UART_LINK_0,                                                           // Ä£¿éµ±Ç°Á´½Ó 0
-    WIFI_UART_LINK_1,                                                           // Ä£¿éµ±Ç°Á´½Ó 1
-    WIFI_UART_LINK_2,                                                           // Ä£¿éµ±Ç°Á´½Ó 2
-    WIFI_UART_LINK_3,                                                           // Ä£¿éµ±Ç°Á´½Ó 3
-    WIFI_UART_LINK_4,                                                           // Ä£¿éµ±Ç°Á´½Ó 4
+    WIFI_UART_LINK_0,                                                           // æ¨¡å—å½“å‰é“¾æ¥ 0
+    WIFI_UART_LINK_1,                                                           // æ¨¡å—å½“å‰é“¾æ¥ 1
+    WIFI_UART_LINK_2,                                                           // æ¨¡å—å½“å‰é“¾æ¥ 2
+    WIFI_UART_LINK_3,                                                           // æ¨¡å—å½“å‰é“¾æ¥ 3
+    WIFI_UART_LINK_4,                                                           // æ¨¡å—å½“å‰é“¾æ¥ 4
 }wifi_uart_link_id_enum;
 
 typedef struct
 {
-    uint8                           wifi_uart_version[12];                      // ¹Ì¼ş°æ±¾         ×Ö·û´®ĞÎÊ½
-    uint8                           wifi_uart_mac[20];                          // ±¾»ú MAC µØÖ·    ×Ö·û´®ĞÎÊ½
-    uint8                           wifi_uart_local_ip[17];                     // ±¾»ú IP µØÖ·     ×Ö·û´®ĞÎÊ½
-    uint8                           wifi_uart_local_port[10];                   // ±¾»ú¶Ë¿ÚºÅ       ×Ö·û´®ĞÎÊ½
-    uint8                           wifi_uart_remote_ip[5][17];                 // Ô¶¶Ë IP µØÖ·     ×Ö·û´®ĞÎÊ½
-    wifi_uart_mode_enum             wifi_uart_mode;                             // WIFI Ä£Ê½
-    wifi_uart_transfer_mode_enum    wifi_uart_transfer_mode;                    // µ±Ç°´«ÊäÄ£Ê½
-    wifi_uart_connect_mode_enum     wifi_uart_connect_mode;                     // ÍøÂçÁ¬½ÓÄ£Ê½
-    wifi_uart_connect_state_enum    wifi_uart_connect_state;                    // ·şÎñÆ÷Á¬½ÓÇé¿ö
+    uint8                           wifi_uart_version[12];                      // å›ºä»¶ç‰ˆæœ¬         å­—ç¬¦ä¸²å½¢å¼
+    uint8                           wifi_uart_mac[20];                          // æœ¬æœº MAC åœ°å€    å­—ç¬¦ä¸²å½¢å¼
+    uint8                           wifi_uart_local_ip[17];                     // æœ¬æœº IP åœ°å€     å­—ç¬¦ä¸²å½¢å¼
+    uint8                           wifi_uart_local_port[10];                   // æœ¬æœºç«¯å£å·       å­—ç¬¦ä¸²å½¢å¼
+    uint8                           wifi_uart_remote_ip[5][17];                 // è¿œç«¯ IP åœ°å€     å­—ç¬¦ä¸²å½¢å¼
+    wifi_uart_mode_enum             wifi_uart_mode;                             // WIFI æ¨¡å¼
+    wifi_uart_transfer_mode_enum    wifi_uart_transfer_mode;                    // å½“å‰ä¼ è¾“æ¨¡å¼
+    wifi_uart_connect_mode_enum     wifi_uart_connect_mode;                     // ç½‘ç»œè¿æ¥æ¨¡å¼
+    wifi_uart_connect_state_enum    wifi_uart_connect_state;                    // æœåŠ¡å™¨è¿æ¥æƒ…å†µ
 }wifi_uart_information_struct;
-//==============================================¶¨Òå WIFI_UART ²ÎÊı½á¹¹Ìå==================================================
+//==============================================å®šä¹‰ WIFI_UART å‚æ•°ç»“æ„ä½“==================================================
 
 
-//==============================================¶¨Òå WIFI_UART È«¾Ö±äÁ¿===================================================
+//==============================================å®šä¹‰ WIFI_UART å…¨å±€å˜é‡===================================================
 extern wifi_uart_information_struct wifi_uart_information;
-//==============================================¶¨Òå WIFI_UART È«¾Ö±äÁ¿===================================================
+//==============================================å®šä¹‰ WIFI_UART å…¨å±€å˜é‡===================================================
 
 
-//==============================================¶¨Òå WIFI_UART »ù´¡º¯Êı===================================================
-uint8   wifi_uart_disconnected_wifi         (void);                                                                         // ¶Ï¿ª WIFI Á¬½Ó
-uint8   wifi_uart_entry_serianet            (void);                                                                         // ´ò¿ªÍ¸´«Ä£Ê½
-uint8   wifi_uart_exit_serianet             (void);                                                                         // ¹Ø±ÕÍ¸´«Ä£Ê½
+//==============================================å®šä¹‰ WIFI_UART åŸºç¡€å‡½æ•°===================================================
+uint8   wifi_uart_disconnected_wifi         (void);                                                                         // æ–­å¼€ WIFI è¿æ¥
+uint8   wifi_uart_entry_serianet            (void);                                                                         // æ‰“å¼€é€ä¼ æ¨¡å¼
+uint8   wifi_uart_exit_serianet             (void);                                                                         // å…³é—­é€ä¼ æ¨¡å¼
 
-uint8   wifi_uart_connect_tcp_servers       (char *ip, char *port, wifi_uart_transfer_mode_enum mode);                      // ½¨Á¢ TCP Á¬½Ó
-uint8   wifi_uart_connect_udp_client        (char *ip, char *port, char *local_port, wifi_uart_transfer_mode_enum mode);    // ½¨Á¢ UDP ´«Êä
-uint8   wifi_uart_disconnect_link           (void);                                                                         // ¶Ï¿ªÁ¬½Ó TCP Server Ê¹ÓÃ±¾½Ó¿Ú½«»á¶Ï¿ªËùÓĞÁ¬½Ó
-uint8   wifi_uart_disconnect_link_with_id   (wifi_uart_link_id_enum link_id);                                               // TCP Server ¶Ï¿ªÖ¸¶¨Á¬½Ó TCP/UDP Client ½«²»»áÓĞ·´Ó¦
+uint8   wifi_uart_connect_tcp_servers       (char *ip, char *port, wifi_uart_transfer_mode_enum mode);                      // å»ºç«‹ TCP è¿æ¥
+uint8   wifi_uart_connect_udp_client        (char *ip, char *port, char *local_port, wifi_uart_transfer_mode_enum mode);    // å»ºç«‹ UDP ä¼ è¾“
+uint8   wifi_uart_disconnect_link           (void);                                                                         // æ–­å¼€è¿æ¥ TCP Server ä½¿ç”¨æœ¬æ¥å£å°†ä¼šæ–­å¼€æ‰€æœ‰è¿æ¥
+uint8   wifi_uart_disconnect_link_with_id   (wifi_uart_link_id_enum link_id);                                               // TCP Server æ–­å¼€æŒ‡å®šè¿æ¥ TCP/UDP Client å°†ä¸ä¼šæœ‰ååº”
 
-uint8   wifi_uart_entry_tcp_servers         (char *port);                                                                   // ½¨Á¢ TCP ·şÎñÆ÷
-uint8   wifi_uart_exit_tcp_servers          (void);                                                                         // ¹Ø±Õ TCP ·şÎñÆ÷
-uint8   wifi_uart_tcp_servers_check_link    (void);                                                                         // TCP Server Ä£Ê½ÏÂ¼ì²éµ±Ç°Á´½ÓÊıÁ¿ ²¢»ñÈ¡ IP
+uint8   wifi_uart_entry_tcp_servers         (char *port);                                                                   // å»ºç«‹ TCP æœåŠ¡å™¨
+uint8   wifi_uart_exit_tcp_servers          (void);                                                                         // å…³é—­ TCP æœåŠ¡å™¨
+uint8   wifi_uart_tcp_servers_check_link    (void);                                                                         // TCP Server æ¨¡å¼ä¸‹æ£€æŸ¥å½“å‰é“¾æ¥æ•°é‡ å¹¶è·å– IP
 
-uint32  wifi_uart_send_buffer               (const uint8 *buff, uint32 len);                                                // WIFI Ä£¿éÊı¾İ·¢ËÍº¯Êı
-uint32  wifi_uart_tcp_servers_send_buffer   (const uint8 *buff, uint32 len, wifi_uart_link_id_enum id);                     // WIFI Ä£¿é×÷Îª TCP Server Ö¸¶¨Ä¿±êÉè±¸·¢ËÍº¯Êı
-uint32  wifi_uart_read_buffer               (uint8 *buff, uint32 len);                                                      // WIFI Ä£¿éÊı¾İ½ÓÊÕº¯Êı
+uint32  wifi_uart_send_buffer               (const uint8 *buff, uint32 len);                                                // WIFI æ¨¡å—æ•°æ®å‘é€å‡½æ•°
+uint32  wifi_uart_tcp_servers_send_buffer   (const uint8 *buff, uint32 len, wifi_uart_link_id_enum id);                     // WIFI æ¨¡å—ä½œä¸º TCP Server æŒ‡å®šç›®æ ‡è®¾å¤‡å‘é€å‡½æ•°
+uint32  wifi_uart_read_buffer               (uint8 *buff, uint32 len);                                                      // WIFI æ¨¡å—æ•°æ®æ¥æ”¶å‡½æ•°
 
-void    wifi_uart_callback                  (void);                                                                         // WIFI Ä£¿é´®¿Ú»Øµ÷º¯Êı
-uint8   wifi_uart_init                      (char *wifi_ssid, char *pass_word, wifi_uart_mode_enum wifi_mode);              // WIFI Ä£¿é³õÊ¼»¯º¯Êı
-//==============================================¶¨Òå WIFI_UART »ù´¡º¯Êı===================================================
+void    wifi_uart_callback                  (void);                                                                         // WIFI æ¨¡å—ä¸²å£å›è°ƒå‡½æ•°
+uint8   wifi_uart_init                      (char *wifi_ssid, char *pass_word, wifi_uart_mode_enum wifi_mode);              // WIFI æ¨¡å—åˆå§‹åŒ–å‡½æ•°
+//==============================================å®šä¹‰ WIFI_UART åŸºç¡€å‡½æ•°===================================================
 
 #endif

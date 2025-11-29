@@ -1,37 +1,37 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ¼´£¨TC264 ¿ªÔ´¿â£©ÊÇÒ»¸ö»ùÓÚ¹Ù·½ SDK ½Ó¿ÚµÄµÚÈı·½¿ªÔ´¿â
-* Copyright (c) 2022 SEEKFREE Öğ·É¿Æ¼¼
+* TC264 Opensourec Library å³ï¼ˆTC264 å¼€æºåº“ï¼‰æ˜¯ä¸€ä¸ªåŸºäºå®˜æ–¹ SDK æ¥å£çš„ç¬¬ä¸‰æ–¹å¼€æºåº“
+* Copyright (c) 2022 SEEKFREE é€é£ç§‘æŠ€
 *
-* ±¾ÎÄ¼şÊÇ TC264 ¿ªÔ´¿âµÄÒ»²¿·Ö
+* æœ¬æ–‡ä»¶æ˜¯ TC264 å¼€æºåº“çš„ä¸€éƒ¨åˆ†
 *
-* TC264 ¿ªÔ´¿â ÊÇÃâ·ÑÈí¼ş
-* Äú¿ÉÒÔ¸ù¾İ×ÔÓÉÈí¼ş»ù½ğ»á·¢²¼µÄ GPL£¨GNU General Public License£¬¼´ GNUÍ¨ÓÃ¹«¹²Ğí¿ÉÖ¤£©µÄÌõ¿î
-* ¼´ GPL µÄµÚ3°æ£¨¼´ GPL3.0£©»ò£¨ÄúÑ¡ÔñµÄ£©ÈÎºÎºóÀ´µÄ°æ±¾£¬ÖØĞÂ·¢²¼ºÍ/»òĞŞ¸ÄËü
+* TC264 å¼€æºåº“ æ˜¯å…è´¹è½¯ä»¶
+* æ‚¨å¯ä»¥æ ¹æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šå‘å¸ƒçš„ GPLï¼ˆGNU General Public Licenseï¼Œå³ GNUé€šç”¨å…¬å…±è®¸å¯è¯ï¼‰çš„æ¡æ¬¾
+* å³ GPL çš„ç¬¬3ç‰ˆï¼ˆå³ GPL3.0ï¼‰æˆ–ï¼ˆæ‚¨é€‰æ‹©çš„ï¼‰ä»»ä½•åæ¥çš„ç‰ˆæœ¬ï¼Œé‡æ–°å‘å¸ƒå’Œ/æˆ–ä¿®æ”¹å®ƒ
 *
-* ±¾¿ªÔ´¿âµÄ·¢²¼ÊÇÏ£ÍûËüÄÜ·¢»Ó×÷ÓÃ£¬µ«²¢Î´¶ÔÆä×÷ÈÎºÎµÄ±£Ö¤
-* ÉõÖÁÃ»ÓĞÒşº¬µÄÊÊÏúĞÔ»òÊÊºÏÌØ¶¨ÓÃÍ¾µÄ±£Ö¤
-* ¸ü¶àÏ¸½ÚÇë²Î¼û GPL
+* æœ¬å¼€æºåº“çš„å‘å¸ƒæ˜¯å¸Œæœ›å®ƒèƒ½å‘æŒ¥ä½œç”¨ï¼Œä½†å¹¶æœªå¯¹å…¶ä½œä»»ä½•çš„ä¿è¯
+* ç”šè‡³æ²¡æœ‰éšå«çš„é€‚é”€æ€§æˆ–é€‚åˆç‰¹å®šç”¨é€”çš„ä¿è¯
+* æ›´å¤šç»†èŠ‚è¯·å‚è§ GPL
 *
-* ÄúÓ¦¸ÃÔÚÊÕµ½±¾¿ªÔ´¿âµÄÍ¬Ê±ÊÕµ½Ò»·İ GPL µÄ¸±±¾
-* Èç¹ûÃ»ÓĞ£¬Çë²ÎÔÄ<https://www.gnu.org/licenses/>
+* æ‚¨åº”è¯¥åœ¨æ”¶åˆ°æœ¬å¼€æºåº“çš„åŒæ—¶æ”¶åˆ°ä¸€ä»½ GPL çš„å‰¯æœ¬
+* å¦‚æœæ²¡æœ‰ï¼Œè¯·å‚é˜…<https://www.gnu.org/licenses/>
 *
-* ¶îÍâ×¢Ã÷£º
-* ±¾¿ªÔ´¿âÊ¹ÓÃ GPL3.0 ¿ªÔ´Ğí¿ÉÖ¤Ğ­Òé ÒÔÉÏĞí¿ÉÉêÃ÷ÎªÒëÎÄ°æ±¾
-* Ğí¿ÉÉêÃ÷Ó¢ÎÄ°æÔÚ libraries/doc ÎÄ¼ş¼ĞÏÂµÄ GPL3_permission_statement.txt ÎÄ¼şÖĞ
-* Ğí¿ÉÖ¤¸±±¾ÔÚ libraries ÎÄ¼ş¼ĞÏÂ ¼´¸ÃÎÄ¼ş¼ĞÏÂµÄ LICENSE ÎÄ¼ş
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌĞò µ«ĞŞ¸ÄÄÚÈİÊ±±ØĞë±£ÁôÖğ·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷£¨¼´±¾ÉùÃ÷£©
+* é¢å¤–æ³¨æ˜ï¼š
+* æœ¬å¼€æºåº“ä½¿ç”¨ GPL3.0 å¼€æºè®¸å¯è¯åè®® ä»¥ä¸Šè®¸å¯ç”³æ˜ä¸ºè¯‘æ–‡ç‰ˆæœ¬
+* è®¸å¯ç”³æ˜è‹±æ–‡ç‰ˆåœ¨ libraries/doc æ–‡ä»¶å¤¹ä¸‹çš„ GPL3_permission_statement.txt æ–‡ä»¶ä¸­
+* è®¸å¯è¯å‰¯æœ¬åœ¨ libraries æ–‡ä»¶å¤¹ä¸‹ å³è¯¥æ–‡ä»¶å¤¹ä¸‹çš„ LICENSE æ–‡ä»¶
+* æ¬¢è¿å„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åº ä½†ä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£ç§‘æŠ€çš„ç‰ˆæƒå£°æ˜ï¼ˆå³æœ¬å£°æ˜ï¼‰
 *
-* ÎÄ¼şÃû³Æ          zf_driver_flash
-* ¹«Ë¾Ãû³Æ          ³É¶¼Öğ·É¿Æ¼¼ÓĞÏŞ¹«Ë¾
-* °æ±¾ĞÅÏ¢          ²é¿´ libraries/doc ÎÄ¼ş¼ĞÄÚ version ÎÄ¼ş °æ±¾ËµÃ÷
-* ¿ª·¢»·¾³          ADS v1.10.2
-* ÊÊÓÃÆ½Ì¨          TC264D
-* µêÆÌÁ´½Ó          https://seekfree.taobao.com/
+* æ–‡ä»¶åç§°          zf_driver_flash
+* å…¬å¸åç§°          æˆéƒ½é€é£ç§‘æŠ€æœ‰é™å…¬å¸
+* ç‰ˆæœ¬ä¿¡æ¯          æŸ¥çœ‹ libraries/doc æ–‡ä»¶å¤¹å†… version æ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜
+* å¼€å‘ç¯å¢ƒ          ADS v1.9.20
+* é€‚ç”¨å¹³å°          TC264D
+* åº—é“ºé“¾æ¥          https://seekfree.taobao.com/
 *
-* ĞŞ¸Ä¼ÇÂ¼
-* ÈÕÆÚ              ×÷Õß                ±¸×¢
+* ä¿®æ”¹è®°å½•
+* æ—¥æœŸ              ä½œè€…                å¤‡æ³¨
 * 2022-09-15       pudding            first version
-* 2023-07-14       pudding            ĞŞ¸´´íÎóµÄ×¢ÊÍ
+* 2023-07-14       pudding            ä¿®å¤é”™è¯¯çš„æ³¨é‡Š
 ********************************************************************************************************************/
 
 #ifndef _zf_driver_flash_h_
@@ -41,36 +41,36 @@
 #include "zf_common_typedef.h"
 
 #define EEPROM_BASE_ADDR             (IFXFLASH_DFLASH_START)
-#define EEPROM_SIZE                  (IFXFLASH_DFLASH_SIZE)                     // Ò»¹²ÓĞ96KB
+#define EEPROM_SIZE                  (IFXFLASH_DFLASH_SIZE)                     // ä¸€å…±æœ‰96KB
 #define EEPROM_PAGE_SIZE             (EEPROM_SIZE / IFXFLASH_DFLASH_NUM_LOG_SECTORS)
-#define EEPROM_PAGE_NUM              (IFXFLASH_DFLASH_NUM_LOG_SECTORS)          // 96KB·ÖÎªÁË12Ò³
+#define EEPROM_PAGE_NUM              (IFXFLASH_DFLASH_NUM_LOG_SECTORS)          // 96KBåˆ†ä¸ºäº†12é¡µ
 
 #define FLASH_DATA_SIZE              (IFXFLASH_DFLASH_PAGE_LENGTH)
-#define EEPROM_PAGE_LENGTH           (EEPROM_PAGE_SIZE/FLASH_DATA_SIZE)         // Ã¿Ò³¿ÉÒÔ´æ1024¸öuint32ÀàĞÍµÄÊı¾İ
+#define EEPROM_PAGE_LENGTH           (EEPROM_PAGE_SIZE/FLASH_DATA_SIZE)         // æ¯é¡µå¯ä»¥å­˜1024ä¸ªuint32ç±»å‹çš„æ•°æ®
 
 
-typedef union                                                                   // ¹Ì¶¨µÄÊı¾İ»º³åµ¥Ôª¸ñÊ½
+typedef union                                                                   // å›ºå®šçš„æ•°æ®ç¼“å†²å•å…ƒæ ¼å¼
 {
-    float   float_type;                                                         // float  ÀàĞÍ
-    uint32  uint32_type;                                                        // uint32 ÀàĞÍ
-    int32   int32_type;                                                         // int32  ÀàĞÍ
-    uint16  uint16_type;                                                        // uint16 ÀàĞÍ
-    int16   int16_type;                                                         // int16  ÀàĞÍ
-    uint8   uint8_type;                                                         // uint8  ÀàĞÍ
-    int8    int8_type;                                                          // int8   ÀàĞÍ
-}flash_data_union;                                                              // ËùÓĞÀàĞÍÊı¾İ¹²ÓÃÍ¬Ò»¸ö 32bit µØÖ·
+    float   float_type;                                                         // float  ç±»å‹
+    uint32  uint32_type;                                                        // uint32 ç±»å‹
+    int32   int32_type;                                                         // int32  ç±»å‹
+    uint16  uint16_type;                                                        // uint16 ç±»å‹
+    int16   int16_type;                                                         // int16  ç±»å‹
+    uint8   uint8_type;                                                         // uint8  ç±»å‹
+    int8    int8_type;                                                          // int8   ç±»å‹
+}flash_data_union;                                                              // æ‰€æœ‰ç±»å‹æ•°æ®å…±ç”¨åŒä¸€ä¸ª 32bit åœ°å€
 
 extern flash_data_union flash_union_buffer[EEPROM_PAGE_LENGTH];
 
-//====================================================FLASH »ù´¡º¯Êı====================================================
-uint8   flash_check                     (uint32 sector_num, uint32 page_num);                                   // Ğ£ÑéFLASHÒ³ÊÇ·ñÓĞÊı¾İ
-void    flash_erase_page                (uint32 sector_num, uint32 page_num);                                   // ²Á³ıÒ³
-void    flash_read_page                 (uint32 sector_num, uint32 page_num, uint32 *buf, uint16 len);          // ¶ÁÈ¡Ò»Ò³
-void    flash_write_page                (uint32 sector_num, uint32 page_num, const uint32 *buf, uint16 len);    // ±à³ÌÒ»Ò³
-void    flash_read_page_to_buffer       (uint32 sector_num, uint32 page_num);                                   // ´ÓÖ¸¶¨ FLASH µÄÖ¸¶¨Ò³Âë¶ÁÈ¡Êı¾İµ½»º³åÇø
-uint8   flash_write_page_from_buffer    (uint32 sector_num, uint32 page_num);                                   // ÏòÖ¸¶¨ FLASH µÄÉÈÇøµÄÖ¸¶¨Ò³ÂëĞ´Èë»º³åÇøµÄÊı¾İ
-void    flash_buffer_clear              (void);                                                                 // Çå¿ÕÊı¾İ»º³åÇø
-//====================================================FALSH »ù´¡º¯Êı====================================================
+//====================================================FLASH åŸºç¡€å‡½æ•°====================================================
+uint8   flash_check                     (uint32 sector_num, uint32 page_num);                                   // æ ¡éªŒFLASHé¡µæ˜¯å¦æœ‰æ•°æ®
+void    flash_erase_page                (uint32 sector_num, uint32 page_num);                                   // æ“¦é™¤é¡µ
+void    flash_read_page                 (uint32 sector_num, uint32 page_num, uint32 *buf, uint16 len);          // è¯»å–ä¸€é¡µ
+void    flash_write_page                (uint32 sector_num, uint32 page_num, const uint32 *buf, uint16 len);    // ç¼–ç¨‹ä¸€é¡µ
+void    flash_read_page_to_buffer       (uint32 sector_num, uint32 page_num);                                   // ä»æŒ‡å®š FLASH çš„æŒ‡å®šé¡µç è¯»å–æ•°æ®åˆ°ç¼“å†²åŒº
+uint8   flash_write_page_from_buffer    (uint32 sector_num, uint32 page_num);                                   // å‘æŒ‡å®š FLASH çš„æ‰‡åŒºçš„æŒ‡å®šé¡µç å†™å…¥ç¼“å†²åŒºçš„æ•°æ®
+void    flash_buffer_clear              (void);                                                                 // æ¸…ç©ºæ•°æ®ç¼“å†²åŒº
+//====================================================FALSH åŸºç¡€å‡½æ•°====================================================
 
 
 #endif

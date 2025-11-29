@@ -1051,7 +1051,7 @@ typedef struct _Ifx_CIF_MI_ICR_Bits
     Ifx_Strict_32Bit reserved_11:21;        /**< \brief \internal Reserved */
 } Ifx_CIF_MI_ICR_Bits;
 
-/** \brief  MI Interrupt Mask ‘1’ interrupt active ‘0’ interrupt masked */
+/** \brief  MI Interrupt Mask 鈥?鈥?interrupt active 鈥?鈥?interrupt masked */
 typedef struct _Ifx_CIF_MI_IMSC_Bits
 {
     Ifx_Strict_32Bit MP_FRAME_END:1;        /**< \brief [0:0] Main Picture Frame End (rw) */
@@ -1485,7 +1485,7 @@ typedef struct _Ifx_CIF_MIEP_ICR_Bits
     Ifx_Strict_32Bit reserved_20:12;        /**< \brief \internal Reserved */
 } Ifx_CIF_MIEP_ICR_Bits;
 
-/** \brief  MI Extra Path Interrupt Mask ‘1’: interrupt active, ‘0’: interrupt
+/** \brief  MI Extra Path Interrupt Mask 鈥?鈥? interrupt active, 鈥?鈥? interrupt
  * masked */
 typedef struct _Ifx_CIF_MIEP_IMSC_Bits
 {
@@ -2585,7 +2585,7 @@ typedef union
     Ifx_CIF_MI_ICR_Bits B;                  /**< \brief Bitfield access */
 } Ifx_CIF_MI_ICR;
 
-/** \brief  MI Interrupt Mask ‘1’ interrupt active ‘0’ interrupt masked */
+/** \brief  MI Interrupt Mask 鈥?鈥?interrupt active 鈥?鈥?interrupt masked */
 typedef union
 {
     unsigned int U;                         /**< \brief Unsigned access */
@@ -2959,7 +2959,7 @@ typedef union
     Ifx_CIF_MIEP_ICR_Bits B;                /**< \brief Bitfield access */
 } Ifx_CIF_MIEP_ICR;
 
-/** \brief  MI Extra Path Interrupt Mask ‘1’: interrupt active, ‘0’: interrupt
+/** \brief  MI Extra Path Interrupt Mask 鈥?鈥? interrupt active, 鈥?鈥? interrupt
  * masked */
 typedef union
 {
@@ -3281,7 +3281,7 @@ typedef volatile struct _Ifx_CIF_MI
     Ifx_CIF_MI_MP_CR_SIZE_SHD MP_CR_SIZE_SHD;   /**< \brief 98, Memory Interface Size Shadow Register Of Main Picture Cr Component Ring Buffer Register */
     Ifx_CIF_MI_MP_CR_OFFS_CNT_SHD MP_CR_OFFS_CNT_SHD;   /**< \brief 9C, Memory Interface Current Offset Counter Of Main Picture Cr Component Ring Buffer Register */
     unsigned char reserved_A0[88];          /**< \brief A0, \internal Reserved */
-    Ifx_CIF_MI_IMSC IMSC;                   /**< \brief F8, MI Interrupt Mask ‘1’ interrupt active ‘0’ interrupt masked */
+    Ifx_CIF_MI_IMSC IMSC;                   /**< \brief F8, MI Interrupt Mask 鈥?鈥?interrupt active 鈥?鈥?interrupt masked */
     Ifx_CIF_MI_RIS RIS;                     /**< \brief FC, MI Raw Interrupt Status Register */
     Ifx_CIF_MI_MIS MIS;                     /**< \brief 100, MI Masked Interrupt Status Registe */
     Ifx_CIF_MI_ICR ICR;                     /**< \brief 104, MI Interrupt Clear Register */
@@ -3295,7 +3295,7 @@ typedef volatile struct _Ifx_CIF_MIEP
 {
     Ifx_CIF_MIEP_STA_ERR STA_ERR;           /**< \brief 0, Extra Path Error Register */
     Ifx_CIF_MIEP_STA_ERR_CLR STA_ERR_CLR;   /**< \brief 4, Extra Path Error Clear Register */
-    Ifx_CIF_MIEP_IMSC IMSC;                 /**< \brief 8, MI Extra Path Interrupt Mask ‘1’: interrupt active, ‘0’: interrupt masked */
+    Ifx_CIF_MIEP_IMSC IMSC;                 /**< \brief 8, MI Extra Path Interrupt Mask 鈥?鈥? interrupt active, 鈥?鈥? interrupt masked */
     Ifx_CIF_MIEP_RIS RIS;                   /**< \brief C, MI Extra Path Raw Interrupt Status Register */
     Ifx_CIF_MIEP_MIS MIS;                   /**< \brief 10, MI Extra Path Masked Interrupt Status Register */
     Ifx_CIF_MIEP_ICR ICR;                   /**< \brief 14, MI Extra Path Interrupt Clear Register */

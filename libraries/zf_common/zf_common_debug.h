@@ -1,38 +1,38 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ¼´£¨TC264 ¿ªÔ´¿â£©ÊÇÒ»¸ö»ùÓÚ¹Ù·½ SDK ½Ó¿ÚµÄµÚÈý·½¿ªÔ´¿â
-* Copyright (c) 2022 SEEKFREE Öð·É¿Æ¼¼
+* TC264 Opensourec Library å³ï¼ˆTC264 å¼€æºåº“ï¼‰æ˜¯ä¸€ä¸ªåŸºäºŽå®˜æ–¹ SDK æŽ¥å£çš„ç¬¬ä¸‰æ–¹å¼€æºåº“
+* Copyright (c) 2022 SEEKFREE é€é£žç§‘æŠ€
 *
-* ±¾ÎÄ¼þÊÇ TC264 ¿ªÔ´¿âµÄÒ»²¿·Ö
+* æœ¬æ–‡ä»¶æ˜¯ TC264 å¼€æºåº“çš„ä¸€éƒ¨åˆ†
 *
-* TC264 ¿ªÔ´¿â ÊÇÃâ·ÑÈí¼þ
-* Äú¿ÉÒÔ¸ù¾Ý×ÔÓÉÈí¼þ»ù½ð»á·¢²¼µÄ GPL£¨GNU General Public License£¬¼´ GNUÍ¨ÓÃ¹«¹²Ðí¿ÉÖ¤£©µÄÌõ¿î
-* ¼´ GPL µÄµÚ3°æ£¨¼´ GPL3.0£©»ò£¨ÄúÑ¡ÔñµÄ£©ÈÎºÎºóÀ´µÄ°æ±¾£¬ÖØÐÂ·¢²¼ºÍ/»òÐÞ¸ÄËü
+* TC264 å¼€æºåº“ æ˜¯å…è´¹è½¯ä»¶
+* æ‚¨å¯ä»¥æ ¹æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šå‘å¸ƒçš„ GPLï¼ˆGNU General Public Licenseï¼Œå³ GNUé€šç”¨å…¬å…±è®¸å¯è¯ï¼‰çš„æ¡æ¬¾
+* å³ GPL çš„ç¬¬3ç‰ˆï¼ˆå³ GPL3.0ï¼‰æˆ–ï¼ˆæ‚¨é€‰æ‹©çš„ï¼‰ä»»ä½•åŽæ¥çš„ç‰ˆæœ¬ï¼Œé‡æ–°å‘å¸ƒå’Œ/æˆ–ä¿®æ”¹å®ƒ
 *
-* ±¾¿ªÔ´¿âµÄ·¢²¼ÊÇÏ£ÍûËüÄÜ·¢»Ó×÷ÓÃ£¬µ«²¢Î´¶ÔÆä×÷ÈÎºÎµÄ±£Ö¤
-* ÉõÖÁÃ»ÓÐÒþº¬µÄÊÊÏúÐÔ»òÊÊºÏÌØ¶¨ÓÃÍ¾µÄ±£Ö¤
-* ¸ü¶àÏ¸½ÚÇë²Î¼û GPL
+* æœ¬å¼€æºåº“çš„å‘å¸ƒæ˜¯å¸Œæœ›å®ƒèƒ½å‘æŒ¥ä½œç”¨ï¼Œä½†å¹¶æœªå¯¹å…¶ä½œä»»ä½•çš„ä¿è¯
+* ç”šè‡³æ²¡æœ‰éšå«çš„é€‚é”€æ€§æˆ–é€‚åˆç‰¹å®šç”¨é€”çš„ä¿è¯
+* æ›´å¤šç»†èŠ‚è¯·å‚è§ GPL
 *
-* ÄúÓ¦¸ÃÔÚÊÕµ½±¾¿ªÔ´¿âµÄÍ¬Ê±ÊÕµ½Ò»·Ý GPL µÄ¸±±¾
-* Èç¹ûÃ»ÓÐ£¬Çë²ÎÔÄ<https://www.gnu.org/licenses/>
+* æ‚¨åº”è¯¥åœ¨æ”¶åˆ°æœ¬å¼€æºåº“çš„åŒæ—¶æ”¶åˆ°ä¸€ä»½ GPL çš„å‰¯æœ¬
+* å¦‚æžœæ²¡æœ‰ï¼Œè¯·å‚é˜…<https://www.gnu.org/licenses/>
 *
-* ¶îÍâ×¢Ã÷£º
-* ±¾¿ªÔ´¿âÊ¹ÓÃ GPL3.0 ¿ªÔ´Ðí¿ÉÖ¤Ð­Òé ÒÔÉÏÐí¿ÉÉêÃ÷ÎªÒëÎÄ°æ±¾
-* Ðí¿ÉÉêÃ÷Ó¢ÎÄ°æÔÚ libraries/doc ÎÄ¼þ¼ÐÏÂµÄ GPL3_permission_statement.txt ÎÄ¼þÖÐ
-* Ðí¿ÉÖ¤¸±±¾ÔÚ libraries ÎÄ¼þ¼ÐÏÂ ¼´¸ÃÎÄ¼þ¼ÐÏÂµÄ LICENSE ÎÄ¼þ
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌÐò µ«ÐÞ¸ÄÄÚÈÝÊ±±ØÐë±£ÁôÖð·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷£¨¼´±¾ÉùÃ÷£©
+* é¢å¤–æ³¨æ˜Žï¼š
+* æœ¬å¼€æºåº“ä½¿ç”¨ GPL3.0 å¼€æºè®¸å¯è¯åè®® ä»¥ä¸Šè®¸å¯ç”³æ˜Žä¸ºè¯‘æ–‡ç‰ˆæœ¬
+* è®¸å¯ç”³æ˜Žè‹±æ–‡ç‰ˆåœ¨ libraries/doc æ–‡ä»¶å¤¹ä¸‹çš„ GPL3_permission_statement.txt æ–‡ä»¶ä¸­
+* è®¸å¯è¯å‰¯æœ¬åœ¨ libraries æ–‡ä»¶å¤¹ä¸‹ å³è¯¥æ–‡ä»¶å¤¹ä¸‹çš„ LICENSE æ–‡ä»¶
+* æ¬¢è¿Žå„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åº ä½†ä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£žç§‘æŠ€çš„ç‰ˆæƒå£°æ˜Žï¼ˆå³æœ¬å£°æ˜Žï¼‰
 *
-* ÎÄ¼þÃû³Æ          zf_common_debug
-* ¹«Ë¾Ãû³Æ          ³É¶¼Öð·É¿Æ¼¼ÓÐÏÞ¹«Ë¾
-* °æ±¾ÐÅÏ¢          ²é¿´ libraries/doc ÎÄ¼þ¼ÐÄÚ version ÎÄ¼þ °æ±¾ËµÃ÷
-* ¿ª·¢»·¾³          ADS v1.10.2
-* ÊÊÓÃÆ½Ì¨          TC264D
-* µêÆÌÁ´½Ó          https://seekfree.taobao.com/
+* æ–‡ä»¶åç§°          zf_common_debug
+* å…¬å¸åç§°          æˆéƒ½é€é£žç§‘æŠ€æœ‰é™å…¬å¸
+* ç‰ˆæœ¬ä¿¡æ¯          æŸ¥çœ‹ libraries/doc æ–‡ä»¶å¤¹å†… version æ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜Ž
+* å¼€å‘çŽ¯å¢ƒ          ADS v1.9.20
+* é€‚ç”¨å¹³å°          TC264D
+* åº—é“ºé“¾æŽ¥          https://seekfree.taobao.com/
 *
-* ÐÞ¸Ä¼ÇÂ¼
-* ÈÕÆÚ              ×÷Õß                ±¸×¢
+* ä¿®æ”¹è®°å½•
+* æ—¥æœŸ              ä½œè€…                å¤‡æ³¨
 * 2022-09-15       pudding            first version
-* 2022-05-26       pudding            ÐÂÔöµ÷ÊÔ´®¿Ú·¢ËÍº¯Êý£¬ÐÞ¸ÄÄ¬ÈÏ¿ªÆô½ÓÊÕÖÐ¶Ï
-* 2022-05-27       pudding            ÐÂÔöËÄ¸ö×ÜÏß±¨´í½Ó¹Ü£¬ÐÂÔö×ÜÏß±¨´íÊ±¹Ø±ÕËùÓÐÖÐ¶Ï¼°PWMÊä³ö
+* 2022-05-26       pudding            æ–°å¢žè°ƒè¯•ä¸²å£å‘é€å‡½æ•°ï¼Œä¿®æ”¹é»˜è®¤å¼€å¯æŽ¥æ”¶ä¸­æ–­
+* 2022-05-27       pudding            æ–°å¢žå››ä¸ªæ€»çº¿æŠ¥é”™æŽ¥ç®¡ï¼Œæ–°å¢žæ€»çº¿æŠ¥é”™æ—¶å…³é—­æ‰€æœ‰ä¸­æ–­åŠPWMè¾“å‡º
 ********************************************************************************************************************/
 
 #ifndef _zf_common_debug_h_
@@ -41,39 +41,39 @@
 #include "zf_common_typedef.h"
 #include "zf_common_interrupt.h"
 
-#define DEBUG_UART_INDEX            (UART_0)            // Ö¸¶¨ debug uart ËùÊ¹ÓÃµÄµÄ´®¿Ú
-#define DEBUG_UART_BAUDRATE         (115200)            // Ö¸¶¨ debug uart ËùÊ¹ÓÃµÄµÄ´®¿Ú²¨ÌØÂÊ
-#define DEBUG_UART_TX_PIN           (UART0_TX_P14_0)    // Ö¸¶¨ debug uart ËùÊ¹ÓÃµÄµÄ´®¿ÚÒý½Å
-#define DEBUG_UART_RX_PIN           (UART0_RX_P14_1)    // Ö¸¶¨ debug uart ËùÊ¹ÓÃµÄµÄ´®¿ÚÒý½Å
-#define DEBUG_UART_USE_INTERRUPT    (1)                 // ÊÇ·ñÆôÓÃ debug uart ½ÓÊÕÖÐ¶Ï
+#define DEBUG_UART_INDEX            (UART_0)            // æŒ‡å®š debug uart æ‰€ä½¿ç”¨çš„çš„ä¸²å£
+#define DEBUG_UART_BAUDRATE         (115200)            // æŒ‡å®š debug uart æ‰€ä½¿ç”¨çš„çš„ä¸²å£æ³¢ç‰¹çŽ‡
+#define DEBUG_UART_TX_PIN           (UART0_TX_P14_0)    // æŒ‡å®š debug uart æ‰€ä½¿ç”¨çš„çš„ä¸²å£å¼•è„š
+#define DEBUG_UART_RX_PIN           (UART0_RX_P14_1)    // æŒ‡å®š debug uart æ‰€ä½¿ç”¨çš„çš„ä¸²å£å¼•è„š
+#define DEBUG_UART_USE_INTERRUPT    (1)                 // æ˜¯å¦å¯ç”¨ debug uart æŽ¥æ”¶ä¸­æ–­
 
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     ¶ÏÑÔ
-// ²ÎÊýËµÃ÷     x           ÅÐ¶ÏÊÇ·ñ´¥·¢¶ÏÑÔ 0-´¥·¢¶ÏÑÔ 1-²»´¥·¢¶ÏÑÔ
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     zf_assert(0);
-// ±¸×¢ÐÅÏ¢     Ò»°ãÓÃÓÚ²ÎÊýÅÐ¶Ï zf_assert(0) ¾Í¶ÏÑÔ±¨´í
-//             Ä¬ÈÏÇé¿öÏÂ»áÔÚ Debug UART Êä³ö
-//             µ«Èç¹ûÊ¹ÓÃ¿ªÔ´¿âÄÚÆÁÄ»½Ó¿Ú³õÊ¼»¯ÁËÆÁÄ» Ôò»áÔÚÆÁÄ»ÉÏÏÔÊ¾
+// å‡½æ•°ç®€ä»‹     æ–­è¨€
+// å‚æ•°è¯´æ˜Ž     x           åˆ¤æ–­æ˜¯å¦è§¦å‘æ–­è¨€ 0-è§¦å‘æ–­è¨€ 1-ä¸è§¦å‘æ–­è¨€
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     zf_assert(0);
+// å¤‡æ³¨ä¿¡æ¯     ä¸€èˆ¬ç”¨äºŽå‚æ•°åˆ¤æ–­ zf_assert(0) å°±æ–­è¨€æŠ¥é”™
+//             é»˜è®¤æƒ…å†µä¸‹ä¼šåœ¨ Debug UART è¾“å‡º
+//             ä½†å¦‚æžœä½¿ç”¨å¼€æºåº“å†…å±å¹•æŽ¥å£åˆå§‹åŒ–äº†å±å¹• åˆ™ä¼šåœ¨å±å¹•ä¸Šæ˜¾ç¤º
 //-------------------------------------------------------------------------------------------------------------------
-#define zf_assert(x)                (debug_assert_handler((x), __FILE__, __LINE__))     // ¶ÏÑÔ Ò»°ãÓÃÓÚ²ÎÊýÅÐ¶Ï zf_assert(0) ¾Í¶ÏÑÔ±¨´í
+#define zf_assert(x)                (debug_assert_handler((x), __FILE__, __LINE__))     // æ–­è¨€ ä¸€èˆ¬ç”¨äºŽå‚æ•°åˆ¤æ–­ zf_assert(0) å°±æ–­è¨€æŠ¥é”™
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     Log ÐÅÏ¢Êä³ö
-// ²ÎÊýËµÃ÷     x           ÅÐ¶ÏÊÇ·ñ´¥·¢Êä³ö 0-´¥·¢Êä³ö 1-²»´¥·¢Êä³ö
-// ²ÎÊýËµÃ÷     *str        ÐèÒªÊä³öµÄ Log ÐÅÏ¢
-// ·µ»Ø²ÎÊý     void
-// Ê¹ÓÃÊ¾Àý     zf_log(0, "Error");
-// ±¸×¢ÐÅÏ¢     µ÷ÊÔÐÅÏ¢Êä³ö ÓÃÀ´×öÒ»Ð©±¨´í»òÕß¾¯¸æÖ®ÀàµÄÊä³ö
-//             Ä¬ÈÏÇé¿öÏÂ»áÔÚ Debug UART Êä³ö
-//             µ«Èç¹ûÊ¹ÓÃ¿ªÔ´¿âÄÚÆÁÄ»½Ó¿Ú³õÊ¼»¯ÁËÆÁÄ» Ôò»áÔÚÆÁÄ»ÉÏÏÔÊ¾
+// å‡½æ•°ç®€ä»‹     Log ä¿¡æ¯è¾“å‡º
+// å‚æ•°è¯´æ˜Ž     x           åˆ¤æ–­æ˜¯å¦è§¦å‘è¾“å‡º 0-è§¦å‘è¾“å‡º 1-ä¸è§¦å‘è¾“å‡º
+// å‚æ•°è¯´æ˜Ž     *str        éœ€è¦è¾“å‡ºçš„ Log ä¿¡æ¯
+// è¿”å›žå‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     zf_log(0, "Error");
+// å¤‡æ³¨ä¿¡æ¯     è°ƒè¯•ä¿¡æ¯è¾“å‡º ç”¨æ¥åšä¸€äº›æŠ¥é”™æˆ–è€…è­¦å‘Šä¹‹ç±»çš„è¾“å‡º
+//             é»˜è®¤æƒ…å†µä¸‹ä¼šåœ¨ Debug UART è¾“å‡º
+//             ä½†å¦‚æžœä½¿ç”¨å¼€æºåº“å†…å±å¹•æŽ¥å£åˆå§‹åŒ–äº†å±å¹• åˆ™ä¼šåœ¨å±å¹•ä¸Šæ˜¾ç¤º
 //-------------------------------------------------------------------------------------------------------------------
-#define zf_log(x, str)              (debug_log_handler((x), (str), __FILE__, __LINE__)) // µ÷ÊÔÐÅÏ¢Êä³ö ÓÃÀ´×öÒ»Ð©±¨´í»òÕß¾¯¸æÖ®ÀàµÄÊä³ö
+#define zf_log(x, str)              (debug_log_handler((x), (str), __FILE__, __LINE__)) // è°ƒè¯•ä¿¡æ¯è¾“å‡º ç”¨æ¥åšä¸€äº›æŠ¥é”™æˆ–è€…è­¦å‘Šä¹‹ç±»çš„è¾“å‡º
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êý¼ò½é     CPU±¨´í½Ó¹Ü
-// ·µ»Ø²ÎÊý     void
-// ±¸×¢ÐÅÏ¢     µ±´¥·¢CPU±¨´íÊ±»áÍ¨¹ýlogÐÅÏ¢Êä³öÀ´ÌáÐÑÓÃ»§
+// å‡½æ•°ç®€ä»‹     CPUæŠ¥é”™æŽ¥ç®¡
+// è¿”å›žå‚æ•°     void
+// å¤‡æ³¨ä¿¡æ¯     å½“è§¦å‘CPUæŠ¥é”™æ—¶ä¼šé€šè¿‡logä¿¡æ¯è¾“å‡ºæ¥æé†’ç”¨æˆ·
 //-------------------------------------------------------------------------------------------------------------------
 #define IFX_CFG_CPU_TRAP_BE_HOOK(x)     zf_log(0, "Memory access failure or Use an uninitialized peripheral, Locate faults through debugging"); assert_interrupt_config(); while(1);
 #define IFX_CFG_CPU_TRAP_IPE_HOOK(x)    zf_log(0, "Accessing an null address, Locate faults through debugging");                                assert_interrupt_config(); while(1);
@@ -99,14 +99,14 @@ typedef struct
 }debug_output_struct;
 
 
-#if DEBUG_UART_USE_INTERRUPT                                                            // Èç¹ûÆôÓÃ debug uart ½ÓÊÕÖÐ¶Ï
-#define DEBUG_RING_BUFFER_LEN          (64)                                             // ¶¨Òå»·ÐÎ»º³åÇø´óÐ¡ Ä¬ÈÏ 64byte
+#if DEBUG_UART_USE_INTERRUPT                                                            // å¦‚æžœå¯ç”¨ debug uart æŽ¥æ”¶ä¸­æ–­
+#define DEBUG_RING_BUFFER_LEN          (64)                                             // å®šä¹‰çŽ¯å½¢ç¼“å†²åŒºå¤§å° é»˜è®¤ 64byte
 void    debug_interrupr_handler        (void);
 uint32  debug_read_ring_buffer         (uint8 *buff, uint32 len);
 #endif
 
 
-uint32  debug_send_buffer              (const uint8 *buff, uint32 len);                 // µ÷ÊÔ´®¿Ú»º³åÇø·¢ËÍ
+uint32  debug_send_buffer              (const uint8 *buff, uint32 len);                 // è°ƒè¯•ä¸²å£ç¼“å†²åŒºå‘é€
 void    debug_assert_enable            (void);
 void    debug_assert_disable           (void);
 void    debug_assert_handler           (uint8 pass, char *file, int line);

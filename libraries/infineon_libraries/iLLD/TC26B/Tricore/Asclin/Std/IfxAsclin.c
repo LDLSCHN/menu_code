@@ -410,7 +410,6 @@ uint32 IfxAsclin_write8(Ifx_ASCLIN *asclin,const uint8 *data, uint32 count)
     {
         txData->U = *data++;
         count--;
-        while(asclin->TXFIFOCON.B.FILL > 0);
     }
 
     return count;

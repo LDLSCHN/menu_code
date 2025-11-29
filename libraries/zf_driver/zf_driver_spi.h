@@ -1,37 +1,37 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ����TC264 ��Դ�⣩��һ�����ڹٷ� SDK �ӿڵĵ�������Դ��
-* Copyright (c) 2022 SEEKFREE ��ɿƼ�
+* TC264 Opensourec Library 即（TC264 开源库）是一个基于官方 SDK 接口的第三方开源库
+* Copyright (c) 2022 SEEKFREE 逐飞科技
 *
-* ���ļ��� TC264 ��Դ���һ����
+* 本文件是 TC264 开源库的一部分
 *
-* TC264 ��Դ�� ���������
-* �����Ը���������������ᷢ���� GPL��GNU General Public License���� GNUͨ�ù�������֤��������
-* �� GPL �ĵ�3�棨�� GPL3.0������ѡ��ģ��κκ����İ汾�����·�����/���޸���
+* TC264 开源库 是免费软件
+* 您可以根据自由软件基金会发布的 GPL（GNU General Public License，即 GNU通用公共许可证）的条款
+* 即 GPL 的第3版（即 GPL3.0）或（您选择的）任何后来的版本，重新发布和/或修改它
 *
-* ����Դ��ķ�����ϣ�����ܷ������ã�����δ�������κεı�֤
-* ����û�������������Ի��ʺ��ض���;�ı�֤
-* ����ϸ����μ� GPL
+* 本开源库的发布是希望它能发挥作用，但并未对其作任何的保证
+* 甚至没有隐含的适销性或适合特定用途的保证
+* 更多细节请参见 GPL
 *
-* ��Ӧ�����յ�����Դ���ͬʱ�յ�һ�� GPL �ĸ���
-* ���û�У������<https://www.gnu.org/licenses/>
+* 您应该在收到本开源库的同时收到一份 GPL 的副本
+* 如果没有，请参阅<https://www.gnu.org/licenses/>
 *
-* ����ע����
-* ����Դ��ʹ�� GPL3.0 ��Դ����֤Э�� ������������Ϊ���İ汾
-* ��������Ӣ�İ��� libraries/doc �ļ����µ� GPL3_permission_statement.txt �ļ���
-* ����֤������ libraries �ļ����� �����ļ����µ� LICENSE �ļ�
-* ��ӭ��λʹ�ò����������� ���޸�����ʱ���뱣����ɿƼ��İ�Ȩ����������������
+* 额外注明：
+* 本开源库使用 GPL3.0 开源许可证协议 以上许可申明为译文版本
+* 许可申明英文版在 libraries/doc 文件夹下的 GPL3_permission_statement.txt 文件中
+* 许可证副本在 libraries 文件夹下 即该文件夹下的 LICENSE 文件
+* 欢迎各位使用并传播本程序 但修改内容时必须保留逐飞科技的版权声明（即本声明）
 *
-* �ļ�����          zf_driver_spi
-* ��˾����          �ɶ���ɿƼ����޹�˾
-* �汾��Ϣ          �鿴 libraries/doc �ļ����� version �ļ� �汾˵��
-* ��������          ADS v1.10.2
-* ����ƽ̨          TC264D
-* ��������          https://seekfree.taobao.com/
+* 文件名称          zf_driver_spi
+* 公司名称          成都逐飞科技有限公司
+* 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
+* 开发环境          ADS v1.9.20
+* 适用平台          TC264D
+* 店铺链接          https://seekfree.taobao.com/
 *
-* �޸ļ�¼
-* ����              ����                ��ע
+* 修改记录
+* 日期              作者                备注
 * 2022-09-15       pudding            first version
-* 2023-04-28       pudding            �޸����SPIͬʱʹ�ÿ��ܲ�����ͻ������
+* 2023-04-28       pudding            修复多个SPI同时使用可能产生冲突的问题
 ********************************************************************************************************************/
 
 #ifndef _zf_driver_spi_h_
@@ -39,7 +39,7 @@
 
 #include "zf_common_typedef.h"
 
-typedef enum        // SPIģ���
+typedef enum        // SPI模块号
 {
     SPI_0,
     SPI_1,
@@ -47,7 +47,7 @@ typedef enum        // SPIģ���
     SPI_3,
 }spi_index_enum;
 
-typedef enum        // ö�� SPI ģʽ ��ö�ٶ��岻�����û��޸�
+typedef enum        // 枚举 SPI 模式 此枚举定义不允许用户修改
 {
     SPI_MODE0,
     SPI_MODE1,
@@ -55,42 +55,42 @@ typedef enum        // ö�� SPI ģʽ ��ö�ٶ��岻�����û��޸�
     SPI_MODE3,
 }spi_mode_enum;
 
-typedef enum                                                                                                                // ö��SPI CLK���� ��ö�ٶ��岻�����û��޸�
+typedef enum                                                                                                                // 枚举SPI CLK引脚 此枚举定义不允许用户修改
 {
-    SPI0_SCLK_P20_11 = 0*102+0*6 , SPI0_SCLK_P20_13,                                                                        // SPI0 CLK ���ſ�ѡ��Χ
+    SPI0_SCLK_P20_11 = 0*102+0*6 , SPI0_SCLK_P20_13,                                                                        // SPI0 CLK 引脚可选范围
 
-    SPI1_SCLK_P10_2  = 1*102+0*6 , SPI1_SCLK_P11_6,                                                                         // SPI1 CLK ���ſ�ѡ��Χ
+    SPI1_SCLK_P10_2  = 1*102+0*6 , SPI1_SCLK_P11_6,                                                                         // SPI1 CLK 引脚可选范围
 
-    SPI2_SCLK_P13_0  = 2*102+0*6 , SPI2_SCLK_P13_1, SPI2_SCLK_P15_3, SPI2_SCLK_P15_6, SPI2_SCLK_P15_8,                      // SPI2 CLK ���ſ�ѡ��Χ
+    SPI2_SCLK_P13_0  = 2*102+0*6 , SPI2_SCLK_P13_1, SPI2_SCLK_P15_3, SPI2_SCLK_P15_6, SPI2_SCLK_P15_8,                      // SPI2 CLK 引脚可选范围
 
-    SPI3_SCLK_P02_7  = 3*102+0*6 , SPI3_SCLK_P22_0, SPI3_SCLK_P22_1, SPI3_SCLK_P22_3, SPI3_SCLK_P33_11,                     // SPI3 CLK ���ſ�ѡ��Χ
+    SPI3_SCLK_P02_7  = 3*102+0*6 , SPI3_SCLK_P22_0, SPI3_SCLK_P22_1, SPI3_SCLK_P22_3, SPI3_SCLK_P33_11,                     // SPI3 CLK 引脚可选范围
 }spi_sck_pin_enum;
 
-typedef enum                                                                                                                // ö��SPI MOSI���� ��ö�ٶ��岻�����û��޸�
+typedef enum                                                                                                                // 枚举SPI MOSI引脚 此枚举定义不允许用户修改
 {
-    SPI0_MOSI_P20_12 = 0*102+1*6 , SPI0_MOSI_P20_14,                                                                        // SPI0 MOSI���ſ�ѡ��Χ
+    SPI0_MOSI_P20_12 = 0*102+1*6 , SPI0_MOSI_P20_14,                                                                        // SPI0 MOSI引脚可选范围
 
-    SPI1_MOSI_P10_1  = 1*102+1*6 , SPI1_MOSI_P10_3, SPI1_MOSI_P11_9,                                                        // SPI1 MOSI���ſ�ѡ��Χ
+    SPI1_MOSI_P10_1  = 1*102+1*6 , SPI1_MOSI_P10_3, SPI1_MOSI_P11_9,                                                        // SPI1 MOSI引脚可选范围
 
-    SPI2_MOSI_P13_3  = 2*102+1*6 , SPI2_MOSI_P15_5, SPI2_MOSI_P15_6,                                                        // SPI2 MOSI���ſ�ѡ��Χ
+    SPI2_MOSI_P13_3  = 2*102+1*6 , SPI2_MOSI_P15_5, SPI2_MOSI_P15_6,                                                        // SPI2 MOSI引脚可选范围
 
-    SPI3_MOSI_P02_6  = 3*102+1*6 , SPI3_MOSI_P10_6, SPI3_MOSI_P22_0, SPI3_MOSI_P22_3, SPI3_MOSI_P33_12,                     // SPI3 MOSI���ſ�ѡ��Χ
+    SPI3_MOSI_P02_6  = 3*102+1*6 , SPI3_MOSI_P10_6, SPI3_MOSI_P22_0, SPI3_MOSI_P22_3, SPI3_MOSI_P33_12,                     // SPI3 MOSI引脚可选范围
 }spi_mosi_pin_enum;
 
-typedef enum                                                                                                                // ö��SPI MISO���� ��ö�ٶ��岻�����û��޸�
+typedef enum                                                                                                                // 枚举SPI MISO引脚 此枚举定义不允许用户修改
 {
-    SPI0_MISO_P20_12 = 0*102+2*6 ,                                                                                          // SPI0 MISO���ſ�ѡ��Χ
+    SPI0_MISO_P20_12 = 0*102+2*6 ,                                                                                          // SPI0 MISO引脚可选范围
 
-    SPI1_MISO_P10_1  = 1*102+2*6 , SPI1_MISO_P11_3,                                                                         // SPI1 MISO���ſ�ѡ��Χ
+    SPI1_MISO_P10_1  = 1*102+2*6 , SPI1_MISO_P11_3,                                                                         // SPI1 MISO引脚可选范围
 
-    SPI2_MISO_P15_2  = 2*102+2*6 , SPI2_MISO_P15_4, SPI2_MISO_P15_7, SPI2_MISO_P21_2, SPI2_MISO_P21_3,                      // SPI2 MISO���ſ�ѡ��Χ
+    SPI2_MISO_P15_2  = 2*102+2*6 , SPI2_MISO_P15_4, SPI2_MISO_P15_7, SPI2_MISO_P21_2, SPI2_MISO_P21_3,                      // SPI2 MISO引脚可选范围
 
-    SPI3_MISO_P02_5  = 3*102+2*6 , SPI3_MISO_P22_1, SPI3_MISO_P21_2, SPI3_MISO_P21_3, SPI3_MISO_P33_13,                     // SPI3 MISO���ſ�ѡ��Χ
+    SPI3_MISO_P02_5  = 3*102+2*6 , SPI3_MISO_P22_1, SPI3_MISO_P21_2, SPI3_MISO_P21_3, SPI3_MISO_P33_13,                     // SPI3 MISO引脚可选范围
 }spi_miso_pin_enum;
 
-typedef enum                                        // ö��SPI CS���� ��ö�ٶ��岻�����û��޸�
+typedef enum                                        // 枚举SPI CS引脚 此枚举定义不允许用户修改
 {
-    SPI0_CS0_P20_8   = 0*102+3*6 ,                  // SPI0 CS0 ���ſ�ѡ��Χ
+    SPI0_CS0_P20_8   = 0*102+3*6 ,                  // SPI0 CS0 引脚可选范围
     SPI0_CS1_P20_9   = 0*102+4*6 ,
     SPI0_CS2_P20_13  = 0*102+5*6 ,
     SPI0_CS3_P11_10  = 0*102+6*6 ,
@@ -139,7 +139,7 @@ typedef enum                                        // ö��SPI CS���� ��ö�ٶ���
     SPI_CS_NULL,
 }spi_cs_pin_enum;
 
-//====================================================SPI ��������====================================================
+//====================================================SPI 基础函数====================================================
 void        spi_write_8bit                  (spi_index_enum spi_n, const uint8 data);
 void        spi_write_8bit_array            (spi_index_enum spi_n, const uint8 *data, uint32 len);
 
@@ -168,6 +168,6 @@ void        spi_transfer_8bit               (spi_index_enum spi_n, const uint8 *
 void        spi_transfer_16bit              (spi_index_enum spi_n, const uint16 *write_buffer, uint16 *read_buffer, uint32 len);
 
 void        spi_init                        (spi_index_enum spi_n, spi_mode_enum mode, uint32 baud, spi_sck_pin_enum sck_pin, spi_mosi_pin_enum mosi_pin, spi_miso_pin_enum miso_pin, spi_cs_pin_enum cs_pin);
-//====================================================SPI ��������====================================================
+//====================================================SPI 基础函数====================================================
 
 #endif

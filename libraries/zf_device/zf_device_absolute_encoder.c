@@ -1,48 +1,48 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ¼´£¨TC264 ¿ªÔ´¿â£©ÊÇÒ»¸ö»ùÓÚ¹Ù·½ SDK ½Ó¿ÚµÄµÚÈı·½¿ªÔ´¿â
-* Copyright (c) 2022 SEEKFREE Öğ·É¿Æ¼¼
+* TC264 Opensourec Library å³ï¼ˆTC264 å¼€æºåº“ï¼‰æ˜¯ä¸€ä¸ªåŸºäºå®˜æ–¹ SDK æ¥å£çš„ç¬¬ä¸‰æ–¹å¼€æºåº“
+* Copyright (c) 2022 SEEKFREE é€é£ç§‘æŠ€
 *
-* ±¾ÎÄ¼şÊÇ TC264 ¿ªÔ´¿âµÄÒ»²¿·Ö
+* æœ¬æ–‡ä»¶æ˜¯ TC264 å¼€æºåº“çš„ä¸€éƒ¨åˆ†
 *
-* TC264 ¿ªÔ´¿â ÊÇÃâ·ÑÈí¼ş
-* Äú¿ÉÒÔ¸ù¾İ×ÔÓÉÈí¼ş»ù½ğ»á·¢²¼µÄ GPL£¨GNU General Public License£¬¼´ GNUÍ¨ÓÃ¹«¹²Ğí¿ÉÖ¤£©µÄÌõ¿î
-* ¼´ GPL µÄµÚ3°æ£¨¼´ GPL3.0£©»ò£¨ÄúÑ¡ÔñµÄ£©ÈÎºÎºóÀ´µÄ°æ±¾£¬ÖØĞÂ·¢²¼ºÍ/»òĞŞ¸ÄËü
+* TC264 å¼€æºåº“ æ˜¯å…è´¹è½¯ä»¶
+* æ‚¨å¯ä»¥æ ¹æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šå‘å¸ƒçš„ GPLï¼ˆGNU General Public Licenseï¼Œå³ GNUé€šç”¨å…¬å…±è®¸å¯è¯ï¼‰çš„æ¡æ¬¾
+* å³ GPL çš„ç¬¬3ç‰ˆï¼ˆå³ GPL3.0ï¼‰æˆ–ï¼ˆæ‚¨é€‰æ‹©çš„ï¼‰ä»»ä½•åæ¥çš„ç‰ˆæœ¬ï¼Œé‡æ–°å‘å¸ƒå’Œ/æˆ–ä¿®æ”¹å®ƒ
 *
-* ±¾¿ªÔ´¿âµÄ·¢²¼ÊÇÏ£ÍûËüÄÜ·¢»Ó×÷ÓÃ£¬µ«²¢Î´¶ÔÆä×÷ÈÎºÎµÄ±£Ö¤
-* ÉõÖÁÃ»ÓĞÒşº¬µÄÊÊÏúĞÔ»òÊÊºÏÌØ¶¨ÓÃÍ¾µÄ±£Ö¤
-* ¸ü¶àÏ¸½ÚÇë²Î¼û GPL
+* æœ¬å¼€æºåº“çš„å‘å¸ƒæ˜¯å¸Œæœ›å®ƒèƒ½å‘æŒ¥ä½œç”¨ï¼Œä½†å¹¶æœªå¯¹å…¶ä½œä»»ä½•çš„ä¿è¯
+* ç”šè‡³æ²¡æœ‰éšå«çš„é€‚é”€æ€§æˆ–é€‚åˆç‰¹å®šç”¨é€”çš„ä¿è¯
+* æ›´å¤šç»†èŠ‚è¯·å‚è§ GPL
 *
-* ÄúÓ¦¸ÃÔÚÊÕµ½±¾¿ªÔ´¿âµÄÍ¬Ê±ÊÕµ½Ò»·İ GPL µÄ¸±±¾
-* Èç¹ûÃ»ÓĞ£¬Çë²ÎÔÄ<https://www.gnu.org/licenses/>
+* æ‚¨åº”è¯¥åœ¨æ”¶åˆ°æœ¬å¼€æºåº“çš„åŒæ—¶æ”¶åˆ°ä¸€ä»½ GPL çš„å‰¯æœ¬
+* å¦‚æœæ²¡æœ‰ï¼Œè¯·å‚é˜…<https://www.gnu.org/licenses/>
 *
-* ¶îÍâ×¢Ã÷£º
-* ±¾¿ªÔ´¿âÊ¹ÓÃ GPL3.0 ¿ªÔ´Ğí¿ÉÖ¤Ğ­Òé ÒÔÉÏĞí¿ÉÉêÃ÷ÎªÒëÎÄ°æ±¾
-* Ğí¿ÉÉêÃ÷Ó¢ÎÄ°æÔÚ libraries/doc ÎÄ¼ş¼ĞÏÂµÄ GPL3_permission_statement.txt ÎÄ¼şÖĞ
-* Ğí¿ÉÖ¤¸±±¾ÔÚ libraries ÎÄ¼ş¼ĞÏÂ ¼´¸ÃÎÄ¼ş¼ĞÏÂµÄ LICENSE ÎÄ¼ş
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌĞò µ«ĞŞ¸ÄÄÚÈİÊ±±ØĞë±£ÁôÖğ·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷£¨¼´±¾ÉùÃ÷£©
+* é¢å¤–æ³¨æ˜ï¼š
+* æœ¬å¼€æºåº“ä½¿ç”¨ GPL3.0 å¼€æºè®¸å¯è¯åè®® ä»¥ä¸Šè®¸å¯ç”³æ˜ä¸ºè¯‘æ–‡ç‰ˆæœ¬
+* è®¸å¯ç”³æ˜è‹±æ–‡ç‰ˆåœ¨ libraries/doc æ–‡ä»¶å¤¹ä¸‹çš„ GPL3_permission_statement.txt æ–‡ä»¶ä¸­
+* è®¸å¯è¯å‰¯æœ¬åœ¨ libraries æ–‡ä»¶å¤¹ä¸‹ å³è¯¥æ–‡ä»¶å¤¹ä¸‹çš„ LICENSE æ–‡ä»¶
+* æ¬¢è¿å„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åº ä½†ä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£ç§‘æŠ€çš„ç‰ˆæƒå£°æ˜ï¼ˆå³æœ¬å£°æ˜ï¼‰
 *
-* ÎÄ¼şÃû³Æ          zf_device_absolute_encoder
-* ¹«Ë¾Ãû³Æ          ³É¶¼Öğ·É¿Æ¼¼ÓĞÏŞ¹«Ë¾
-* °æ±¾ĞÅÏ¢          ²é¿´ libraries/doc ÎÄ¼ş¼ĞÄÚ version ÎÄ¼ş °æ±¾ËµÃ÷
-* ¿ª·¢»·¾³          ADS v1.10.2
-* ÊÊÓÃÆ½Ì¨          TC264D
-* µêÆÌÁ´½Ó          https://seekfree.taobao.com/
+* æ–‡ä»¶åç§°          zf_device_absolute_encoder
+* å…¬å¸åç§°          æˆéƒ½é€é£ç§‘æŠ€æœ‰é™å…¬å¸
+* ç‰ˆæœ¬ä¿¡æ¯          æŸ¥çœ‹ libraries/doc æ–‡ä»¶å¤¹å†… version æ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜
+* å¼€å‘ç¯å¢ƒ          ADS v1.9.20
+* é€‚ç”¨å¹³å°          TC264D
+* åº—é“ºé“¾æ¥          https://seekfree.taobao.com/
 *
-* ĞŞ¸Ä¼ÇÂ¼
-* ÈÕÆÚ              ×÷Õß                ±¸×¢
+* ä¿®æ”¹è®°å½•
+* æ—¥æœŸ              ä½œè€…                å¤‡æ³¨
 * 2022-09-15       pudding           first version
-* 2023-04-25       pudding           Ôö¼ÓÖĞÎÄ×¢ÊÍËµÃ÷
+* 2023-04-25       pudding           å¢åŠ ä¸­æ–‡æ³¨é‡Šè¯´æ˜
 ********************************************************************************************************************/
 /*********************************************************************************************************************
-* ½ÓÏß¶¨Òå£º
+* æ¥çº¿å®šä¹‰ï¼š
 *                   ------------------------------------
-*                   Ä£¿é¹Ü½Å            µ¥Æ¬»ú¹Ü½Å
-*                   SCLK               ²é¿´ zf_device_absolute_encoder.h ÖĞ ABSOLUTE_ENCODER_SCLK_PIN ºê¶¨Òå
-*                   MOSI               ²é¿´ zf_device_absolute_encoder.h ÖĞ ABSOLUTE_ENCODER_MOSI_PIN ºê¶¨Òå
-*                   MISO               ²é¿´ zf_device_absolute_encoder.h ÖĞ ABSOLUTE_ENCODER_MISO_PIN ºê¶¨Òå
-*                   CS                 ²é¿´ zf_device_absolute_encoder.h ÖĞ ABSOLUTE_ENCODER_CS_PIN ºê¶¨Òå
-*                   VCC                3.3VµçÔ´
-*                   GND                µçÔ´µØ
+*                   æ¨¡å—ç®¡è„š            å•ç‰‡æœºç®¡è„š
+*                   SCLK               æŸ¥çœ‹ zf_device_absolute_encoder.h ä¸­ ABSOLUTE_ENCODER_SCLK_PIN å®å®šä¹‰
+*                   MOSI               æŸ¥çœ‹ zf_device_absolute_encoder.h ä¸­ ABSOLUTE_ENCODER_MOSI_PIN å®å®šä¹‰
+*                   MISO               æŸ¥çœ‹ zf_device_absolute_encoder.h ä¸­ ABSOLUTE_ENCODER_MISO_PIN å®å®šä¹‰
+*                   CS                 æŸ¥çœ‹ zf_device_absolute_encoder.h ä¸­ ABSOLUTE_ENCODER_CS_PIN å®å®šä¹‰
+*                   VCC                3.3Vç”µæº
+*                   GND                ç”µæºåœ°
 *                   ------------------------------------
 ********************************************************************************************************************/
 
@@ -55,99 +55,99 @@
 
 #include "zf_device_absolute_encoder.h"
 
-static int16 now_location = 0;                  // µ±Ç°Î»ÖÃ¶¨Òå static:¾²Ì¬ÉùÃ÷£¬½ö´ËÎÄ¼ş¿ÉÓÃ´Ë±äÁ¿
-static int16 last_location = 0;                 // ÉÏ´ÎÎ»ÖÃ¶¨Òå static:¾²Ì¬ÉùÃ÷£¬½ö´ËÎÄ¼ş¿ÉÓÃ´Ë±äÁ¿
+static int16 now_location = 0;                  // å½“å‰ä½ç½®å®šä¹‰ static:é™æ€å£°æ˜ï¼Œä»…æ­¤æ–‡ä»¶å¯ç”¨æ­¤å˜é‡
+static int16 last_location = 0;                 // ä¸Šæ¬¡ä½ç½®å®šä¹‰ static:é™æ€å£°æ˜ï¼Œä»…æ­¤æ–‡ä»¶å¯ç”¨æ­¤å˜é‡
 
 #if ABSOLUTE_ENCODER_USE_SOFT_SPI
-static soft_spi_info_struct                 absolute_encoder_spi;                                   // ¶¨Òå½Ç¶È±àÂëÆ÷Èí¼şSPI½á¹¹Ìå
-#define absolute_encoder_read()             (soft_spi_read_8bit(&absolute_encoder_spi))             // ¶¨ÒåÊı¾İ¶ÁÈ¡º¯Êı
-#define absolute_encoder_write(data)        (soft_spi_write_8bit(&absolute_encoder_spi, (data)))    // ¶¨ÒåÊı¾İĞ´Èëº¯Êı
+static soft_spi_info_struct                 absolute_encoder_spi;                                   // å®šä¹‰è§’åº¦ç¼–ç å™¨è½¯ä»¶SPIç»“æ„ä½“
+#define absolute_encoder_read()             (soft_spi_read_8bit(&absolute_encoder_spi))             // å®šä¹‰æ•°æ®è¯»å–å‡½æ•°
+#define absolute_encoder_write(data)        (soft_spi_write_8bit(&absolute_encoder_spi, (data)))    // å®šä¹‰æ•°æ®å†™å…¥å‡½æ•°
 #else
-#define absolute_encoder_read()             (spi_read_8bit(ABSOLUTE_ENCODER_SPI))                   // ¶¨ÒåÊı¾İ¶ÁÈ¡º¯Êı
-#define absolute_encoder_write(data)        (spi_write_8bit(ABSOLUTE_ENCODER_SPI, (data)))          // ¶¨ÒåÊı¾İĞ´Èëº¯Êı
+#define absolute_encoder_read()             (spi_read_8bit(ABSOLUTE_ENCODER_SPI))                   // å®šä¹‰æ•°æ®è¯»å–å‡½æ•°
+#define absolute_encoder_write(data)        (spi_write_8bit(ABSOLUTE_ENCODER_SPI, (data)))          // å®šä¹‰æ•°æ®å†™å…¥å‡½æ•°
 #endif
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é     ¾ø¶ÔÖµ±àÂëÆ÷Ğ´¼Ä´æÆ÷
-// ²ÎÊıËµÃ÷     reg             ¼Ä´æÆ÷µØÖ·
-// ²ÎÊıËµÃ÷     data            Êı¾İ
-// ·µ»Ø²ÎÊı     void
-// Ê¹ÓÃÊ¾Àı     absolute_encoder_write_register(i + 1, dat[i]);
-// ±¸×¢ĞÅÏ¢     ÄÚ²¿µ÷ÓÃ
+// å‡½æ•°ç®€ä»‹     ç»å¯¹å€¼ç¼–ç å™¨å†™å¯„å­˜å™¨
+// å‚æ•°è¯´æ˜     reg             å¯„å­˜å™¨åœ°å€
+// å‚æ•°è¯´æ˜     data            æ•°æ®
+// è¿”å›å‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     absolute_encoder_write_register(i + 1, dat[i]);
+// å¤‡æ³¨ä¿¡æ¯     å†…éƒ¨è°ƒç”¨
 //-------------------------------------------------------------------------------------------------------------------
 static void absolute_encoder_write_register(uint8 reg, uint8 data)
 {
-    ABSOLUTE_ENCODER_CSN(0);                                                    // Æ¬Ñ¡À­µÍÑ¡ÖĞ
-    absolute_encoder_write(reg | ABSOLUTE_ENCODER_SPI_W);                       // ¼Ä´æÆ÷
-    absolute_encoder_write(data);                                               // Êı¾İ
-    ABSOLUTE_ENCODER_CSN(1);                                                    // Æ¬Ñ¡À­¸ßÊÍ·Å
-    system_delay_us(1);                                                         // ±ØÒª²Ù×÷
-    ABSOLUTE_ENCODER_CSN(0);                                                    // Æ¬Ñ¡À­µÍÑ¡ÖĞ
-    absolute_encoder_read();                                                    // ÕâÀï»á·µ»ØĞ´ÈëÊÇ·ñ³É¹¦ µ«²»×÷ÅĞ¶Ï
-    absolute_encoder_read();                                                    // ±ØÒª²Ù×÷
-    ABSOLUTE_ENCODER_CSN(1);                                                    // Æ¬Ñ¡À­¸ßÊÍ·Å
+    ABSOLUTE_ENCODER_CSN(0);                                                    // ç‰‡é€‰æ‹‰ä½é€‰ä¸­
+    absolute_encoder_write(reg | ABSOLUTE_ENCODER_SPI_W);                       // å¯„å­˜å™¨
+    absolute_encoder_write(data);                                               // æ•°æ®
+    ABSOLUTE_ENCODER_CSN(1);                                                    // ç‰‡é€‰æ‹‰é«˜é‡Šæ”¾
+    system_delay_us(1);                                                         // å¿…è¦æ“ä½œ
+    ABSOLUTE_ENCODER_CSN(0);                                                    // ç‰‡é€‰æ‹‰ä½é€‰ä¸­
+    absolute_encoder_read();                                                    // è¿™é‡Œä¼šè¿”å›å†™å…¥æ˜¯å¦æˆåŠŸ ä½†ä¸ä½œåˆ¤æ–­
+    absolute_encoder_read();                                                    // å¿…è¦æ“ä½œ
+    ABSOLUTE_ENCODER_CSN(1);                                                    // ç‰‡é€‰æ‹‰é«˜é‡Šæ”¾
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é     ¾ø¶ÔÖµ±àÂëÆ÷¶Á¼Ä´æÆ÷ ÄÚ²¿µ÷ÓÃ
-// ²ÎÊıËµÃ÷     reg             ¼Ä´æÆ÷µØÖ·
-// ·µ»Ø²ÎÊı     uint8           Êı¾İ
-// Ê¹ÓÃÊ¾Àı     absolute_encoder_read_register(6);
-// ±¸×¢ĞÅÏ¢     ÄÚ²¿µ÷ÓÃ
+// å‡½æ•°ç®€ä»‹     ç»å¯¹å€¼ç¼–ç å™¨è¯»å¯„å­˜å™¨ å†…éƒ¨è°ƒç”¨
+// å‚æ•°è¯´æ˜     reg             å¯„å­˜å™¨åœ°å€
+// è¿”å›å‚æ•°     uint8           æ•°æ®
+// ä½¿ç”¨ç¤ºä¾‹     absolute_encoder_read_register(6);
+// å¤‡æ³¨ä¿¡æ¯     å†…éƒ¨è°ƒç”¨
 //-------------------------------------------------------------------------------------------------------------------
 static uint8 absolute_encoder_read_register(uint8 reg)
 {
     uint8 data = 0;
-    ABSOLUTE_ENCODER_CSN(0);                                                    // Æ¬Ñ¡À­µÍÑ¡ÖĞ
-    absolute_encoder_write(reg | ABSOLUTE_ENCODER_SPI_R);                       // ¼Ä´æÆ÷
-    absolute_encoder_write(0x00);                                               // Õ¼Î»
-    ABSOLUTE_ENCODER_CSN(1);                                                    // Æ¬Ñ¡À­¸ßÊÍ·Å
-    system_delay_us(1);                                                         // ±ØÒª²Ù×÷
-    ABSOLUTE_ENCODER_CSN(0);                                                    // Æ¬Ñ¡À­µÍÑ¡ÖĞ
-    data = absolute_encoder_read();                                             // »ñÈ¡¶ÁÈ¡µÄÊı¾İ
-    absolute_encoder_read();                                                    // ±ØÒª²Ù×÷
-    ABSOLUTE_ENCODER_CSN(1);                                                    // Æ¬Ñ¡À­¸ßÊÍ·Å
+    ABSOLUTE_ENCODER_CSN(0);                                                    // ç‰‡é€‰æ‹‰ä½é€‰ä¸­
+    absolute_encoder_write(reg | ABSOLUTE_ENCODER_SPI_R);                       // å¯„å­˜å™¨
+    absolute_encoder_write(0x00);                                               // å ä½
+    ABSOLUTE_ENCODER_CSN(1);                                                    // ç‰‡é€‰æ‹‰é«˜é‡Šæ”¾
+    system_delay_us(1);                                                         // å¿…è¦æ“ä½œ
+    ABSOLUTE_ENCODER_CSN(0);                                                    // ç‰‡é€‰æ‹‰ä½é€‰ä¸­
+    data = absolute_encoder_read();                                             // è·å–è¯»å–çš„æ•°æ®
+    absolute_encoder_read();                                                    // å¿…è¦æ“ä½œ
+    ABSOLUTE_ENCODER_CSN(1);                                                    // ç‰‡é€‰æ‹‰é«˜é‡Šæ”¾
     return data;
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é     ¾ø¶ÔÖµ±àÂëÆ÷¶ÁÎ»ÖÃ ÄÚ²¿µ÷ÓÃ
-// ²ÎÊıËµÃ÷     void
-// ·µ»Ø²ÎÊı     uint16          Î»ÖÃÖµ
-// Ê¹ÓÃÊ¾Àı     absolute_encoder_read_data();
-// ±¸×¢ĞÅÏ¢     ÄÚ²¿µ÷ÓÃ
+// å‡½æ•°ç®€ä»‹     ç»å¯¹å€¼ç¼–ç å™¨è¯»ä½ç½® å†…éƒ¨è°ƒç”¨
+// å‚æ•°è¯´æ˜     void
+// è¿”å›å‚æ•°     uint16          ä½ç½®å€¼
+// ä½¿ç”¨ç¤ºä¾‹     absolute_encoder_read_data();
+// å¤‡æ³¨ä¿¡æ¯     å†…éƒ¨è°ƒç”¨
 //-------------------------------------------------------------------------------------------------------------------
 static uint16 absolute_encoder_read_data (void)
 {
     uint16 data = 0;
-    ABSOLUTE_ENCODER_CSN(0);                                                    // Æ¬Ñ¡À­µÍÑ¡ÖĞ
-    data = absolute_encoder_read();                                             // »ñÈ¡¸ß°ËÎ»Êı¾İ
-    data = (data & 0x00FF) << 8;                                                // Êı¾İÎ»ÒÆ
-    data |= absolute_encoder_read();                                            // »ñÈ¡µÍ°ËÎ»Êı¾İ
-    ABSOLUTE_ENCODER_CSN(1);                                                    // Æ¬Ñ¡À­¸ßÊÍ·Å
+    ABSOLUTE_ENCODER_CSN(0);                                                    // ç‰‡é€‰æ‹‰ä½é€‰ä¸­
+    data = absolute_encoder_read();                                             // è·å–é«˜å…«ä½æ•°æ®
+    data = (data & 0x00FF) << 8;                                                // æ•°æ®ä½ç§»
+    data |= absolute_encoder_read();                                            // è·å–ä½å…«ä½æ•°æ®
+    ABSOLUTE_ENCODER_CSN(1);                                                    // ç‰‡é€‰æ‹‰é«˜é‡Šæ”¾
     return data;
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é     ¾ø¶ÔÖµ±àÂëÆ÷×Ô¼ì ÄÚ²¿µ÷ÓÃ
-// ²ÎÊıËµÃ÷     void
-// ·µ»Ø²ÎÊı     uint8           ×Ô¼ì×´Ì¬
-// Ê¹ÓÃÊ¾Àı     absolute_encoder_self_check();
-// ±¸×¢ĞÅÏ¢     ÄÚ²¿µ÷ÓÃ
+// å‡½æ•°ç®€ä»‹     ç»å¯¹å€¼ç¼–ç å™¨è‡ªæ£€ å†…éƒ¨è°ƒç”¨
+// å‚æ•°è¯´æ˜     void
+// è¿”å›å‚æ•°     uint8           è‡ªæ£€çŠ¶æ€
+// ä½¿ç”¨ç¤ºä¾‹     absolute_encoder_self_check();
+// å¤‡æ³¨ä¿¡æ¯     å†…éƒ¨è°ƒç”¨
 //-------------------------------------------------------------------------------------------------------------------
 static uint8 absolute_encoder_self_check (void)
 {
     uint8 i = 0, return_state = 0;
     uint8 dat[6] = {0, 0, 0, 0xC0, 0xFF, 0x1C};
     uint16 time_count = 0;
-    while(0x1C != absolute_encoder_read_register(6))                            // »ñÈ¡×´Ì¬¼Ä´æÆ÷
+    while(0x1C != absolute_encoder_read_register(6))                            // è·å–çŠ¶æ€å¯„å­˜å™¨
     {
         for(i = 0; 6 > i; i ++)
         {
-            absolute_encoder_write_register(i + 1, dat[i]);                     // Ğ´ÈëÄ¬ÈÏÅäÖÃ²ÎÊı
+            absolute_encoder_write_register(i + 1, dat[i]);                     // å†™å…¥é»˜è®¤é…ç½®å‚æ•°
             system_delay_ms(1);
         }
-        if(ABSOLUTE_ENCODER_TIMEOUT_COUNT < time_count ++)                      // µÈ´ı³¬Ê±
+        if(ABSOLUTE_ENCODER_TIMEOUT_COUNT < time_count ++)                      // ç­‰å¾…è¶…æ—¶
         {
             return_state = 1;
             break;
@@ -157,25 +157,25 @@ static uint8 absolute_encoder_self_check (void)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é     ¾ø¶ÔÖµ±àÂëÆ÷»ñÈ¡µ±Ç°½Ç¶ÈÖµ
-// ²ÎÊıËµÃ÷     void
-// ·µ»Ø²ÎÊı     int16           ½Ç¶ÈÖµ
-// Ê¹ÓÃÊ¾Àı     absolute_encoder_get_location();
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹     ç»å¯¹å€¼ç¼–ç å™¨è·å–å½“å‰è§’åº¦å€¼
+// å‚æ•°è¯´æ˜     void
+// è¿”å›å‚æ•°     int16           è§’åº¦å€¼
+// ä½¿ç”¨ç¤ºä¾‹     absolute_encoder_get_location();
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 int16 absolute_encoder_get_location (void)
 {
-    last_location = now_location;                                               // ¸üĞÂÊı¾İÇ°±£´æÉÏÒ»´ÎµÄÎ»ÖÃ
-    now_location = absolute_encoder_read_data() >> 4;                           // ¶ÁÈ¡µ±Ç°Î»ÖÃ
+    last_location = now_location;                                               // æ›´æ–°æ•°æ®å‰ä¿å­˜ä¸Šä¸€æ¬¡çš„ä½ç½®
+    now_location = absolute_encoder_read_data() >> 4;                           // è¯»å–å½“å‰ä½ç½®
     return now_location;
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é     ¾ø¶ÔÖµ±àÂëÆ÷»ñÈ¡Ïà½ÏÉÏ´ÎÎ»ÖÃµÄÆ«ÒÆÖµ
-// ²ÎÊıËµÃ÷     void
-// ·µ»Ø²ÎÊı     int16           Æ«ÒÆÖµ
-// Ê¹ÓÃÊ¾Àı     absolute_encoder_get_offset();
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹     ç»å¯¹å€¼ç¼–ç å™¨è·å–ç›¸è¾ƒä¸Šæ¬¡ä½ç½®çš„åç§»å€¼
+// å‚æ•°è¯´æ˜     void
+// è¿”å›å‚æ•°     int16           åç§»å€¼
+// ä½¿ç”¨ç¤ºä¾‹     absolute_encoder_get_offset();
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 int16 absolute_encoder_get_offset (void)
 {
@@ -192,11 +192,11 @@ int16 absolute_encoder_get_offset (void)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é     ¾ø¶ÔÖµ±àÂëÆ÷³õÊ¼»¯
-// ²ÎÊıËµÃ÷     void
-// ·µ»Ø²ÎÊı     uint8           ³õÊ¼»¯×´Ì¬ 0-³É¹¦ 1-Ê§°Ü
-// Ê¹ÓÃÊ¾Àı     absolute_encoder_init();
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹     ç»å¯¹å€¼ç¼–ç å™¨åˆå§‹åŒ–
+// å‚æ•°è¯´æ˜     void
+// è¿”å›å‚æ•°     uint8           åˆå§‹åŒ–çŠ¶æ€ 0-æˆåŠŸ 1-å¤±è´¥
+// ä½¿ç”¨ç¤ºä¾‹     absolute_encoder_init();
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 uint8 absolute_encoder_init (void)
 {
@@ -213,17 +213,17 @@ uint8 absolute_encoder_init (void)
     {
         if(absolute_encoder_self_check())
         {
-            // Èç¹û³ÌĞòÔÚÊä³öÁË¶ÏÑÔĞÅÏ¢ ²¢ÇÒÌáÊ¾³ö´íÎ»ÖÃÔÚÕâÀï
-            // ÄÇÃ´¾ÍÊÇ¾ø¶ÔÖµ±àÂëÆ÷×Ô¼ì³ö´í²¢³¬Ê±ÍË³öÁË
-            // ¼ì²éÒ»ÏÂ½ÓÏßÓĞÃ»ÓĞÎÊÌâ Èç¹ûÃ»ÎÊÌâ¿ÉÄÜ¾ÍÊÇ»µÁË
+            // å¦‚æœç¨‹åºåœ¨è¾“å‡ºäº†æ–­è¨€ä¿¡æ¯ å¹¶ä¸”æç¤ºå‡ºé”™ä½ç½®åœ¨è¿™é‡Œ
+            // é‚£ä¹ˆå°±æ˜¯ç»å¯¹å€¼ç¼–ç å™¨è‡ªæ£€å‡ºé”™å¹¶è¶…æ—¶é€€å‡ºäº†
+            // æ£€æŸ¥ä¸€ä¸‹æ¥çº¿æœ‰æ²¡æœ‰é—®é¢˜ å¦‚æœæ²¡é—®é¢˜å¯èƒ½å°±æ˜¯åäº†
             return_state = 1;
             zf_log(0, "absolute encoder init errror.");
             break;
         }
-        absolute_encoder_write_register(ABSOLUTE_ENCODER_DIR_REG, 0x00);                    // ÉèÖÃĞı×ª·½Ïò Õı×ªÊıÖµ±äĞ¡£º0x00   ·´×ªÊıÖµ±ä´ó£º0x80
+        absolute_encoder_write_register(ABSOLUTE_ENCODER_DIR_REG, 0x00);                    // è®¾ç½®æ—‹è½¬æ–¹å‘ æ­£è½¬æ•°å€¼å˜å°ï¼š0x00   åè½¬æ•°å€¼å˜å¤§ï¼š0x80
         zero_position = (uint16)(4096 - zero_position);
         zero_position = zero_position << 4;
-        absolute_encoder_write_register(ABSOLUTE_ENCODER_ZERO_L_REG, (uint8)zero_position); // ÉèÖÃÁãÎ»
+        absolute_encoder_write_register(ABSOLUTE_ENCODER_ZERO_L_REG, (uint8)zero_position); // è®¾ç½®é›¶ä½
         absolute_encoder_write_register(ABSOLUTE_ENCODER_ZERO_H_REG, zero_position >> 8);
     }while(0);
     return return_state;

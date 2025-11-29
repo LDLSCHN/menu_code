@@ -1,38 +1,38 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ¼´£¨TC264 ¿ªÔ´¿â£©ÊÇÒ»¸ö»ùÓÚ¹Ù·½ SDK ½Ó¿ÚµÄµÚÈı·½¿ªÔ´¿â
-* Copyright (c) 2022 SEEKFREE Öğ·É¿Æ¼¼
+* TC264 Opensourec Library å³ï¼ˆTC264 å¼€æºåº“ï¼‰æ˜¯ä¸€ä¸ªåŸºäºå®˜æ–¹ SDK æ¥å£çš„ç¬¬ä¸‰æ–¹å¼€æºåº“
+* Copyright (c) 2022 SEEKFREE é€é£ç§‘æŠ€
 *
-* ±¾ÎÄ¼şÊÇ TC264 ¿ªÔ´¿âµÄÒ»²¿·Ö
+* æœ¬æ–‡ä»¶æ˜¯ TC264 å¼€æºåº“çš„ä¸€éƒ¨åˆ†
 *
-* TC264 ¿ªÔ´¿â ÊÇÃâ·ÑÈí¼ş
-* Äú¿ÉÒÔ¸ù¾İ×ÔÓÉÈí¼ş»ù½ğ»á·¢²¼µÄ GPL£¨GNU General Public License£¬¼´ GNUÍ¨ÓÃ¹«¹²Ğí¿ÉÖ¤£©µÄÌõ¿î
-* ¼´ GPL µÄµÚ3°æ£¨¼´ GPL3.0£©»ò£¨ÄúÑ¡ÔñµÄ£©ÈÎºÎºóÀ´µÄ°æ±¾£¬ÖØĞÂ·¢²¼ºÍ/»òĞŞ¸ÄËü
+* TC264 å¼€æºåº“ æ˜¯å…è´¹è½¯ä»¶
+* æ‚¨å¯ä»¥æ ¹æ®è‡ªç”±è½¯ä»¶åŸºé‡‘ä¼šå‘å¸ƒçš„ GPLï¼ˆGNU General Public Licenseï¼Œå³ GNUé€šç”¨å…¬å…±è®¸å¯è¯ï¼‰çš„æ¡æ¬¾
+* å³ GPL çš„ç¬¬3ç‰ˆï¼ˆå³ GPL3.0ï¼‰æˆ–ï¼ˆæ‚¨é€‰æ‹©çš„ï¼‰ä»»ä½•åæ¥çš„ç‰ˆæœ¬ï¼Œé‡æ–°å‘å¸ƒå’Œ/æˆ–ä¿®æ”¹å®ƒ
 *
-* ±¾¿ªÔ´¿âµÄ·¢²¼ÊÇÏ£ÍûËüÄÜ·¢»Ó×÷ÓÃ£¬µ«²¢Î´¶ÔÆä×÷ÈÎºÎµÄ±£Ö¤
-* ÉõÖÁÃ»ÓĞÒşº¬µÄÊÊÏúĞÔ»òÊÊºÏÌØ¶¨ÓÃÍ¾µÄ±£Ö¤
-* ¸ü¶àÏ¸½ÚÇë²Î¼û GPL
+* æœ¬å¼€æºåº“çš„å‘å¸ƒæ˜¯å¸Œæœ›å®ƒèƒ½å‘æŒ¥ä½œç”¨ï¼Œä½†å¹¶æœªå¯¹å…¶ä½œä»»ä½•çš„ä¿è¯
+* ç”šè‡³æ²¡æœ‰éšå«çš„é€‚é”€æ€§æˆ–é€‚åˆç‰¹å®šç”¨é€”çš„ä¿è¯
+* æ›´å¤šç»†èŠ‚è¯·å‚è§ GPL
 *
-* ÄúÓ¦¸ÃÔÚÊÕµ½±¾¿ªÔ´¿âµÄÍ¬Ê±ÊÕµ½Ò»·İ GPL µÄ¸±±¾
-* Èç¹ûÃ»ÓĞ£¬Çë²ÎÔÄ<https://www.gnu.org/licenses/>
+* æ‚¨åº”è¯¥åœ¨æ”¶åˆ°æœ¬å¼€æºåº“çš„åŒæ—¶æ”¶åˆ°ä¸€ä»½ GPL çš„å‰¯æœ¬
+* å¦‚æœæ²¡æœ‰ï¼Œè¯·å‚é˜…<https://www.gnu.org/licenses/>
 *
-* ¶îÍâ×¢Ã÷£º
-* ±¾¿ªÔ´¿âÊ¹ÓÃ GPL3.0 ¿ªÔ´Ğí¿ÉÖ¤Ğ­Òé ÒÔÉÏĞí¿ÉÉêÃ÷ÎªÒëÎÄ°æ±¾
-* Ğí¿ÉÉêÃ÷Ó¢ÎÄ°æÔÚ libraries/doc ÎÄ¼ş¼ĞÏÂµÄ GPL3_permission_statement.txt ÎÄ¼şÖĞ
-* Ğí¿ÉÖ¤¸±±¾ÔÚ libraries ÎÄ¼ş¼ĞÏÂ ¼´¸ÃÎÄ¼ş¼ĞÏÂµÄ LICENSE ÎÄ¼ş
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌĞò µ«ĞŞ¸ÄÄÚÈİÊ±±ØĞë±£ÁôÖğ·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷£¨¼´±¾ÉùÃ÷£©
+* é¢å¤–æ³¨æ˜ï¼š
+* æœ¬å¼€æºåº“ä½¿ç”¨ GPL3.0 å¼€æºè®¸å¯è¯åè®® ä»¥ä¸Šè®¸å¯ç”³æ˜ä¸ºè¯‘æ–‡ç‰ˆæœ¬
+* è®¸å¯ç”³æ˜è‹±æ–‡ç‰ˆåœ¨ libraries/doc æ–‡ä»¶å¤¹ä¸‹çš„ GPL3_permission_statement.txt æ–‡ä»¶ä¸­
+* è®¸å¯è¯å‰¯æœ¬åœ¨ libraries æ–‡ä»¶å¤¹ä¸‹ å³è¯¥æ–‡ä»¶å¤¹ä¸‹çš„ LICENSE æ–‡ä»¶
+* æ¬¢è¿å„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åº ä½†ä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£ç§‘æŠ€çš„ç‰ˆæƒå£°æ˜ï¼ˆå³æœ¬å£°æ˜ï¼‰
 *
-* ÎÄ¼şÃû³Æ          zf_driver_uart
-* ¹«Ë¾Ãû³Æ          ³É¶¼Öğ·É¿Æ¼¼ÓĞÏŞ¹«Ë¾
-* °æ±¾ĞÅÏ¢          ²é¿´ libraries/doc ÎÄ¼ş¼ĞÄÚ version ÎÄ¼ş °æ±¾ËµÃ÷
-* ¿ª·¢»·¾³          ADS v1.10.2
-* ÊÊÓÃÆ½Ì¨          TC264D
-* µêÆÌÁ´½Ó          https://seekfree.taobao.com/
+* æ–‡ä»¶åç§°          zf_driver_uart
+* å…¬å¸åç§°          æˆéƒ½é€é£ç§‘æŠ€æœ‰é™å…¬å¸
+* ç‰ˆæœ¬ä¿¡æ¯          æŸ¥çœ‹ libraries/doc æ–‡ä»¶å¤¹å†… version æ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜
+* å¼€å‘ç¯å¢ƒ          ADS v1.9.20
+* é€‚ç”¨å¹³å°          TC264D
+* åº—é“ºé“¾æ¥          https://seekfree.taobao.com/
 *
-* ĞŞ¸Ä¼ÇÂ¼
-* ÈÕÆÚ              ×÷Õß                ±¸×¢
+* ä¿®æ”¹è®°å½•
+* æ—¥æœŸ              ä½œè€…                å¤‡æ³¨
 * 2022-09-15       pudding            first version
-* 2023-09-27       pudding            ĞŞ¸Ä´®¿Ú·¢ËÍºÍ½ÓÊÕµÄÍ¨ĞÅÂß¼­£¬½«Ö±½Ó´Óµ×²ã¶ÁÈ¡»òÕßĞ´ÈëÊı¾İ£¬²»ÔÙÍ¨¹ıÖĞ¶Ï´¦Àí
-* 2023-10-07       pudding            ĞÂÔöÍ³Ò»»Øµ÷º¯ÊıÖ¸Õë
+* 2023-09-27       pudding            ä¿®æ”¹ä¸²å£å‘é€å’Œæ¥æ”¶çš„é€šä¿¡é€»è¾‘ï¼Œå°†ç›´æ¥ä»åº•å±‚è¯»å–æˆ–è€…å†™å…¥æ•°æ®ï¼Œä¸å†é€šè¿‡ä¸­æ–­å¤„ç†
+* 2023-10-07       pudding            æ–°å¢ç»Ÿä¸€å›è°ƒå‡½æ•°æŒ‡é’ˆ
 ********************************************************************************************************************/
 
 #include "IFXPORT.h"
@@ -46,17 +46,17 @@
 #include "zf_driver_uart.h"
 
 
-// ´´½¨´®¿Úhandle±äÁ¿
+// åˆ›å»ºä¸²å£handleå˜é‡
 IfxAsclin_Asc uart0_handle;
 IfxAsclin_Asc uart1_handle;
 IfxAsclin_Asc uart2_handle;
 IfxAsclin_Asc uart3_handle;
 
-// ´´½¨Ò»¸öascConfigµÄ½á¹¹Ìå±äÁ¿£¬Ö»ÓÃÓÚ´®¿Ú³õÊ¼»¯
+// åˆ›å»ºä¸€ä¸ªascConfigçš„ç»“æ„ä½“å˜é‡ï¼Œåªç”¨äºä¸²å£åˆå§‹åŒ–
 static IfxAsclin_Asc_Config uart_config;
 
 
-// ´´½¨´®¿Ú»º´æÊı×é
+// åˆ›å»ºä¸²å£ç¼“å­˜æ•°ç»„
 static uint8 uart0_tx_buffer[1 + sizeof(Ifx_Fifo) + 8];
 static uint8 uart0_rx_buffer[1 + sizeof(Ifx_Fifo) + 8];
 static uint8 uart1_tx_buffer[1 + sizeof(Ifx_Fifo) + 8];
@@ -67,11 +67,11 @@ static uint8 uart3_tx_buffer[1 + sizeof(Ifx_Fifo) + 8];
 static uint8 uart3_rx_buffer[1 + sizeof(Ifx_Fifo) + 8];
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é       ´®¿ÚÖĞ¶ÏÓÅÏÈ¼¶ÉèÖÃ
-// ²ÎÊıËµÃ÷       uart_n          ´®¿ÚÄ£¿éºÅ ²ÎÕÕ zf_driver_uart.h ÄÚ uart_index_enum Ã¶¾ÙÌå¶¨Òå
-// ·µ»Ø²ÎÊı       void
-// Ê¹ÓÃÊ¾Àı       uart_set_interrupt_priority(UART_1);
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹       ä¸²å£ä¸­æ–­ä¼˜å…ˆçº§è®¾ç½®
+// å‚æ•°è¯´æ˜       uart_n          ä¸²å£æ¨¡å—å· å‚ç…§ zf_driver_uart.h å†… uart_index_enum æšä¸¾ä½“å®šä¹‰
+// è¿”å›å‚æ•°       void
+// ä½¿ç”¨ç¤ºä¾‹       uart_set_interrupt_priority(UART_1);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void uart_set_interrupt_priority (uart_index_enum uartn)
 {
@@ -110,11 +110,11 @@ void uart_set_interrupt_priority (uart_index_enum uartn)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é       ÉèÖÃ´®¿Ú»º³åÇø
-// ²ÎÊıËµÃ÷       uart_n          ´®¿ÚÄ£¿éºÅ ²ÎÕÕ zf_driver_uart.h ÄÚ uart_index_enum Ã¶¾ÙÌå¶¨Òå
-// ·µ»Ø²ÎÊı       void
-// Ê¹ÓÃÊ¾Àı       uart_set_buffer(UART_1);
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹       è®¾ç½®ä¸²å£ç¼“å†²åŒº
+// å‚æ•°è¯´æ˜       uart_n          ä¸²å£æ¨¡å—å· å‚ç…§ zf_driver_uart.h å†… uart_index_enum æšä¸¾ä½“å®šä¹‰
+// è¿”å›å‚æ•°       void
+// ä½¿ç”¨ç¤ºä¾‹       uart_set_buffer(UART_1);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void uart_set_buffer (uart_index_enum uartn)
 {
@@ -153,11 +153,11 @@ void uart_set_buffer (uart_index_enum uartn)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é       »ñÈ¡´®¿ÚÖĞ¶ÏÅäÖÃĞÅÏ¢
-// ²ÎÊıËµÃ÷       uart_n          ´®¿ÚÄ£¿éºÅ ²ÎÕÕ zf_driver_uart.h ÄÚ uart_index_enum Ã¶¾ÙÌå¶¨Òå
-// ·µ»Ø²ÎÊı       void
-// Ê¹ÓÃÊ¾Àı       uart_get_handle(UART_1);
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹       è·å–ä¸²å£ä¸­æ–­é…ç½®ä¿¡æ¯
+// å‚æ•°è¯´æ˜       uart_n          ä¸²å£æ¨¡å—å· å‚ç…§ zf_driver_uart.h å†… uart_index_enum æšä¸¾ä½“å®šä¹‰
+// è¿”å›å‚æ•°       void
+// ä½¿ç”¨ç¤ºä¾‹       uart_get_handle(UART_1);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 IfxAsclin_Asc* uart_get_handle (uart_index_enum uartn)
 {
@@ -255,47 +255,49 @@ void uart_mux (uart_index_enum uartn, uart_tx_pin_enum tx_pin, uart_rx_pin_enum 
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é       ´®¿Ú·¢ËÍĞ´Èë
-// ²ÎÊıËµÃ÷       uart_n          ´®¿ÚÄ£¿éºÅ ²ÎÕÕ zf_driver_uart.h ÄÚ uart_index_enum Ã¶¾ÙÌå¶¨Òå
-// ²ÎÊıËµÃ÷       dat             ĞèÒª·¢ËÍµÄ×Ö½Ú
-// ·µ»Ø²ÎÊı       void
-// Ê¹ÓÃÊ¾Àı       uart_write_byte(UART_1, 0xA5);                    // Íù´®¿Ú1µÄ·¢ËÍ»º³åÇøĞ´Èë0xA5£¬Ğ´ÈëºóÈÔÈ»»á·¢ËÍÊı¾İ£¬µ«ÊÇ»á¼õÉÙCPUÔÚ´®¿ÚµÄÖ´ĞĞÊ±
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹       ä¸²å£å‘é€å†™å…¥
+// å‚æ•°è¯´æ˜       uart_n          ä¸²å£æ¨¡å—å· å‚ç…§ zf_driver_uart.h å†… uart_index_enum æšä¸¾ä½“å®šä¹‰
+// å‚æ•°è¯´æ˜       dat             éœ€è¦å‘é€çš„å­—èŠ‚
+// è¿”å›å‚æ•°       void
+// ä½¿ç”¨ç¤ºä¾‹       uart_write_byte(UART_1, 0xA5);                    // å¾€ä¸²å£1çš„å‘é€ç¼“å†²åŒºå†™å…¥0xA5ï¼Œå†™å…¥åä»ç„¶ä¼šå‘é€æ•°æ®ï¼Œä½†æ˜¯ä¼šå‡å°‘CPUåœ¨ä¸²å£çš„æ‰§è¡Œæ—¶
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void uart_write_byte (uart_index_enum uart_n, const uint8 dat)
 {
     IfxAsclin_Asc* uart_handle;
     uart_handle = uart_get_handle(uart_n);
 
+    while(IfxAsclin_getTxFifoFillLevel(uart_handle->asclin) != 0);
     IfxAsclin_write8(uart_handle->asclin, &dat, 1);
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é       ´®¿Ú·¢ËÍÊı×é
-// ²ÎÊıËµÃ÷       uart_n          ´®¿ÚÄ£¿éºÅ ²ÎÕÕ zf_driver_uart.h ÄÚ uart_index_enum Ã¶¾ÙÌå¶¨Òå
-// ²ÎÊıËµÃ÷       *buff           Òª·¢ËÍµÄÊı×éµØÖ·
-// ²ÎÊıËµÃ÷       len             ·¢ËÍ³¤¶È
-// ·µ»Ø²ÎÊı       void
-// Ê¹ÓÃÊ¾Àı       uart_write_buffer(UART_1, &a[0], 5);
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹       ä¸²å£å‘é€æ•°ç»„
+// å‚æ•°è¯´æ˜       uart_n          ä¸²å£æ¨¡å—å· å‚ç…§ zf_driver_uart.h å†… uart_index_enum æšä¸¾ä½“å®šä¹‰
+// å‚æ•°è¯´æ˜       *buff           è¦å‘é€çš„æ•°ç»„åœ°å€
+// å‚æ•°è¯´æ˜       len             å‘é€é•¿åº¦
+// è¿”å›å‚æ•°       void
+// ä½¿ç”¨ç¤ºä¾‹       uart_write_buffer(UART_1, &a[0], 5);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void uart_write_buffer (uart_index_enum uart_n, const uint8 *buff, uint32 len)
 {
-    IfxAsclin_Asc* uart_handle;
-    uart_handle = uart_get_handle(uart_n);
-
-    IfxAsclin_write8(uart_handle->asclin, buff, len);
+    while(len)
+    {
+        uart_write_byte(uart_n, *buff);
+        len--;
+        buff++;
+    }
 }
 
 
-
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é       ´®¿Ú·¢ËÍ×Ö·û´®
-// ²ÎÊıËµÃ÷       uart_n          ´®¿ÚÄ£¿éºÅ ²ÎÕÕ zf_driver_uart.h ÄÚ uart_index_enum Ã¶¾ÙÌå¶¨Òå
-// ²ÎÊıËµÃ÷       *str            Òª·¢ËÍµÄ×Ö·û´®µØÖ·
-// ·µ»Ø²ÎÊı       void
-// Ê¹ÓÃÊ¾Àı       uart_write_string(UART_1, "seekfree");
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹       ä¸²å£å‘é€å­—ç¬¦ä¸²
+// å‚æ•°è¯´æ˜       uart_n          ä¸²å£æ¨¡å—å· å‚ç…§ zf_driver_uart.h å†… uart_index_enum æšä¸¾ä½“å®šä¹‰
+// å‚æ•°è¯´æ˜       *str            è¦å‘é€çš„å­—ç¬¦ä¸²åœ°å€
+// è¿”å›å‚æ•°       void
+// ä½¿ç”¨ç¤ºä¾‹       uart_write_string(UART_1, "seekfree");
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void uart_write_string (uart_index_enum uart_n, const char *str)
 {
@@ -306,12 +308,12 @@ void uart_write_string (uart_index_enum uart_n, const char *str)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é       ¶ÁÈ¡´®¿Ú½ÓÊÕµÄÊı¾İ£¨whlieµÈ´ı£©
-// ²ÎÊıËµÃ÷       uart_n          ´®¿ÚÄ£¿éºÅ ²ÎÕÕ zf_driver_uart.h ÄÚ uart_index_enum Ã¶¾ÙÌå¶¨Òå
-// ²ÎÊıËµÃ÷       *dat            ½ÓÊÕÊı¾İµÄµØÖ·
-// ·µ»Ø²ÎÊı       uint8           ½ÓÊÕµÄÊı¾İ
-// Ê¹ÓÃÊ¾Àı       uint8 dat = uart_read_byte(UART_1);             // ½ÓÊÕ UART_1 Êı¾İ  ´æÔÚÔÚ dat ±äÁ¿Àï
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹       è¯»å–ä¸²å£æ¥æ”¶çš„æ•°æ®ï¼ˆwhlieç­‰å¾…ï¼‰
+// å‚æ•°è¯´æ˜       uart_n          ä¸²å£æ¨¡å—å· å‚ç…§ zf_driver_uart.h å†… uart_index_enum æšä¸¾ä½“å®šä¹‰
+// å‚æ•°è¯´æ˜       *dat            æ¥æ”¶æ•°æ®çš„åœ°å€
+// è¿”å›å‚æ•°       uint8           æ¥æ”¶çš„æ•°æ®
+// ä½¿ç”¨ç¤ºä¾‹       uint8 dat = uart_read_byte(UART_1);             // æ¥æ”¶ UART_1 æ•°æ®  å­˜åœ¨åœ¨ dat å˜é‡é‡Œ
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 uint8 uart_read_byte (uart_index_enum uart_n)
 {
@@ -327,12 +329,12 @@ uint8 uart_read_byte (uart_index_enum uart_n)
 
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é       ¶ÁÈ¡´®¿Ú½ÓÊÕµÄÊı¾İ£¨²éÑ¯½ÓÊÕ£©
-// ²ÎÊıËµÃ÷       uart_n          ´®¿ÚÄ£¿éºÅ ²ÎÕÕ zf_driver_uart.h ÄÚ uart_index_enum Ã¶¾ÙÌå¶¨Òå
-// ²ÎÊıËµÃ÷       *dat            ½ÓÊÕÊı¾İµÄµØÖ·
-// ·µ»Ø²ÎÊı       uint8           1£º½ÓÊÕ³É¹¦   0£ºÎ´½ÓÊÕµ½Êı¾İ
-// Ê¹ÓÃÊ¾Àı       uint8 dat; uart_query_byte(UART_1, &dat);       // ½ÓÊÕ UART_1 Êı¾İ  ´æÔÚÔÚ dat ±äÁ¿Àï
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹       è¯»å–ä¸²å£æ¥æ”¶çš„æ•°æ®ï¼ˆæŸ¥è¯¢æ¥æ”¶ï¼‰
+// å‚æ•°è¯´æ˜       uart_n          ä¸²å£æ¨¡å—å· å‚ç…§ zf_driver_uart.h å†… uart_index_enum æšä¸¾ä½“å®šä¹‰
+// å‚æ•°è¯´æ˜       *dat            æ¥æ”¶æ•°æ®çš„åœ°å€
+// è¿”å›å‚æ•°       uint8           1ï¼šæ¥æ”¶æˆåŠŸ   0ï¼šæœªæ¥æ”¶åˆ°æ•°æ®
+// ä½¿ç”¨ç¤ºä¾‹       uint8 dat; uart_query_byte(UART_1, &dat);       // æ¥æ”¶ UART_1 æ•°æ®  å­˜åœ¨åœ¨ dat å˜é‡é‡Œ
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 uint8 uart_query_byte (uart_index_enum uart_n, uint8 *dat)
 {
@@ -348,12 +350,12 @@ uint8 uart_query_byte (uart_index_enum uart_n, uint8 *dat)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é       ´®¿Ú·¢ËÍÖĞ¶ÏÉèÖÃ
-// ²ÎÊıËµÃ÷       uart_n           ´®¿ÚÄ£¿éºÅ
-// ²ÎÊıËµÃ÷       status          1£º´ò¿ªÖĞ¶Ï   0£º¹Ø±ÕÖĞ¶Ï
-// ·µ»Ø²ÎÊı       void
-// Ê¹ÓÃÊ¾Àı       uart_tx_interrupt(UART_1, 1);                   // ´ò¿ª´®¿Ú1·¢ËÍÖĞ¶Ï
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹       ä¸²å£å‘é€ä¸­æ–­è®¾ç½®
+// å‚æ•°è¯´æ˜       uart_n           ä¸²å£æ¨¡å—å·
+// å‚æ•°è¯´æ˜       status          1ï¼šæ‰“å¼€ä¸­æ–­   0ï¼šå…³é—­ä¸­æ–­
+// è¿”å›å‚æ•°       void
+// ä½¿ç”¨ç¤ºä¾‹       uart_tx_interrupt(UART_1, 1);                   // æ‰“å¼€ä¸²å£1å‘é€ä¸­æ–­
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void uart_tx_interrupt (uart_index_enum uart_n, uint32 status)
 {
@@ -361,7 +363,7 @@ void uart_tx_interrupt (uart_index_enum uart_n, uint32 status)
     volatile Ifx_SRC_SRCR *src;
     volatile Ifx_ASCLIN *moudle = IfxAsclin_getAddress((IfxAsclin_Index)uart_n);
 
-    IfxAsclin_Asc_initModuleConfig(&uart_config, moudle); // ³õÊ¼»¯»¯ÅäÖÃ½á¹¹Ìå
+    IfxAsclin_Asc_initModuleConfig(&uart_config, moudle); // åˆå§‹åŒ–åŒ–é…ç½®ç»“æ„ä½“
     src = IfxAsclin_getSrcPointerTx(asclinSFR);
     IfxAsclin_enableTxFifoFillLevelFlag(asclinSFR, (boolean)status);
     if(status)
@@ -376,12 +378,12 @@ void uart_tx_interrupt (uart_index_enum uart_n, uint32 status)
 
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é       ´®¿Ú½ÓÊÕÖĞ¶ÏÉèÖÃ
-// ²ÎÊıËµÃ÷       uart_n           ´®¿ÚÄ£¿éºÅ
-// ²ÎÊıËµÃ÷       status          1£º´ò¿ªÖĞ¶Ï   0£º¹Ø±ÕÖĞ¶Ï
-// ·µ»Ø²ÎÊı       void
-// Ê¹ÓÃÊ¾Àı       uart_rx_interrupt(UART_1, 1);                   // ´ò¿ª´®¿Ú1½ÓÊÕÖĞ¶Ï
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹       ä¸²å£æ¥æ”¶ä¸­æ–­è®¾ç½®
+// å‚æ•°è¯´æ˜       uart_n           ä¸²å£æ¨¡å—å·
+// å‚æ•°è¯´æ˜       status          1ï¼šæ‰“å¼€ä¸­æ–­   0ï¼šå…³é—­ä¸­æ–­
+// è¿”å›å‚æ•°       void
+// ä½¿ç”¨ç¤ºä¾‹       uart_rx_interrupt(UART_1, 1);                   // æ‰“å¼€ä¸²å£1æ¥æ”¶ä¸­æ–­
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void uart_rx_interrupt (uart_index_enum uart_n, uint32 status)
 {
@@ -389,7 +391,7 @@ void uart_rx_interrupt (uart_index_enum uart_n, uint32 status)
     volatile Ifx_SRC_SRCR *src;
     volatile Ifx_ASCLIN *moudle = IfxAsclin_getAddress((IfxAsclin_Index)uart_n);
 
-    IfxAsclin_Asc_initModuleConfig(&uart_config, moudle); // ³õÊ¼»¯»¯ÅäÖÃ½á¹¹Ìå
+    IfxAsclin_Asc_initModuleConfig(&uart_config, moudle); // åˆå§‹åŒ–åŒ–é…ç½®ç»“æ„ä½“
     src = IfxAsclin_getSrcPointerRx(asclinSFR);
     IfxAsclin_enableRxFifoFillLevelFlag(asclinSFR, (boolean)status);
     if(status)
@@ -403,14 +405,14 @@ void uart_rx_interrupt (uart_index_enum uart_n, uint32 status)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// º¯Êı¼ò½é     sbus³õÊ¼»¯
-// ²ÎÊıËµÃ÷     uartn       ´®¿ÚÍ¨µÀ(UART_0,UART_1,UART_2,UART_3)
-// ²ÎÊıËµÃ÷     baud        ´®¿Ú²¨ÌØÂÊ
-// ²ÎÊıËµÃ÷     tx_pin      ´®¿Ú·¢ËÍÒı½ÅºÅ
-// ²ÎÊıËµÃ÷     rx_pin      ´®¿Ú½ÓÊÕÒı½ÅºÅ
-// ·µ»Ø²ÎÊı     void
-// Ê¹ÓÃÊ¾Àı     uart_sbus_init(UART_2, 100000, UART2_TX_P10_5, UART2_RX_P10_6);
-// ±¸×¢ĞÅÏ¢
+// å‡½æ•°ç®€ä»‹     sbusåˆå§‹åŒ–
+// å‚æ•°è¯´æ˜     uartn       ä¸²å£é€šé“(UART_0,UART_1,UART_2,UART_3)
+// å‚æ•°è¯´æ˜     baud        ä¸²å£æ³¢ç‰¹ç‡
+// å‚æ•°è¯´æ˜     tx_pin      ä¸²å£å‘é€å¼•è„šå·
+// å‚æ•°è¯´æ˜     rx_pin      ä¸²å£æ¥æ”¶å¼•è„šå·
+// è¿”å›å‚æ•°     void
+// ä½¿ç”¨ç¤ºä¾‹     uart_sbus_init(UART_2, 100000, UART2_TX_P10_5, UART2_RX_P10_6);
+// å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void uart_sbus_init (uart_index_enum uartn, uint32 baud, uart_tx_pin_enum tx_pin, uart_rx_pin_enum rx_pin)
 {
@@ -419,23 +421,23 @@ void uart_sbus_init (uart_index_enum uartn, uint32 baud, uart_tx_pin_enum tx_pin
 
     volatile Ifx_ASCLIN *moudle = IfxAsclin_getAddress((IfxAsclin_Index)uartn);
 
-    IfxAsclin_Asc_initModuleConfig(&uart_config, moudle);   // ³õÊ¼»¯»¯ÅäÖÃ½á¹¹Ìå
+    IfxAsclin_Asc_initModuleConfig(&uart_config, moudle);   // åˆå§‹åŒ–åŒ–é…ç½®ç»“æ„ä½“
 
-    uart_set_buffer(uartn);                                 // ÉèÖÃ»º³åÇø
+    uart_set_buffer(uartn);                                 // è®¾ç½®ç¼“å†²åŒº
 
-    uart_set_interrupt_priority(uartn);                     // ÉèÖÃÖĞ¶ÏÓÅÏÈ¼¶
+    uart_set_interrupt_priority(uartn);                     // è®¾ç½®ä¸­æ–­ä¼˜å…ˆçº§
 
-    uart_config.clockSource           = IfxAsclin_ClockSource_ascFastClock;     // Ê¹ÓÃ¸ßËÙÊ±ÖÓ ×î´ó²¨ÌØÂÊ6.25M
+    uart_config.clockSource           = IfxAsclin_ClockSource_ascFastClock;     // ä½¿ç”¨é«˜é€Ÿæ—¶é’Ÿ æœ€å¤§æ³¢ç‰¹ç‡6.25M
     uart_config.baudrate.prescaler    = 4;
     uart_config.baudrate.baudrate     = (float32)baud;
     uart_config.baudrate.oversampling = IfxAsclin_OversamplingFactor_8;
 
-    uart_config.frame.stopBit         =  IfxAsclin_StopBit_2;                    //Í£Ö¹Î»
-    uart_config.frame.parityType      = IfxAsclin_ParityType_even;               //Å¼Ğ£Ñé
+    uart_config.frame.stopBit         =  IfxAsclin_StopBit_2;                    //åœæ­¢ä½
+    uart_config.frame.parityType      = IfxAsclin_ParityType_even;               //å¶æ ¡éªŒ
     uart_config.frame.dataLength      = IfxAsclin_DataLength_8;
-    uart_config.frame.parityBit       = TRUE;                                   //Æô¶¯Ğ£Ñé
+    uart_config.frame.parityBit       = TRUE;                                   //å¯åŠ¨æ ¡éªŒ
 
-    IfxAsclin_Asc_Pins pins;                                                    // ÉèÖÃÒı½Å
+    IfxAsclin_Asc_Pins pins;                                                    // è®¾ç½®å¼•è„š
     pins.cts = NULL;
     pins.rts = NULL;
     uart_mux(uartn, tx_pin, rx_pin, (uint32 *)&pins.tx, (uint32 *)&pins.rx);
@@ -452,14 +454,14 @@ void uart_sbus_init (uart_index_enum uartn, uint32 baud, uart_tx_pin_enum tx_pin
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-//  º¯Êı¼ò½é      ´®¿Ú³õÊ¼»¯
-//  ²ÎÊıËµÃ÷      uartn           ´®¿ÚÄ£¿éºÅ(UART_0,UART_1,UART_2,UART_3)
-//  ²ÎÊıËµÃ÷      baud            ´®¿Ú²¨ÌØÂÊ
-//  ²ÎÊıËµÃ÷      tx_pin          ´®¿Ú·¢ËÍÒı½Å
-//  ²ÎÊıËµÃ÷      rx_pin          ´®¿Ú½ÓÊÕÒı½Å
-//  ·µ»Ø²ÎÊı      uint32          Êµ¼Ê²¨ÌØÂÊ
-//  Ê¹ÓÃÊ¾Àı      uart_init(UART_0,115200,UART0_TX_P14_0,UART0_RX_P14_1);       // ³õÊ¼»¯´®¿Ú0 ²¨ÌØÂÊ115200 ·¢ËÍÒı½ÅÊ¹ÓÃP14_0 ½ÓÊÕÒı½ÅÊ¹ÓÃP14_1
-//  ±¸×¢ĞÅÏ¢
+//  å‡½æ•°ç®€ä»‹      ä¸²å£åˆå§‹åŒ–
+//  å‚æ•°è¯´æ˜      uartn           ä¸²å£æ¨¡å—å·(UART_0,UART_1,UART_2,UART_3)
+//  å‚æ•°è¯´æ˜      baud            ä¸²å£æ³¢ç‰¹ç‡
+//  å‚æ•°è¯´æ˜      tx_pin          ä¸²å£å‘é€å¼•è„š
+//  å‚æ•°è¯´æ˜      rx_pin          ä¸²å£æ¥æ”¶å¼•è„š
+//  è¿”å›å‚æ•°      uint32          å®é™…æ³¢ç‰¹ç‡
+//  ä½¿ç”¨ç¤ºä¾‹      uart_init(UART_0,115200,UART0_TX_P14_0,UART0_RX_P14_1);       // åˆå§‹åŒ–ä¸²å£0 æ³¢ç‰¹ç‡115200 å‘é€å¼•è„šä½¿ç”¨P14_0 æ¥æ”¶å¼•è„šä½¿ç”¨P14_1
+//  å¤‡æ³¨ä¿¡æ¯
 //-------------------------------------------------------------------------------------------------------------------
 void uart_init (uart_index_enum uart_n, uint32 baud, uart_tx_pin_enum tx_pin, uart_rx_pin_enum rx_pin)
 {
@@ -467,18 +469,18 @@ void uart_init (uart_index_enum uart_n, uint32 baud, uart_tx_pin_enum tx_pin, ua
 
     volatile Ifx_ASCLIN *moudle = IfxAsclin_getAddress((IfxAsclin_Index)uart_n);
 
-    IfxAsclin_Asc_initModuleConfig(&uart_config, moudle);   // ³õÊ¼»¯»¯ÅäÖÃ½á¹¹Ìå
+    IfxAsclin_Asc_initModuleConfig(&uart_config, moudle);   // åˆå§‹åŒ–åŒ–é…ç½®ç»“æ„ä½“
 
-    uart_set_buffer(uart_n);                                // ÉèÖÃ»º³åÇø
+    uart_set_buffer(uart_n);                                // è®¾ç½®ç¼“å†²åŒº
 
-    uart_set_interrupt_priority(uart_n);                    // ÉèÖÃÖĞ¶ÏÓÅÏÈ¼¶
+    uart_set_interrupt_priority(uart_n);                    // è®¾ç½®ä¸­æ–­ä¼˜å…ˆçº§
 
-    uart_config.clockSource           = IfxAsclin_ClockSource_ascFastClock;     // Ê¹ÓÃ¸ßËÙÊ±ÖÓ ×î´ó²¨ÌØÂÊ6.25M
+    uart_config.clockSource           = IfxAsclin_ClockSource_ascFastClock;     // ä½¿ç”¨é«˜é€Ÿæ—¶é’Ÿ æœ€å¤§æ³¢ç‰¹ç‡6.25M
     uart_config.baudrate.prescaler    = 4;
     uart_config.baudrate.baudrate     = (float32)baud;
     uart_config.baudrate.oversampling = IfxAsclin_OversamplingFactor_8;
 
-    IfxAsclin_Asc_Pins pins;                                // ÉèÖÃÒı½Å
+    IfxAsclin_Asc_Pins pins;                                // è®¾ç½®å¼•è„š
     pins.cts = NULL;
     pins.rts = NULL;
     uart_mux(uart_n, tx_pin, rx_pin, (uint32 *)&pins.tx, (uint32 *)&pins.rx);

@@ -1,5 +1,5 @@
 TC264 Opensourec Library : An open source library of third party interfaces based on the official SDK
-Copyright (C) 2022  SEEKFREE ��ɿƼ�
+Copyright (C) 2022  SEEKFREE 逐飞科技
 
 TC264 Opensourec Library is free software:
 you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation,

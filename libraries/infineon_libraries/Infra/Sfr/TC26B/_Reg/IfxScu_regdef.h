@@ -194,7 +194,7 @@ typedef struct _Ifx_SCU_CHIPID_Bits
     unsigned int CHTEC:2;                   /**< \brief [7:6] Chip Family (r) */
     unsigned int CHID:8;                    /**< \brief [15:8] Chip Identification Number (rw) */
     unsigned int EEA:1;                     /**< \brief [16:16] Emulation Extension Available (rh) */
-    unsigned int UCODE:7;                   /**< \brief [23:17] µCode Version (rw) */
+    unsigned int UCODE:7;                   /**< \brief [23:17] 碌Code Version (rw) */
     unsigned int FSIZE:4;                   /**< \brief [27:24] Program Flash Size (rw) */
     unsigned int SP:2;                      /**< \brief [29:28] Speed (rw) */
     unsigned int SEC:1;                     /**< \brief [30:30] Security Device (rw) */

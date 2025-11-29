@@ -525,7 +525,7 @@ typedef struct _Ifx_CBS_TRMT_Bits
 /** \brief  TG Routing for Special Signals */
 typedef struct _Ifx_CBS_TRSS_Bits
 {
-    unsigned int TT:4;                      /**< \brief [3:0] Trigger Line to Cerberus’ Triggered Transfer Routing (rw) */
+    unsigned int TT:4;                      /**< \brief [3:0] Trigger Line to Cerberus鈥?Triggered Transfer Routing (rw) */
     unsigned int reserved_4:12;             /**< \brief \internal Reserved */
     unsigned int SRC0:4;                    /**< \brief [19:16] Trigger Line to SRC0 Interrupt Routing (rw) */
     unsigned int SRC1:4;                    /**< \brief [23:20] Trigger Line to SRC1 Interrupt Routing (rw) */

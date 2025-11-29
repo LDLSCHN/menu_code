@@ -1,46 +1,46 @@
 /*********************************************************************************************************************
-* TC264 Opensourec Library ����TC264 ��Դ�⣩��һ�����ڹٷ� SDK �ӿڵĵ�������Դ��
-* Copyright (c) 2022 SEEKFREE ��ɿƼ�
+* TC264 Opensourec Library 即（TC264 开源库）是一个基于官方 SDK 接口的第三方开源库
+* Copyright (c) 2022 SEEKFREE 逐飞科技
 *
-* ���ļ��� TC264 ��Դ���һ����
+* 本文件是 TC264 开源库的一部分
 *
-* TC264 ��Դ�� ���������
-* �����Ը���������������ᷢ���� GPL��GNU General Public License���� GNUͨ�ù�������֤��������
-* �� GPL �ĵ�3�棨�� GPL3.0������ѡ��ģ��κκ����İ汾�����·�����/���޸���
+* TC264 开源库 是免费软件
+* 您可以根据自由软件基金会发布的 GPL（GNU General Public License，即 GNU通用公共许可证）的条款
+* 即 GPL 的第3版（即 GPL3.0）或（您选择的）任何后来的版本，重新发布和/或修改它
 *
-* ����Դ��ķ�����ϣ�����ܷ������ã�����δ�������κεı�֤
-* ����û�������������Ի��ʺ��ض���;�ı�֤
-* ����ϸ����μ� GPL
+* 本开源库的发布是希望它能发挥作用，但并未对其作任何的保证
+* 甚至没有隐含的适销性或适合特定用途的保证
+* 更多细节请参见 GPL
 *
-* ��Ӧ�����յ�����Դ���ͬʱ�յ�һ�� GPL �ĸ���
-* ���û�У������<https://www.gnu.org/licenses/>
+* 您应该在收到本开源库的同时收到一份 GPL 的副本
+* 如果没有，请参阅<https://www.gnu.org/licenses/>
 *
-* ����ע����
-* ����Դ��ʹ�� GPL3.0 ��Դ����֤Э�� ������������Ϊ���İ汾
-* ��������Ӣ�İ��� libraries/doc �ļ����µ� GPL3_permission_statement.txt �ļ���
-* ����֤������ libraries �ļ����� �����ļ����µ� LICENSE �ļ�
-* ��ӭ��λʹ�ò����������� ���޸�����ʱ���뱣����ɿƼ��İ�Ȩ����������������
+* 额外注明：
+* 本开源库使用 GPL3.0 开源许可证协议 以上许可申明为译文版本
+* 许可申明英文版在 libraries/doc 文件夹下的 GPL3_permission_statement.txt 文件中
+* 许可证副本在 libraries 文件夹下 即该文件夹下的 LICENSE 文件
+* 欢迎各位使用并传播本程序 但修改内容时必须保留逐飞科技的版权声明（即本声明）
 *
-* �ļ�����          zf_device_tsl1401
-* ��˾����          �ɶ���ɿƼ����޹�˾
-* �汾��Ϣ          �鿴 libraries/doc �ļ����� version �ļ� �汾˵��
-* ��������          ADS v1.10.2
-* ����ƽ̨          TC264D
-* ��������          https://seekfree.taobao.com/
+* 文件名称          zf_device_tsl1401
+* 公司名称          成都逐飞科技有限公司
+* 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
+* 开发环境          ADS v1.9.20
+* 适用平台          TC264D
+* 店铺链接          https://seekfree.taobao.com/
 *
-* �޸ļ�¼
-* ����              ����                ��ע
+* 修改记录
+* 日期              作者                备注
 * 2022-09-15       pudding            first version
 ********************************************************************************************************************/
 /*********************************************************************************************************************
-* ���߶��壺
+* 接线定义：
 *                  ------------------------------------
-*                  ģ��ܽ�             ��Ƭ���ܽ�
-*                  CLK                �鿴 zf_device_tsl1401.h �� TSL1401_CLK_PIN �궨��
-*                  SI                 �鿴 zf_device_tsl1401.h �� TSL1401_SI_PIN �궨��
-*                  AO[x]              �鿴 zf_device_tsl1401.h �� TSL1401_AO_PIN_BUFFER �궨��
-*                  VCC                3.3V��Դ
-*                  GND                ��Դ��
+*                  模块管脚             单片机管脚
+*                  CLK                查看 zf_device_tsl1401.h 中 TSL1401_CLK_PIN 宏定义
+*                  SI                 查看 zf_device_tsl1401.h 中 TSL1401_SI_PIN 宏定义
+*                  AO[x]              查看 zf_device_tsl1401.h 中 TSL1401_AO_PIN_BUFFER 宏定义
+*                  VCC                3.3V电源
+*                  GND                电源地
 *                  ------------------------------------
 ********************************************************************************************************************/
 
@@ -52,17 +52,17 @@
 #include "zf_driver_uart.h"
 #include "zf_device_tsl1401.h"
 
-uint16 tsl1401_data[2][TSL1401_DATA_LEN];                                       // TSL1401 ���ݴ������
+uint16 tsl1401_data[2][TSL1401_DATA_LEN];                                       // TSL1401 数据存放数组
 
-static uint8 tsl1401_init_state = 0;                                            // TSL1401 ��ʼ����־λ
-vuint8 tsl1401_finish_flag;                                                     // TSL1401 ����׼��������־λ
+static uint8 tsl1401_init_state = 0;                                            // TSL1401 初始化标志位
+vuint8 tsl1401_finish_flag;                                                     // TSL1401 数据准备就绪标志位
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     TSL1401 ���� CCD ���ݲɼ�
-// ����˵��     void
-// ���ز���     void
-// ʹ��ʾ��     tsl1401_collect_pit_handler();
-// ��ע��Ϣ     �ú����� isr.c �ж�Ӧ TSL1401_PIT_INDEX ���жϷ���������
+// 函数简介     TSL1401 线阵 CCD 数据采集
+// 参数说明     void
+// 返回参数     void
+// 使用示例     tsl1401_collect_pit_handler();
+// 备注信息     该函数在 isr.c 中对应 TSL1401_PIT_INDEX 的中断服务函数调用
 //-------------------------------------------------------------------------------------------------------------------
 void tsl1401_collect_pit_handler (void)
 {
@@ -85,16 +85,16 @@ void tsl1401_collect_pit_handler (void)
         TSL1401_CLK(1);
     }
 
-    tsl1401_finish_flag = 1;  // �ɼ���ɱ�־λ��1
+    tsl1401_finish_flag = 1;  // 采集完成标志位置1
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     TSL1401 ���� CCD ͼ��������λ���鿴ͼ��
-// ����˵��     uart_n          ���ں�
-// ����˵��     index           ��Ӧ������ĸ� TSL1401 [0-1]
-// ���ز���     void
-// ʹ��ʾ��     tsl1401_send_data(DEBUG_UART_INDEX, 1);
-// ��ע��Ϣ     ���øú���ǰ���ȳ�ʼ������
+// 函数简介     TSL1401 线阵 CCD 图像发送至上位机查看图像
+// 参数说明     uart_n          串口号
+// 参数说明     index           对应接入的哪个 TSL1401 [0-1]
+// 返回参数     void
+// 使用示例     tsl1401_send_data(DEBUG_UART_INDEX, 1);
+// 备注信息     调用该函数前请先初始化串口
 //-------------------------------------------------------------------------------------------------------------------
 void tsl1401_send_data (uart_index_enum uart_n, uint8 index)
 {
@@ -116,11 +116,11 @@ void tsl1401_send_data (uart_index_enum uart_n, uint8 index)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// �������     TSL1401 ���� CCD ��ʼ��
-// ����˵��     void
-// ���ز���     void
-// ʹ��ʾ��     tsl1401_init();
-// ��ע��Ϣ
+// 函数简介     TSL1401 线阵 CCD 初始化
+// 参数说明     void
+// 返回参数     void
+// 使用示例     tsl1401_init();
+// 备注信息
 //-------------------------------------------------------------------------------------------------------------------
 void tsl1401_init (void)
 {
