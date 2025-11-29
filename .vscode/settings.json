@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "zf_common_headfile.h": "c",
+        "myheadfile.h": "c",
+        "camera.h": "c",
+        "pid.h": "c",
+        "zf_common_typedef.h": "c"
+    }
+}
