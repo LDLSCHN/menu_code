@@ -145,7 +145,7 @@ typedef enum
     menu_goto_camera                ,
 } Menu_Event;
 
-// extern uint8 menu_key_event;
+extern uint8 menu_key_event;
 // extern uint8 menu_update_flag;
 // extern uint8 menu_wait_flag;
 
@@ -378,10 +378,10 @@ typedef struct
 ************************************************/
 typedef struct 
 {
-    const char*       name;          // 页面名称（ROM）
-    const MenuItem*   items;         // 项数组（ROM）
+    const char*       name;          // 页面名称
+    const MenuItem*   items;         // 项数组
     uint8             item_count;    // 项数量
-    uint8             cursor_pos;    // 当前光标位置（运行时状态）
+    uint8             cursor_pos;    // 当前光标位置
     uint16            dirty_mask;    // 脏标记位图（16位，每位对应一项）
 } MenuPage;
 
@@ -406,8 +406,8 @@ typedef struct
 * @date  : 2025年11月28日
 * @author: LDL
 ************************************************/
-#define MENU_INT_SHOW(name, var) \
-    {name, ITEM_DISPLAY_INT, {.i16_ptr = var}, {0}, 0}
+#define MENU_INT_SHOW(name, ptr) \
+    { (name), ITEM_DISPLAY_INT, { (void*)(ptr) }, { 0 }, 0 }
 
 /***********************************************
 * @brief : 浮点数显示
@@ -417,8 +417,8 @@ typedef struct
 * @date  : 2025年11月28日
 * @author: LDL
 ************************************************/
-#define MENU_FLOAT_SHOW(name, var, decimals) \
-    {name, ITEM_DISPLAY_FLOAT, {.f32_ptr = var}, {0}, decimals}
+#define MENU_FLOAT_SHOW(name, ptr, precision) \
+    { (name), ITEM_DISPLAY_FLOAT, { (void*)(ptr) }, { 0 }, (precision) }
 
 /***********************************************
 * @brief : 布尔值显示项（显示Open/Close）
@@ -427,8 +427,8 @@ typedef struct
 * @date  : 2025年11月28日
 * @author: LDL
 ************************************************/
-#define MENU_BOOL_SHOW(name, var) \
-    {name, ITEM_DISPLAY_BOOL, {.u8_ptr = var}, {0}, 0}
+#define MENU_BOOL_SHOW(name, ptr) \
+    { (name), ITEM_DISPLAY_BOOL, { (void*)(ptr) }, { 0 }, 0 }
 
 /***********************************************
 * @brief : 整数编辑项
@@ -438,8 +438,8 @@ typedef struct
 * @date  : 2025年11月28日
 * @author: LDL
 ************************************************/
-#define MENU_INT_EDIT(name, var, step_val) \
-    {name, ITEM_DISPLAY_INT | ITEM_EDITABLE, {.i16_ptr = var}, {.i16_step = step_val}, 0}
+#define MENU_INT_EDIT(name, ptr, step_val) \
+    { (name), (ITEM_DISPLAY_INT | ITEM_EDITABLE), { (void*)(ptr) }, { (step_val) }, 0 }
 
 /***********************************************
 * @brief : 浮点数编辑项
@@ -450,8 +450,8 @@ typedef struct
 * @date  : 2025年11月28日
 * @author: LDL
 ************************************************/
-#define MENU_FLOAT_EDIT(name, var, step_val, decimals) \
-    {name, ITEM_DISPLAY_FLOAT | ITEM_EDITABLE, {.f32_ptr = var}, {.f32_step = step_val}, decimals}
+#define MENU_FLOAT_EDIT(name, ptr, step_val, precision) \
+    { (name), (ITEM_DISPLAY_FLOAT | ITEM_EDITABLE), { (void*)(ptr) }, { (int16)((step_val) * 100) }, (precision) }
 
 /***********************************************
 * @brief : 创建动作项（按下时执行函数）
@@ -460,8 +460,8 @@ typedef struct
 * @date  : 2025年11月28日
 * @author: LDL
 ************************************************/
-#define MENU_ACTION_ITEM(name, func) \
-    {name, ITEM_ACTION, {.func = func}, {0}, 0}
+#define MENU_ACTION_ITEM(name, func_ptr) \
+    { (name), ITEM_ACTION, { (void*)(func_ptr) }, { 0 }, 0 }
 
 /***********************************************
 * @brief : 创建静态函数项（每帧自动执行）
@@ -470,8 +470,8 @@ typedef struct
 * @date  : 2025年11月28日
 * @author: LDL
 ************************************************/
-#define MENU_STATIC_FUNC_ITEM(name, func) \
-    {name, ITEM_STATIC_FUNC, {.func = func}, {0}, 0}
+#define MENU_STATIC_FUNC_ITEM(name, func_ptr) \
+    { (name), ITEM_STATIC_FUNC, { (void*)(func_ptr) }, { 0 }, 0 }
 
 /***********************************************
 * @brief : 创建子菜单跳转项
@@ -481,47 +481,21 @@ typedef struct
 * @author: LDL
 ************************************************/
 #define MENU_SUBMENU_ITEM(name, page_ptr) \
-    {name, ITEM_SUBMENU, {.any_ptr = page_ptr}, {0}, 0}
+    { (name), ITEM_SUBMENU, { (void*)(page_ptr) }, { 0 }, 0 }
 
-/***********************************************
-* @brief : 菜单初始化
-* @param : root_page - 根页面指针
-* @return: void
-* @date  : 2025年11月28日
-* @author: LDL
-************************************************/
+// ============= 函数声明 =============
 void menu_init(MenuPage* root_page);
-
-/***********************************************
-* @brief : 菜单运行（MENU_RUN）
-* @return: void
-* @date  : 2025年11月28日
-* @author: LDL
-************************************************/
 void menu_task(void);
-
-/***********************************************
-* @brief : 标记单个项需要重绘
-* @param : item_index - 项索引
-* @return: void
-* @date  : 2025年11月28日
-* @author: LDL
-************************************************/
 void menu_mark_dirty(uint8 item_index);
-
-/***********************************************
-* @brief : 标记所有项强制全量刷新
-* @return: void
-* @date  : 2025年11月28日
-* @author: LDL
-************************************************/
 void menu_mark_all_dirty(void);
-
-static void handle_browse_mode(void);
-static void handle_edit_mode(void) ;
-static void render_title(void);
-static void render_items(void);
-static void render_item(uint8 index);
 void Menu_Event_Flush(void);
+void Menu_Init(void);
+
+//static void handle_browse_mode(void);
+//static void handle_edit_mode(void) ;
+//static void render_title(void);
+//static void render_items(void);
+//static void render_item(uint8 index);
+//void Menu_Event_Flush(void);
 
 #endif /* CODE_MENU_MENU_H_ */

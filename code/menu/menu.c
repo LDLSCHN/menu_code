@@ -994,6 +994,14 @@ uint8 menu_key_event = menu_release;
 //    }
 //}
 
+static void Menu_Image_Show(void);
+static void Menu_Bin_Image_Show(void);
+static void handle_browse_mode(void);
+static void handle_edit_mode(void);
+static void render_title(void);
+static void render_items(void);
+static void render_item(uint8 index);
+
 static MenuContext g_ctx = {{0}}; //全局上下文
 
 /***********************************************
@@ -1034,7 +1042,7 @@ void menu_init(MenuPage* root_page)
     
     // 初始化页面
     root_page->cursor_pos = 0;
-    root_page->dirty_mask = 0xFFFF;  // 全部标记为脏
+    root_page->dirty_mask = 0xFFFF;  //全部刷新
     
     // 初始化屏幕
     ips200_init(IPS200_TYPE_SPI);
@@ -1174,7 +1182,6 @@ static void handle_browse_mode(void)
 /***********************************************
 * @brief : 编辑模式输入处理
 * @return: void
-* @note  : 编码器调整数值，短按切换步长，长按退出
 * @date  : 2025年11月28日
 * @author: LDL
 ************************************************/
@@ -1247,8 +1254,10 @@ static void render_items(void)
 {
     MenuPage* page = g_ctx.current_page;
     
-    for (uint8 i = 0; i < page->item_count && i < MENU_MAX_ITEMS_PER_PAGE; i++) {
-        if (page->dirty_mask & (1 << i)) {
+    for (uint8 i = 0; i < page->item_count && i < MENU_MAX_ITEMS_PER_PAGE; i++) 
+    {
+        if (page->dirty_mask & (1 << i)) 
+        {
             render_item(i);
         }
     }
@@ -1304,7 +1313,6 @@ static void render_item(uint8 index)
     } 
     else 
     {
-        // 清除编辑指示器区域
         ips200_show_string_color(MENU_EDIT_INDICATOR_X, y, "   ", color);
     }
 }
@@ -1325,7 +1333,7 @@ void menu_mark_dirty(uint8 item_index)
 }
 
 /***********************************************
-* @brief : 标记所有项为脏（强制全量刷新）(用于切换页面或退出编辑模式时)
+* @brief : 标记所有项为脏(用于切换页面或退出编辑模式时)
 * @return: void
 * @date  : 2025年11月28日
 * @author: LDL
@@ -1333,4 +1341,130 @@ void menu_mark_dirty(uint8 item_index)
 void menu_mark_all_dirty(void) 
 {
     g_ctx.current_page->dirty_mask = 0xFFFF;
+}
+
+/***********************************************
+* @brief : PID调参页面菜单项定义
+* @return: void
+* @date  : 2025年11月29日
+* @author: LDL
+************************************************/
+static const MenuItem pid_items[] = {
+    // 舵机PID参数
+    MENU_FLOAT_EDIT("Steer_Kp", &Steer_PID.Kp, 10.0f, 2),
+    MENU_FLOAT_EDIT("Steer_Ki", &Steer_PID.Ki, 10.0f, 2),
+    MENU_FLOAT_EDIT("Steer_Kd", &Steer_PID.Kd, 10.0f, 2),
+    
+    // 左电机PID参数
+    MENU_FLOAT_EDIT("Motor_Kp_l", &Motor_Speed_PID_l.Kp, 10.0f, 2),
+    MENU_FLOAT_EDIT("Motor_Ki_l", &Motor_Speed_PID_l.Ki, 1.0f, 2),
+    MENU_FLOAT_EDIT("Motor_Kd_l", &Motor_Speed_PID_l.Kd, 10.0f, 2),
+    
+    // 右电机PID参数
+    MENU_FLOAT_EDIT("Motor_Kp_r", &Motor_Speed_PID_r.Kp, 10.0f, 2),
+    MENU_FLOAT_EDIT("Motor_Ki_r", &Motor_Speed_PID_r.Ki, 1.0f, 2),
+    MENU_FLOAT_EDIT("Motor_Kd_r", &Motor_Speed_PID_r.Kd, 10.0f, 2),
+};
+
+static MenuPage pid_page = {
+    .name = "PID Tuning",
+    .items = pid_items,
+    .item_count = sizeof(pid_items) / sizeof(MenuItem),
+};
+
+// ============= 参数调节子页面 =============
+static const MenuItem param_items[] = {
+    MENU_INT_EDIT("S_Fsight", &ImageStatus.Steer_TowPoint, 1),
+    MENU_INT_EDIT("M_Fsight", &ImageStatus.Motor_TowPoint, 1),
+    MENU_INT_EDIT("set_speed", &set_speed, 1),
+};
+
+static MenuPage param_page = {
+    .name = "Param Tuning",
+    .items = param_items,
+    .item_count = sizeof(param_items) / sizeof(MenuItem),
+};
+
+// ============= 电机监控子页面 =============
+static const MenuItem motor_items[] = {
+    MENU_INT_SHOW("Speed_Goal_l", &Speed_Goal_l),
+    MENU_INT_SHOW("Encoder_L", &Speed_Encoder_l),
+    MENU_INT_SHOW("PWM_L", &Speed_PID_OUT_l),
+};
+
+static MenuPage motor_page = {
+    .name = "Motor Status",
+    .items = motor_items,
+    .item_count = sizeof(motor_items) / sizeof(MenuItem),
+};
+
+// ============= 二值图页面 =============
+static const MenuItem bin_image_items[] = {
+    MENU_STATIC_FUNC_ITEM(" ", Menu_Bin_Image_Show),
+    MENU_FLOAT_SHOW("Steer_err", &ImageStatus.Steer_Center_error, 2),
+    MENU_FLOAT_SHOW("Motor_err", &ImageStatus.Motor_Center_error, 2),
+    MENU_INT_SHOW("L_round", (int16*)&L_roundabout_state),
+    MENU_INT_SHOW("R_round", (int16*)&R_roundabout_state),
+    MENU_FLOAT_SHOW("R2", &r_squared, 3),
+    MENU_INT_SHOW("cross", (int16*)&cross_state),
+    MENU_INT_SHOW("L_conti", (int16*)&is_left_continuous),
+    MENU_INT_SHOW("R_conti", (int16*)&is_right_continuous),
+    MENU_FLOAT_SHOW("variance", &variance, 2),
+};
+
+static MenuPage bin_image_page = {
+    "Bin_Image",
+    bin_image_items,
+    sizeof(bin_image_items) / sizeof(MenuItem),
+    0,
+    0xFFFF
+};
+
+// ============= 主页面 =============
+static const MenuItem main_items[] = {
+    MENU_STATIC_FUNC_ITEM(" ", Menu_Image_Show),
+    
+    MENU_SUBMENU_ITEM("Tune Params", &param_page),
+    MENU_SUBMENU_ITEM("Bin_Image", &bin_image_page),
+    MENU_SUBMENU_ITEM("PID", &pid_page),
+    MENU_SUBMENU_ITEM("Motor", &motor_page),
+    
+    MENU_INT_SHOW("Car_stat", (int16*)&g_Car_Status),
+    
+    MENU_BOOL_SHOW("R_round", (uint8*)&R_round_status),
+    MENU_BOOL_SHOW("L_round", (uint8*)&L_round_status),
+};
+
+static MenuPage main_page = {
+    .name = "Main",
+    .items = main_items,
+    .item_count = sizeof(main_items) / sizeof(MenuItem),
+};
+
+/***********************************************
+* @brief : 菜单原始灰度图显示
+* @return: void
+* @date  : 2025年11月29日
+* @author: LDL
+************************************************/
+static void Menu_Image_Show(void)
+{
+    Image_Show();
+}
+
+/***********************************************
+* @brief : 菜单原始二值图显示
+* @return: void
+* @date  : 2025年11月29日
+* @author: LDL
+************************************************/
+static void Menu_Bin_Image_Show(void)
+{
+    Bin_Image_Show();
+}
+
+// ============= 初始化函数 =============
+void Menu_Init(void) 
+{
+    menu_init(&main_page);
 }
