@@ -17183,8 +17183,8 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L395:
 	.word	0,0
-.L403:
-	.word	-1,.L185,.L567-.L185,.L62-.L185
+.L391:
+	.word	-1,.L185,.L550-.L185,.L50-.L185
 	.half	2
 	.byte	144,32
 	.word	0,0

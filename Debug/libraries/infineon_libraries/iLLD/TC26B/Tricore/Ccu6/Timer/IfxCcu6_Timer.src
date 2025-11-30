@@ -18832,8 +18832,8 @@ __IfxCcu6_Timer_synchronousStop_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L305:
-	.word	-1,.L76,.L566-.L76,.L308-.L76
+.L280:
+	.word	-1,.L76,.L564-.L76,.L285-.L76
 	.half	1
 	.byte	95
 	.word	0,0
@@ -19043,14 +19043,6 @@ __IfxCcu6_Timer_synchronousStop_function_end:
 .L380:
 	.word	0,0
 .L401:
-	.word	0,0
-.L406:
-	.word	-1,.L80,.L582-.L80,.L583-.L80
-	.half	1
-	.byte	81
-	.word	.L53-.L80,.L587-.L80
-	.half	1
-	.byte	81
 	.word	0,0
 .L381:
 	.word	-1,.L80,.L576-.L80,.L577-.L80

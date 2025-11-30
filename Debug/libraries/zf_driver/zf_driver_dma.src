@@ -15713,13 +15713,13 @@ dma_link_list:	.type	object
 	.half	1
 	.byte	82
 	.word	0,0
-.L105:
-	.word	-1,.L39,.L174-.L39,.L175-.L39
+.L107:
+	.word	-1,.L39,.L176-.L39,.L177-.L39
 	.half	1
 	.byte	95
 	.word	0,0
-.L101:
-	.word	-1,.L39,.L167-.L39,.L168-.L39
+.L97:
+	.word	-1,.L39,.L157-.L39,.L158-.L39
 	.half	1
 	.byte	95
 	.word	0,0

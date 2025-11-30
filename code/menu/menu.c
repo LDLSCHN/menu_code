@@ -1208,36 +1208,99 @@ static void handle_browse_mode(void)
         {
             // 压栈进入子菜单
             if (g_ctx.stack_top < MENU_STACK_DEPTH - 1) 
-            {
+            {               
+                ips200_clear();
                 g_ctx.stack_top++;
                 MenuPage* sub_page = (MenuPage*)item->data.any_ptr;
                 g_ctx.page_stack[g_ctx.stack_top] = sub_page;
                 g_ctx.current_page = sub_page;
                 sub_page->cursor_pos = 0;
                 sub_page->dirty_mask = 0xFFFF;
-                ips200_clear();
             }
         }
         else if (item->type & ITEM_DISPLAY_BOOL) 
         {
-            //翻转
             *item->data.u8_ptr = !(*item->data.u8_ptr);
             menu_mark_dirty(page->cursor_pos);
         }
         menu_key_event = menu_release;
     }
-    
-    // 长按返回
+
     if (menu_key_event == menu_back) 
     {
+        menu_key_event = menu_release;  //先清状态
         if (g_ctx.stack_top > 0) 
-        {
+        {         
+            ips200_clear();
             g_ctx.stack_top--;
             g_ctx.current_page = g_ctx.page_stack[g_ctx.stack_top];
             g_ctx.current_page->dirty_mask = 0xFFFF;
-            ips200_clear();
         }
         menu_key_event = menu_release;
+    }
+}
+
+/***********************************************
+* @brief : 获取最大步长
+* @return: 最大步长
+* @date  : 2025年11月30日
+* @author: LDL
+************************************************/
+static uint8 get_max_step_level(void)
+{
+    MenuPage* page = g_ctx.current_page;
+    const MenuItem* item = &page->items[page->cursor_pos];
+    
+    if (item->type & ITEM_DISPLAY_FLOAT)
+    {
+        return MENU_FLOAT_MAX_STEP_LEVEL;
+    }
+    else
+    {
+        return MENU_INT_MAX_STEP_LEVEL; 
+    }
+}
+
+/***********************************************
+* @brief : 选择步长模式输入处理
+* @return: void
+* @date  : 2025年11月30日
+* @author: LDL
+************************************************/
+static void handle_step_select_mode(void) 
+{
+    MenuPage* page = g_ctx.current_page;
+    uint8 max_level = get_max_step_level();
+    if (switch_encoder_change_num != 0) 
+    {
+        int8 new_level = (int8)g_ctx.edit_step_level + switch_encoder_change_num;
+        if (new_level > (int8)max_level) 
+        {
+            new_level = 0;
+        } 
+        else if (new_level < 0) 
+        {
+            new_level = (int8)max_level;
+        }
+        
+        g_ctx.edit_step_level = (uint8)new_level;
+        menu_mark_dirty(page->cursor_pos);
+        switch_encoder_change_num = 0;
+    }
+    // 短按确认
+    if (menu_key_event == menu_yes) 
+    {
+        menu_key_event = menu_release;
+        g_ctx.edit_mode = 2;
+        menu_mark_dirty(page->cursor_pos);
+    }
+    // 长按退出
+    if (menu_key_event == menu_back) 
+    {
+        menu_key_event = menu_release;
+        g_ctx.edit_mode = 0;
+        g_ctx.edit_step_level = 0;
+        menu_mark_dirty(page->cursor_pos);
     }
 }
 
