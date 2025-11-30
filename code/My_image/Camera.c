@@ -1825,13 +1825,10 @@ uint8 Find_Border_Break(uint8 *border, uint8 start_row, uint8 end_row, uint8 *br
         uint8 prev_val = border[row + 1];
         uint8 next_val = border[row - 1];
 
-        // 检测突变：当前行与前一行差距过大
         uint8 jump = (uint8)my_abs(current_val - prev_val);
 
         if (jump > JUMP_THRESHOLD)
         {
-            // 进一步确认：检查是否为真实断裂（而非噪声）
-            // 如果接下来几行也异常，则确认为断裂
             uint8 jump_next = (uint8)my_abs(next_val - current_val);
 
             if (jump_next > JUMP_THRESHOLD / 2)
@@ -1974,7 +1971,6 @@ void Extend_Border_By_Slope(uint8* border, uint16 a_point_x, uint16 a_point_y,
     if (end_row >= image_h - 2)
         end_row = image_h - 2;
 
-    // 统计拟合数据 (以y为自变量, x=k*y+b)
     for (int row = start_row; row < end_row; row++)
     {
         if (border[row] > border_min && border[row] < border_max)
@@ -3473,10 +3469,10 @@ void Detect_Right_Roundabout(void)  //右圆环状态机
         static uint16 last_out_x = 0;
         static uint16 last_out_y = 0;
 
-        static uint8 v_miss_cnt = 0;     // 连续未见V计数
+        static uint8 v_miss_cnt = 0;   
         static uint8 v_found_cnt = 0;
-        static uint8 exit_cont_cnt = 0;  // 连续“左边界连续”计数
-        static uint8 out_recent_cnt = 0; // 出环点最近有效计数（衰减计数器）
+        static uint8 exit_cont_cnt = 0; 
+        static uint8 out_recent_cnt = 0; 
 
 
 //        static uint8 v_stable_cnt = 0;   // V点稳定出现计数
@@ -3563,7 +3559,6 @@ void Detect_Right_Roundabout(void)  //右圆环状态机
         else if (R_roundabout_state == 3)
         {
 //            set_speed = 90;
-            // 记录“最近有效出环点”
             if (is_out_detected)
             {
                 last_out_x = R_roundabout_out_point_x;
@@ -3588,16 +3583,13 @@ void Detect_Right_Roundabout(void)  //右圆环状态机
 //             }
             if (is_v_detected && R_roundabout_v_point_y > 30)
             {
-                //优先级1: V点y>30时，只补V点到底部的右边界
                 Connect_Border_Points(r_border,
                                       R_roundabout_v_point_x, R_roundabout_v_point_y,
                                       r_border[image_h - 2], image_h - 2);
 
-                //不补左边界的出环点
             }
             else if (has_last_out_point && out_recent_cnt > 0)
             {
-                //优先级2: V点不满足条件时，才补出环点到右上角的左边界
                 Connect_Border_Points(l_border,
                                       last_out_x, last_out_y,
                                       image_w - 2, 0);
@@ -3621,7 +3613,7 @@ void Detect_Right_Roundabout(void)  //右圆环状态机
            }
            else
            {
-                v_found_cnt = 0; // 未检测到V点，计数清零
+                v_found_cnt = 0;
            }
        }
 //        else if (roundabout_state == 3)
@@ -3888,15 +3880,15 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
     static uint16 last_out_x = 0;
     static uint16 last_out_y = 0;
 
-    static uint8 v_miss_cnt    = 0;  // 连续未见V计数
-    static uint8 v_found_cnt   = 0;  // 出环时用于退出计数
-    static uint8 out_recent_cnt = 0; // 出环点最近有效计数
+    static uint8 v_miss_cnt    = 0;  
+    static uint8 v_found_cnt   = 0;  
+    static uint8 out_recent_cnt = 0;
 
     static uint8 a_miss_cnt = 0;
     static uint16 last_a_point_x = 0;
     static uint16 last_a_point_y = 0;
     static uint8 extend_after_a_lost = 0;
-    static uint8 has_valid_a_point = 0;  // ✅ 标志位: 是否有有效A点记忆
+    static uint8 has_valid_a_point = 0; 
     const uint8 MAX_EXTEND_FRAMES = 20;
 
     // 斜率补线持续帧数
@@ -3911,7 +3903,6 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
         }
     }
 
-    // 检测右下拐点，限制y坐标范围
     if (Detect_cross_r_a())
     {
         if (r_cross_a_point_y >= 60 && r_cross_a_point_y <= image_h - 20)
@@ -3924,8 +3915,6 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
     if (L_roundabout_state == 0)
     {
 //        Speed_Goal = set_speed;
-        // 入口条件：只看左下拐点 A，且 A 点足够靠下，认为进入左圆环入口
-        // 不再要求右边界连续（解决“弯接左圆环，右线严重丢失”的问题）
         if (is_a_detected && L_roundabout_a_point_y > 60 && L_roundabout_a_point_x < 94 && is_right_weak_continuous)
         {
             L_roundabout_state = 1;   // 进入摆正+入环阶段
@@ -3987,7 +3976,6 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
         {
             if (is_a_detected)
              {
-                 // ✅ A点存在，优先用斜率补线
                  last_a_point_x = L_roundabout_a_point_x;
                  last_a_point_y = L_roundabout_a_point_y;
                  a_miss_cnt = 0;
@@ -4001,7 +3989,6 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
              }
              else
              {
-                 //A点消失，继续用记忆的A点补线
                  a_miss_cnt++;
 
                  if (has_valid_a_point &&
@@ -4014,7 +4001,6 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
                                             15, 25);
                      extend_after_a_lost++;
                  }
-                 //如果斜率补线也失效，fallback到P点补线
                  else if (is_p_detected)
                  {
                      Connect_Border_Points(l_border,
@@ -4050,7 +4036,7 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
                 last_a_point_x = 0;
                 last_a_point_y = 0;
             }
-            // 进入条件: 检测到V点，拉线进环
+            
             else if (is_v_detected)
             {
                 L_roundabout_state = 2;
@@ -4065,7 +4051,6 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
         }
 
 
-        // 一旦检测到左上拐点 V，就认为已经基本对上圆环，进入环内阶段
 //        if (is_v_detected && is_right_continuous)
 //        {
 //            L_roundabout_state = 2;
@@ -4098,10 +4083,9 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
         }
         else
         {
-            // V 点消失一段时间，认为要出环
             if (flag1)
             {
-                if (++v_miss_cnt >= 20)  // 连续20帧未见V，进入出环阶段
+                if (++v_miss_cnt >= 20)  
                 {
                     Beep_Stop();
                     L_roundabout_state = 3;
@@ -4119,7 +4103,6 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
 //        Speed_Goal = L_ring_speed_fast;
 //        set_speed = 70;
 
-        // 记录“最近有效出环点”
         if (is_out_detected)
         {
             last_out_x         = L_roundabout_out_point_x;
@@ -4128,8 +4111,6 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
             out_recent_cnt     = 10; // 维持10帧“最近有效”
         }
         if (out_recent_cnt) out_recent_cnt--;
-
-        // 只要有过有效出环点，就持续补线到左上角
 //        if (has_last_out_point)
 //        {
 //            Beep_Start();
@@ -4139,7 +4120,6 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
 //        }
         if (is_v_detected && L_roundabout_v_point_y > 40)
         {
-            //优先级1: V点y>40时，只补V点到底部的左边界
             Connect_Border_Points(l_border,
                                   L_roundabout_v_point_x, L_roundabout_v_point_y,
                                   l_border[image_h - 2], image_h - 2);
@@ -4148,13 +4128,11 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
         else if (has_last_out_point && out_recent_cnt > 0)
         {
             Beep_Start();
-            //优先级2: V点不满足条件时，才补出环点到左上角的右边界
             Connect_Border_Points(r_border,
                                   last_out_x, last_out_y,
                                   0, 0);
         }
 
-        // 退出条件: 检测到V点且没有出环点，认为已经重新看到完整路口/直道
         if (is_v_detected && !is_out_detected)
         {
             if (++v_found_cnt >= 1 && L_roundabout_v_point_y > 70)
@@ -4166,12 +4144,12 @@ void Detect_Left_Roundabout(void)  //左圆环状态机
                 last_out_x = last_out_y = 0;
                 v_miss_cnt  = 0;
                 v_found_cnt = 0;
-                // set_speed = 80; // 如需可恢复速度
+                // set_speed = 80; 
             }
         }
         else
         {
-            v_found_cnt = 0; // 未检测到V点，计数清零
+            v_found_cnt = 0; 
         }
     }
 }
@@ -4712,8 +4690,8 @@ void Zebraline_Stop_Control(void)
     {
         if (current_detected)
         {
-            zebra_detect_count = 1;       // 第一次检测
-            zebra_stop_state = 1;         // 进入状态1
+            zebra_detect_count = 1;   
+            zebra_stop_state = 1;     
             zebra_detected_frames = 0;
             zebra_lost_frames = 0;
             interval_cnt = 0;
@@ -4726,11 +4704,10 @@ void Zebraline_Stop_Control(void)
 
         if (current_detected)
         {
-            // 检查是否满足最小间隔（避免误判第一次斑马线的尾部）
             if (interval_cnt >= MIN_INTERVAL_FRAMES)
             {
-                zebra_detect_count = 2;   // 第二次检测
-                zebra_stop_state = 2;     // 进入状态2
+                zebra_detect_count = 2; 
+                zebra_stop_state = 2;     
                 zebra_detected_frames = 0;
                 zebra_lost_frames = 0;
 
@@ -4738,7 +4715,6 @@ void Zebraline_Stop_Control(void)
             }
             else
             {
-                // 间隔太短，认为还是第一次斑马线，继续等待
                 zebra_detected_frames = 0;
             }
         }
@@ -4748,13 +4724,12 @@ void Zebraline_Stop_Control(void)
     {
         if (current_detected)
         {
-            zebra_lost_frames = 0;  // 重置消失计数
+            zebra_lost_frames = 0;  
         }
         else
         {
             zebra_lost_frames++;
 
-            // 斑马线消失连续足够帧数，进入停车阶段
             if (zebra_lost_frames >= ZEBRA_LOST_STOP_FRAMES)
             {
                 zebra_stop_state = 3;
@@ -4765,7 +4740,7 @@ void Zebraline_Stop_Control(void)
     else if (zebra_stop_state == 3)
     {
 //        Beep_Stop();
-        Car_Stop();  // 执行停车
+        Car_Stop(); 
 
     }
 }

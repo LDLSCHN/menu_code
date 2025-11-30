@@ -994,6 +994,16 @@ uint8 menu_key_event = menu_release;
 //    }
 //}
 
+static void Menu_Image_Show(void);
+static void Menu_Bin_Image_Show(void);
+static void handle_browse_mode(void);
+static void handle_edit_mode(void);
+static void render_title(void);
+static void render_items(void);
+static void render_item(uint8 index);
+static void handle_step_select_mode(void);
+// static uint8 page_has_static_func(void);
+
 static MenuContext g_ctx = {{0}}; //全局上下文
 
 /***********************************************
@@ -1008,10 +1018,12 @@ void Menu_Event_Flush(void)
     if (my_key_get_state(MENU_KEY) == MY_KEY_SHORT_PRESS)
     {
         menu_key_event = menu_yes;
+        my_key_clear_state(MENU_KEY); 
     }
     else if (my_key_get_state(MENU_KEY) == MY_KEY_LONG_PRESS)
     {
         menu_key_event = menu_back;
+        my_key_clear_state(MENU_KEY); 
     }
 }
 
@@ -1034,12 +1046,31 @@ void menu_init(MenuPage* root_page)
     
     // 初始化页面
     root_page->cursor_pos = 0;
-    root_page->dirty_mask = 0xFFFF;  // 全部标记为脏
+    root_page->dirty_mask = 0xFFFF;  //全部刷新
     
     // 初始化屏幕
     ips200_init(IPS200_TYPE_SPI);
     ips200_clear();
 }
+
+// /***********************************************
+// * @brief : 检查页面是否有静态函数项
+// * @return: 1-有，0-无
+// * @date  : 2025年11月30日
+// * @author: LDL
+// ************************************************/
+// static uint8 page_has_static_func(void)
+// {
+//     MenuPage* page = g_ctx.current_page;
+//     for (uint8 i = 0; i < page->item_count; i++)
+//     {
+//         if (page->items[i].type & ITEM_STATIC_FUNC)
+//         {
+//             return 1;
+//         }
+//     }
+//     return 0;
+// }
 
 /***********************************************
 * @brief : 菜单运行（MENU_RUN）
@@ -1050,19 +1081,26 @@ void menu_init(MenuPage* root_page)
 ************************************************/
 void menu_task(void) 
 {
-    MenuPage* page = g_ctx.current_page;
+    MenuPage* page;
+    uint8 i;
     Menu_Event_Flush();
-    if (g_ctx.edit_mode) 
+    switch (g_ctx.edit_mode)
     {
-        handle_edit_mode();
-    } 
-    else 
-    {
-        handle_browse_mode();
+        case 0:  // 浏览模式
+            handle_browse_mode();
+            break;
+        case 1:  // 选择步长模式
+            handle_step_select_mode();
+            break;
+        case 2:  // 编辑数值模式
+            handle_edit_mode();
+            break;
+        default:
+            g_ctx.edit_mode = 0;
+            break;
     }
-    
-    //执行静态函数
-    for (uint8 i = 0; i < page->item_count; i++) 
+    page = g_ctx.current_page;  //获取指针
+    for (i = 0; i < page->item_count; i++)
     {
         if (page->items[i].type & ITEM_STATIC_FUNC) 
         {
@@ -1072,15 +1110,45 @@ void menu_task(void)
             }
         }
     }
-    
-    //仅渲染脏项
+    //渲染菜单内容
     if (page->dirty_mask != 0) 
     {
         render_title();
         render_items();
         page->dirty_mask = 0;  // 清除脏标记
     }
+
+    // if (page_has_static_func())  //如果有静态函数项，强制刷新所有项
+    // {
+    //     render_title();
+    //     for (i = 0; i < page->item_count && i < MENU_MAX_ITEMS_PER_PAGE; i++) 
+    //     {
+    //         render_item(i);
+    //     }
+    // }
+    // else if (page->dirty_mask != 0) 
+    // {
+    //     render_title();
+    //     render_items();
+    //     page->dirty_mask = 0;
+    // }
 }
+
+// /***********************************************
+// * @brief : 强制渲染所有菜单项
+// * @return: void
+// * @date  : 2025年11月30日
+// * @author: LDL
+// ************************************************/
+// static void render_items_force(void) 
+// {
+//     MenuPage* page = g_ctx.current_page;
+//     render_title();
+//     for (uint8 i = 0; i < page->item_count && i < MENU_MAX_ITEMS_PER_PAGE; i++) 
+//     {
+//         render_item(i);
+//     }
+// }
 
 /***********************************************
 * @brief : 浏览模式输入处理
@@ -1092,6 +1160,7 @@ void menu_task(void)
 static void handle_browse_mode(void) 
 {
     MenuPage* page = g_ctx.current_page;
+    
     // 光标移动
     if (switch_encoder_change_num != 0) 
     {
@@ -1115,20 +1184,21 @@ static void handle_browse_mode(void)
         menu_mark_dirty(page->cursor_pos);
         switch_encoder_change_num = 0;
     }
+    
     // 短按
     if (menu_key_event == menu_yes) 
     {
+        menu_key_event = menu_release;  //先清状态
         const MenuItem* item = &page->items[page->cursor_pos];
+        
         if (item->type & ITEM_EDITABLE) 
         {
-            // 进入编辑模式
             g_ctx.edit_mode = 1;
-            g_ctx.edit_step_level = 0;
+            g_ctx.edit_step_level = 0;  // 默认选择 x1
             menu_mark_dirty(page->cursor_pos);
         } 
         else if (item->type & ITEM_ACTION) 
         {
-            // 执行动作函数
             if (item->data.func) 
             {
                 item->data.func();
@@ -1138,43 +1208,105 @@ static void handle_browse_mode(void)
         {
             // 压栈进入子菜单
             if (g_ctx.stack_top < MENU_STACK_DEPTH - 1) 
-            {
+            {               
+                ips200_clear();
                 g_ctx.stack_top++;
                 MenuPage* sub_page = (MenuPage*)item->data.any_ptr;
                 g_ctx.page_stack[g_ctx.stack_top] = sub_page;
                 g_ctx.current_page = sub_page;
                 sub_page->cursor_pos = 0;
                 sub_page->dirty_mask = 0xFFFF;
-                ips200_clear();
             }
         }
         else if (item->type & ITEM_DISPLAY_BOOL) 
         {
-            //翻转
             *item->data.u8_ptr = !(*item->data.u8_ptr);
             menu_mark_dirty(page->cursor_pos);
         }
         menu_key_event = menu_release;
     }
-    
-    // 长按返回
+
     if (menu_key_event == menu_back) 
     {
+        menu_key_event = menu_release;  //先清状态
         if (g_ctx.stack_top > 0) 
-        {
+        {         
+            ips200_clear();
             g_ctx.stack_top--;
             g_ctx.current_page = g_ctx.page_stack[g_ctx.stack_top];
             g_ctx.current_page->dirty_mask = 0xFFFF;
-            ips200_clear();
         }
         menu_key_event = menu_release;
     }
 }
 
 /***********************************************
+* @brief : 获取最大步长
+* @return: 最大步长
+* @date  : 2025年11月30日
+* @author: LDL
+************************************************/
+static uint8 get_max_step_level(void)
+{
+    MenuPage* page = g_ctx.current_page;
+    const MenuItem* item = &page->items[page->cursor_pos];
+    
+    if (item->type & ITEM_DISPLAY_FLOAT)
+    {
+        return MENU_FLOAT_MAX_STEP_LEVEL;
+    }
+    else
+    {
+        return MENU_INT_MAX_STEP_LEVEL; 
+    }
+}
+
+/***********************************************
+* @brief : 选择步长模式输入处理
+* @return: void
+* @date  : 2025年11月30日
+* @author: LDL
+************************************************/
+static void handle_step_select_mode(void) 
+{
+    MenuPage* page = g_ctx.current_page;
+    uint8 max_level = get_max_step_level();
+    if (switch_encoder_change_num != 0) 
+    {
+        int8 new_level = (int8)g_ctx.edit_step_level + switch_encoder_change_num;
+        if (new_level > (int8)max_level) 
+        {
+            new_level = 0;
+        } 
+        else if (new_level < 0) 
+        {
+            new_level = (int8)max_level;
+        }
+        
+        g_ctx.edit_step_level = (uint8)new_level;
+        menu_mark_dirty(page->cursor_pos);
+        switch_encoder_change_num = 0;
+    }
+    // 短按确认
+    if (menu_key_event == menu_yes) 
+    {
+        menu_key_event = menu_release;
+        g_ctx.edit_mode = 2;
+        menu_mark_dirty(page->cursor_pos);
+    }
+    // 长按退出
+    if (menu_key_event == menu_back) 
+    {
+        menu_key_event = menu_release;
+        g_ctx.edit_mode = 0;
+        g_ctx.edit_step_level = 0;
+        menu_mark_dirty(page->cursor_pos);
+    }
+}
+
+/***********************************************
 * @brief : 编辑模式输入处理
 * @return: void
-* @note  : 编码器调整数值，短按切换步长，长按退出
 * @date  : 2025年11月28日
 * @author: LDL
 ************************************************/
@@ -1185,49 +1317,50 @@ static void handle_edit_mode(void)
     
     if (switch_encoder_change_num != 0) 
     {
-        // 计算当前步长倍率
-        int16 multiplier = 1;
-        for (uint8 i = 0; i < g_ctx.edit_step_level; i++) 
-        {
-            multiplier *= 10;
-        }
-        
-        // 根据类型修改数值
         if (item->type & ITEM_DISPLAY_INT) 
         {
+            int16 multiplier = 1;
+            uint8 i;
+            for (i = 0; i < g_ctx.edit_step_level; i++) 
+            {
+                multiplier *= 10;
+            }
             *item->data.i16_ptr += item->step.i16_step * multiplier * switch_encoder_change_num;
         } 
         else if (item->type & ITEM_DISPLAY_FLOAT) 
         {
-            *item->data.f32_ptr += item->step.f32_step * multiplier * switch_encoder_change_num;
+            float multiplier;
+            switch (g_ctx.edit_step_level)
+            {
+                case 0:  multiplier = 0.01f;  break;
+                case 1:  multiplier = 0.1f;   break;
+                case 2:  multiplier = 1.0f;   break;
+                case 3:  multiplier = 10.0f;  break;
+                case 4:  
+                default: multiplier = 100.0f; break;
+            }
+            *item->data.f32_ptr += multiplier * switch_encoder_change_num;
         }
         
         menu_mark_dirty(page->cursor_pos);
         switch_encoder_change_num = 0;
     }
-    
-    // 短按切换
     if (menu_key_event == menu_yes) 
     {
-        g_ctx.edit_step_level = (g_ctx.edit_step_level + 1) % 3;
-        menu_mark_dirty(page->cursor_pos);
         menu_key_event = menu_release;
     }
     
-    // 长按退出
     if (menu_key_event == menu_back) 
     {
-        g_ctx.edit_mode = 0;
-        g_ctx.edit_step_level = 0;
-        menu_mark_all_dirty();
         menu_key_event = menu_release;
+        g_ctx.edit_mode = 1;
+        menu_mark_dirty(page->cursor_pos);
     }
 }
 
 /***********************************************
 * @brief : 显示标题栏
 * @return: void
-* @note  : 居中显示名称
 * @date  : 2025年11月28日
 * @author: LDL
 ************************************************/
@@ -1247,18 +1380,46 @@ static void render_items(void)
 {
     MenuPage* page = g_ctx.current_page;
     
-    for (uint8 i = 0; i < page->item_count && i < MENU_MAX_ITEMS_PER_PAGE; i++) {
-        if (page->dirty_mask & (1 << i)) {
+    for (uint8 i = 0; i < page->item_count && i < MENU_MAX_ITEMS_PER_PAGE; i++) 
+    {
+        if (page->dirty_mask & (1 << i)) 
+        {
             render_item(i);
         }
     }
 }
 
 /***********************************************
+* @brief : 计算菜单项的实际Y坐标
+* @param : index - 项索引
+* @return: Y坐标
+* @date  : 2025年11月30日
+* @author: LDL
+************************************************/
+static uint16 get_item_y_position(uint8 index)
+{
+    MenuPage* page = g_ctx.current_page;
+    uint16 use_start_line = 0;  //偏移量
+    // 累加
+    for (uint8 i = 0; i < index; i++)
+    {
+        if (page->items[i].line_offset > 0)
+        {
+            use_start_line += page->items[i].line_offset;
+        }
+    }
+    if (page->items[index].line_offset > 0)
+    {
+        use_start_line += page->items[index].line_offset;
+    }
+    // Y = (累加偏移 + 项索引 + 1) * 行高
+    return (use_start_line + index + 1) * MENU_LINE_HEIGHT;
+}
+
+/***********************************************
 * @brief : 渲染单个菜单项
 * @param : index - 项索引
 * @return: void
-* @note  : 根据类型显示名称+值，光标高亮，编辑指示器
 * @date  : 2025年11月28日
 * @author: LDL
 ************************************************/
@@ -1266,13 +1427,15 @@ static void render_item(uint8 index)
 {
     MenuPage* page = g_ctx.current_page;
     const MenuItem* item = &page->items[index];
-    uint16 y = (index + 1) * MENU_LINE_HEIGHT;
+
+    if ((item->type & ITEM_STATIC_FUNC) && item->line_offset == -1)
+    {
+        return;
+    }
+    uint16 y = get_item_y_position(index);
     uint16 color = (index == page->cursor_pos) ? SELECTED_BRUSH : DEFAULT_BRUSH;
-    
-    //显示名称
     ips200_show_string_color(MENU_NAME_X_START, y, item->name, color);
-    
-    //显示值
+    // 显示值
     if (item->type & ITEM_DISPLAY_INT) 
     {
         ips200_show_int_color(MENU_VALUE_X_OFFSET, y, 
@@ -1282,7 +1445,6 @@ static void render_item(uint8 index)
     {
         float val = *item->data.f32_ptr;
         val += (val > 0) ? 0.000001f : -0.000001f;
-        // 限制精度
         uint8 precision = (item->decimal_places > MENU_FLOAT_MAX_PRECISION) 
                          ? MENU_FLOAT_MAX_PRECISION 
                          : item->decimal_places;
@@ -1292,20 +1454,88 @@ static void render_item(uint8 index)
     } 
     else if (item->type & ITEM_DISPLAY_BOOL) 
     {
-        ips200_show_string_color(180, y, *item->data.u8_ptr ? "Open " : "Close", color);
+        ips200_show_string_color(MENU_VALUE_X_OFFSET, y, 
+                                *item->data.u8_ptr ? "Open " : "Close", color);
+    }
+    else if (item->type & ITEM_SUBMENU)
+    {
+        // 子菜单显示 >>>
+        ips200_show_string_color(MENU_VALUE_X_OFFSET, y, ">>>", color);
     }
     
-    //编辑模式指示器（显示当前步长）
-    if (g_ctx.edit_mode && index == page->cursor_pos) 
+    // 编辑模式指示器
+    if ((item->type & ITEM_EDITABLE) && index == page->cursor_pos && g_ctx.edit_mode > 0) 
     {
-        const char* step_str[] = {"x1", "x10", "x100"};
-        ips200_show_string_color(MENU_EDIT_INDICATOR_X, y, 
-                                 step_str[g_ctx.edit_step_level], RGB565_GREEN);
+        uint16 step_color;
+        uint16 step_x;
+        const char* step_str;
+
+        if (g_ctx.edit_mode == 1) 
+        {
+            step_color = RGB565_WHITE; 
+        } 
+        else 
+        {
+            step_color = RGB565_GREEN; 
+        }
+        
+        ips200_show_string_color(MENU_EDIT_INDICATOR_X, y, "     ", DEFAULT_BACKGROUD);
+        if (item->type & ITEM_DISPLAY_FLOAT)
+        {
+            switch (g_ctx.edit_step_level)
+            {
+                case 0:
+                    step_str = "x0.01";
+                    step_x = MENU_EDIT_INDICATOR_X + 8; 
+                    break;
+                case 1:
+                    step_str = "x0.1";
+                    step_x = MENU_EDIT_INDICATOR_X + 16; 
+                    break;
+                case 2:
+                    step_str = "x1";
+                    step_x = MENU_EDIT_INDICATOR_X + 32; 
+                    break;
+                case 3:
+                    step_str = "x10";
+                    step_x = MENU_EDIT_INDICATOR_X + 24;
+                    break;
+                case 4:
+                default:
+                    step_str = "x100";
+                    step_x = MENU_EDIT_INDICATOR_X + 16; 
+                    break;
+            }
+        }
+        else
+        {
+            switch (g_ctx.edit_step_level)
+            {
+                case 0:
+                    step_str = "x1";
+                    step_x = MENU_EDIT_INDICATOR_X + 32; 
+                    break;
+                case 1:
+                    step_str = "x10";
+                    step_x = MENU_EDIT_INDICATOR_X + 24; 
+                    break;
+                case 2:
+                    step_str = "x100";
+                    step_x = MENU_EDIT_INDICATOR_X + 16;
+                    break;
+                case 3:
+                default:
+                    step_str = "x1000";
+                    step_x = MENU_EDIT_INDICATOR_X + 8; 
+                    break;
+            }
+        }
+        
+        ips200_show_string_color(step_x, y, step_str, step_color);
     } 
     else 
     {
-        // 清除编辑指示器区域
-        ips200_show_string_color(MENU_EDIT_INDICATOR_X, y, "   ", color);
+        ips200_show_string_color(MENU_EDIT_INDICATOR_X, y, "      ", DEFAULT_BACKGROUD);
     }
 }
 
@@ -1325,7 +1555,7 @@ void menu_mark_dirty(uint8 item_index)
 }
 
 /***********************************************
-* @brief : 标记所有项为脏（强制全量刷新）(用于切换页面或退出编辑模式时)
+* @brief : 标记所有项为脏(用于切换页面或退出编辑模式时)
 * @return: void
 * @date  : 2025年11月28日
 * @author: LDL
@@ -1333,4 +1563,134 @@ void menu_mark_dirty(uint8 item_index)
 void menu_mark_all_dirty(void) 
 {
     g_ctx.current_page->dirty_mask = 0xFFFF;
+}
+
+/***********************************************
+* @brief : PID调参页面菜单项定义
+* @return: void
+* @date  : 2025年11月29日
+* @author: LDL
+************************************************/
+static const MenuItem pid_items[] = {
+    MENU_FLOAT_EDIT("Steer_Kp", &Steer_PID.Kp, 10.0f, 2, 0),
+    MENU_FLOAT_EDIT("Steer_Ki", &Steer_PID.Ki, 10.0f, 2, 0),
+    MENU_FLOAT_EDIT("Steer_Kd", &Steer_PID.Kd, 10.0f, 2, 0),
+    MENU_FLOAT_EDIT("Motor_Kp_l", &Motor_Speed_PID_l.Kp, 10.0f, 2, 0),
+    MENU_FLOAT_EDIT("Motor_Ki_l", &Motor_Speed_PID_l.Ki, 1.0f, 2, 0),
+    MENU_FLOAT_EDIT("Motor_Kd_l", &Motor_Speed_PID_l.Kd, 10.0f, 2, 0),
+    MENU_FLOAT_EDIT("Motor_Kp_r", &Motor_Speed_PID_r.Kp, 10.0f, 2, 0),
+    MENU_FLOAT_EDIT("Motor_Ki_r", &Motor_Speed_PID_r.Ki, 1.0f, 2, 0),
+    MENU_FLOAT_EDIT("Motor_Kd_r", &Motor_Speed_PID_r.Kd, 10.0f, 2, 0),
+};
+
+static MenuPage pid_page = {
+    "PID Tuning",
+    pid_items,
+    sizeof(pid_items) / sizeof(MenuItem),
+    0,
+    0xFFFF
+};
+
+// ============= 参数调节子页面 =============
+static const MenuItem param_items[] = {
+    MENU_INT_EDIT("S_Fsight", &ImageStatus.Steer_TowPoint, 1, 0),
+    MENU_INT_EDIT("M_Fsight", &ImageStatus.Motor_TowPoint, 1, 0),
+    MENU_INT_EDIT("set_speed", &set_speed, 1, 0),
+};
+
+static MenuPage param_page = {
+    "Param Tuning",
+    param_items,
+    sizeof(param_items) / sizeof(MenuItem),
+    0,
+    0xFFFF
+};
+
+// ============= 电机监控子页面 =============
+static const MenuItem motor_items[] = {
+    MENU_INT_SHOW("Speed_Goal_l", &Speed_Goal_l, 0),
+    MENU_INT_SHOW("Speed_Goal_r", &Speed_Goal_r, 0),
+    MENU_INT_SHOW("Encoder_L", &Speed_Encoder_l, 0),
+    MENU_INT_SHOW("Encoder_R", &Speed_Encoder_r, 0),
+    MENU_INT_SHOW("PWM_L", &Speed_PID_OUT_l, 0),
+    MENU_INT_SHOW("PWM_R", &Speed_PID_OUT_r, 0),
+};
+
+static MenuPage motor_page = {
+    "Motor Status",
+    motor_items,
+    sizeof(motor_items) / sizeof(MenuItem),
+    0,
+    0xFFFF
+};
+
+// ============= 二值图页面 =============
+static const MenuItem bin_image_items[] = {
+    MENU_STATIC_FUNC_ITEM(" ", Menu_Bin_Image_Show, -1),
+    MENU_FLOAT_SHOW("Steer_err", &ImageStatus.Steer_Center_error, 2, 6),
+    MENU_FLOAT_SHOW("Motor_err", &ImageStatus.Motor_Center_error, 2, 0),
+    MENU_INT_SHOW("L_round", (int16*)&L_roundabout_state, 0),
+    MENU_INT_SHOW("R_round", (int16*)&R_roundabout_state, 0),
+    // MENU_FLOAT_SHOW("R2", &r_squared, 3, 0),
+    // MENU_INT_SHOW("cross", (int16*)&cross_state, 0),
+    // MENU_INT_SHOW("L_conti", (int16*)&is_left_continuous, 0),
+    // MENU_INT_SHOW("R_conti", (int16*)&is_right_continuous, 0),
+    // MENU_FLOAT_SHOW("variance", &variance, 2, 0),
+};
+
+static MenuPage bin_image_page = {
+    "Bin_Image",
+    bin_image_items,
+    sizeof(bin_image_items) / sizeof(MenuItem),
+    0,
+    0xFFFF
+};
+
+// ============= 主页面 =============
+static const MenuItem main_items[] = {
+    MENU_STATIC_FUNC_ITEM(" ", Menu_Image_Show, -1),
+    
+    MENU_SUBMENU_ITEM("Tune Params", &param_page, 6),
+    MENU_SUBMENU_ITEM("Bin_Image", &bin_image_page, 0),
+    MENU_SUBMENU_ITEM("PID", &pid_page, 0),
+    MENU_SUBMENU_ITEM("Motor", &motor_page, 0),
+    
+    MENU_INT_SHOW("Car_stat", (int16*)&g_Car_Status, 0),
+    
+    MENU_BOOL_SHOW("R_round", (uint8*)&R_round_status, 0),
+    MENU_BOOL_SHOW("L_round", (uint8*)&L_round_status, 0),
+};
+
+static MenuPage main_page = {
+    .name = "Main",
+    .items = main_items,
+    .item_count = sizeof(main_items) / sizeof(MenuItem),
+};
+
+/***********************************************
+* @brief : 菜单原始灰度图显示
+* @return: void
+* @date  : 2025年11月29日
+* @author: LDL
+************************************************/
+static void Menu_Image_Show(void)
+{
+    Image_Show();
+}
+
+/***********************************************
+* @brief : 菜单二值图显示
+* @return: void
+* @date  : 2025年11月29日
+* @author: LDL
+************************************************/
+static void Menu_Bin_Image_Show(void)
+{
+    Bin_Image_Show();
+}
+
+// ============= 初始化函数 =============
+void Menu_Init(void) 
+{
+    menu_init(&main_page);
 }

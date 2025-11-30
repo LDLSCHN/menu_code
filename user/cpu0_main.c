@@ -45,18 +45,18 @@ int core0_main(void)
     clock_init();                   // 获取时钟频率<务必保留>
     debug_init();                   // 初始化默认调试串口
     // 此处编写用户代码 例如外设初始化代码等
-//    Menu_Init();
+    Menu_Init();
     Beep_Init();                            //蜂鸣器初始化
     MyEncoder_Init();                       //旋转编码器初始化
-    Motor_Init();                           //电机初始化
-    Steer_Init();                           //舵机初始化
+    // Motor_Init();                           //电机初始化
+    // Steer_Init();                           //舵机初始化
     PID_param_init();                       //PID参数初始化
     my_key_init(20);                        //按键扫描输出花
     pit_ms_init(CCU60_CH0, 20);              //中断初始化
-    MyCamera_Init();
+     MyCamera_Init();
     pit_ms_init(CCU60_CH1, 5);              //中断初始化
-    pit_ms_init(CCU61_CH0, 5);              //电机控制
-    pit_ms_init(CCU61_CH1, 5);             //舵机控制
+    // pit_ms_init(CCU61_CH0, 5);              //电机控制
+    // pit_ms_init(CCU61_CH1, 5);             //舵机控制
 
     ips200_clear();
     // 此处编写用户代码 例如外设初始化代码等
@@ -64,7 +64,8 @@ int core0_main(void)
     while (TRUE)
     {
         // 此处编写需要循环执行的代码
-//        MENU_RUN();
+        menu_task();
+        system_delay_ms(5);
 //        printf("%d\r\n", is_long_straight);
 //        if(is_long_straight)
 //        {
@@ -90,4 +91,3 @@ int core0_main(void)
 
 #pragma section all restore
 // **************************** 代码区域 ****************************
-
